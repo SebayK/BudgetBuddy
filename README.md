@@ -44,15 +44,19 @@ Paradygmat: Programowanie obiektowe (OOP)
 
 Framework:
 
-Baza danych: SQL Server?
+Baza danych: SQLITE + ENTITY FRAMEWORK CORE (ORM)
 
-Frontend: 
+Frontend: Flutter | React Native| MAUI 
 
-Backend: 
+Backend:  
+ASP.NET CORE
+Serilog
+FluentValidation
+Swagger
 
-Autoryzacja: 
+Autoryzacja: JWT Token | oAuth
 
-Przechowywanie danych: 
+Przechowywanie danych: SQLITE
 
 Powiadomienia push: Firebase / SignalR?
 
@@ -79,6 +83,6 @@ Invoice - model przechowujący faktury/paragony.
 Report - generowanie raportów finansowych.
 
 ## Class diagram
-
+![Class diagram](https://github.com/SebayK/BudgetBuddy/blob/main/UML%20class.png)
 
 Autorzy: Katarzyna Krawczyk, Jakub Kowalczyk, Sebastian Kamiński
