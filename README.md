@@ -79,7 +79,6 @@ Invoice - model przechowujący faktury/paragony.
 Report - generowanie raportów finansowych.
 
 ## Class diagram
-![Class diagram](UML class.png)
 
 
 Autorzy: Katarzyna Krawczyk, Jakub Kowalczyk, Sebastian Kamiński
