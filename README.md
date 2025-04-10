@@ -1,88 +1,71 @@
 # BudgetBuddy
 
-BudgetBuddy - Twój asystent budżetowy
+# 💰 BudgetBuddy
 
-#Opis projektu
+**Twój asystent budżetowy – kontroluj finanse osobiste i rodzinne z łatwością.**
 
-BudgetBuddy to aplikacja do zarządzania budżetem domowym, stworzona z myślą o lepszej kontroli finansów osobistych i rodzinnych. Dzięki niej użytkownicy mogą śledzić wydatki, kategoryzować je, prognozować przyszłe zobowiązania oraz generować szczegółowe raporty finansowe.
+---
 
-  1.Główne funkcje aplikacji:
+## 📝 Opis projektu
 
-    - Śledzenie wydatków - Monitorowanie codziennych wydatków i dochodów.
+**BudgetBuddy** to aplikacja do zarządzania budżetem domowym, stworzona z myślą o osobach, które chcą lepiej kontrolować swoje wydatki i oszczędności. Dzięki niej użytkownicy mogą:
 
-    - Kategoryzowanie wydatków - Podział wydatków na różne kategorie dla lepszego zarządzania.
+- Śledzić wydatki i dochody
+- Kategoryzować transakcje
+- Prognozować przyszłe zobowiązania
+- Generować szczegółowe raporty finansowe
 
-    -Prognozy finansowe - Analiza przyszłych zobowiązań i dochodów, umożliwiająca lepsze planowanie budżetu.
+---
 
-    -Zestawienia i raporty - Generowanie raportów finansowych, wykresów i statystyk dotyczących budżetu.
+## 🚀 Główne funkcje
 
-  2. Uzupełnienie brakujących na rynku funkcjonalności
+- 📊 **Śledzenie wydatków** – monitorowanie codziennych transakcji
+- 🗂️ **Kategoryzacja** – przypisywanie wydatków do konkretnych kategorii
+- 📅 **Prognozy finansowe** – analiza przyszłych dochodów i zobowiązań
+- 📈 **Raporty i wykresy** – wizualizacja budżetu w formie statystyk i diagramów
 
+---
 
+## 💡 Dodatkowe funkcjonalności
 
-  3. Dodatkowe funkcjonalności, które odpowiadają na potrzeby użytkowników:
+- 👪 **Wspólne zarządzanie budżetem** – dzielenie budżetu z rodziną
+- 🎯 **Cele oszczędnościowe** – ustalanie i monitorowanie celów
+- 🔍 **Wgląd w wydatki członków rodziny**
+- 🔔 **Powiadomienia** – alerty o przekroczeniach budżetu i celach
+- 🧾 **Faktury i paragony** – dodawanie dokumentów jako zdjęcia/skany
 
-    -Wspólne zarządzanie budżetem - Możliwość dzielenia się budżetem z członkami rodziny.
+---
 
-    -Cele oszczędnościowe - Tworzenie i monitorowanie celów oszczędnościowych.
+## 🛠️ Technologie
 
-    -Wgląd w budżet członków rodziny - Kontrola nad wydatkami poszczególnych użytkowników.
+| Warstwa       | Technologie                                                                 |
+|---------------|------------------------------------------------------------------------------|
+| Backend       | ASP.NET Core, Serilog, FluentValidation, Swagger                            |
+| Frontend      | Flutter / React Native / MAUI                                               |
+| Baza danych   | SQLite + Entity Framework Core (ORM)                                        |
+| Język         | C# (Programowanie obiektowe - OOP)                                           |
+| Autoryzacja   | JWT Token, OAuth                                                            |
+| Powiadomienia | Firebase / SignalR                                                          |
 
-    -Powiadomienia o stanie budżetu i celach oszczędnościowych - Informacje o przekroczeniach budżetu i postępach oszczędzania.
+---
 
-    -Wprowadzanie faktur/paragonów - Dodawanie dokumentów finansowych w formie zdjęć lub skanów.
+## 🧱 Możliwe klasy w projekcie
 
-    
+- `Expense` – pojedynczy wydatek (kwota, kategoria, data, użytkownik)
+- `Category` – kategorie wydatków (Jedzenie, Transport, Rozrywka)
+- `User` – użytkownik aplikacji (np. Administrator, Członek rodziny)
+- `Budget` – domowy budżet
+- `Goal` – cele oszczędnościowe
+- `Transaction` – historia transakcji
+- `Notification` – powiadomienia użytkowników
+- `Invoice` – faktury i paragony
+- `Report` – raporty finansowe
 
+---
 
-Technologie używane w projekcie:
+## 👥 Autorzy
 
+- Katarzyna Krawczyk  
+- Jakub Kowalczyk  
+- Sebastian Kamiński
 
-Język programowania: C#
-
-Paradygmat: Programowanie obiektowe (OOP)
-
-Framework:
-
-Baza danych: SQLITE + ENTITY FRAMEWORK CORE (ORM)
-
-Frontend: Flutter | React Native| MAUI 
-
-Backend:  
-ASP.NET CORE
-Serilog
-FluentValidation
-Swagger
-
-Autoryzacja: JWT Token | oAuth
-
-Przechowywanie danych: SQLITE
-
-Powiadomienia push: Firebase / SignalR?
-
-
-
-Możliwe klasy w projekcie
-
-Expense - reprezentacja pojedynczego wydatku (kwota, kategoria, data, użytkownik).
-
-Category - kategorie wydatków (np. Jedzenie, Transport, Rozrywka).
-
-User - użytkownik aplikacji, z rolą (np. Administrator, Członek rodziny).
-
-Budget - główny budżet gospodarstwa domowego.
-
-Goal - cele oszczędnościowe.
-
-Transaction - historia transakcji użytkownika.
-
-Notification - system powiadomień dla użytkowników.
-
-Invoice - model przechowujący faktury/paragony.
-
-Report - generowanie raportów finansowych.
-
-## Class diagram
-![Class diagram](https://github.com/SebayK/BudgetBuddy/blob/main/UML%20class.png)
-
-Autorzy: Katarzyna Krawczyk, Jakub Kowalczyk, Sebastian Kamiński
