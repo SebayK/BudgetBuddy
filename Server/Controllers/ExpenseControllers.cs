@@ -1,8 +1,8 @@
-using BudgetBuddyAPI.Data;
-using BudgetBuddyAPI.Models;
+using BudgetBuddy.Models;
+using BudgetBuddy.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BudgetBuddyAPI.Controllers;
+namespace BudgetBuddy.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]

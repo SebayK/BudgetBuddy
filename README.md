@@ -69,3 +69,16 @@
 - Jakub Kowalczyk  
 - Sebastian Kamiński
 
+---
+
+## 🔧 Configuration
+
+Before running the application, ensure that the connection string in the `appsettings.json` file is correctly configured.
+
+### Default Connection String
+
+The `DefaultConnection` string is located in the `Server/appsettings.json` file:
+
+```json
+"DefaultConnection": "Server=YOUR_SERVER_NAME;Database=YOUR_DATABASE_NAME;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true"
+
