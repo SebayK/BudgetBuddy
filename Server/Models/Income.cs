@@ -1,4 +1,4 @@
-namespace BudgetBuddyAPI.Models;
+namespace BudgetBuddy.Models;
 
 public class Income
 {
