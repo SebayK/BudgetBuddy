@@ -1,4 +1,4 @@
-using BudgetBuddyAPI.Data;
+using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
