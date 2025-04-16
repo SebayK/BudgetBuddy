@@ -50,7 +50,8 @@ namespace BudgetBuddy.Infrastructure
                 .WithMany(u => u.Notifications)
                 .HasForeignKey(n => n.UserId);*/
 
-            // Budget -> Goal (One-to-Many)
+
+            // Goal -> Budget  (One-to-Many)
             modelBuilder.Entity<Goal>()
                 .HasOne(g => g.Budget)
                 .WithMany(b => b.Goals)
@@ -67,11 +68,6 @@ namespace BudgetBuddy.Infrastructure
                 .WithMany(b => b.Transactions)
                 .HasForeignKey(t => t.BudgetId);
 
-            // Goal -> Budget (Many-to-One)
-            modelBuilder.Entity<Goal>()
-                .HasOne(g => g.Budget)
-                .WithMany(b => b.Goals)
-                .HasForeignKey(g => g.BudgetId);
 
             // Transaction -> User (Many-to-One)
             modelBuilder.Entity<Transaction>()
@@ -87,7 +83,7 @@ namespace BudgetBuddy.Infrastructure
             modelBuilder.Entity<Transaction>(entity =>
             {
                 entity.Property(t => t.Amount)
-                    .HasPrecision(18, 2); 
+                    .HasPrecision(18, 2);
             });
 
             // Invoice -> Expense (One-to-One)
@@ -101,7 +97,7 @@ namespace BudgetBuddy.Infrastructure
                     .HasPrecision(18, 2);
             });
         }
-       
+
 
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Incomes> Incomes { get; set; }
