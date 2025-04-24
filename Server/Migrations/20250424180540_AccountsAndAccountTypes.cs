@@ -11,7 +11,7 @@ namespace BudgetBuddy.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<int>(
-                name: "Account_id",
+                name: "AccountId",
                 table: "User",
                 type: "int",
                 nullable: false,
@@ -23,7 +23,6 @@ namespace BudgetBuddy.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    AccountType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -80,7 +79,7 @@ namespace BudgetBuddy.Migrations
                 name: "AccountTypes");
 
             migrationBuilder.DropColumn(
-                name: "Account_id",
+                name: "AccountId",
                 table: "User");
         }
     }

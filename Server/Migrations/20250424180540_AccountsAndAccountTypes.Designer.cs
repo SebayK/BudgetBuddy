@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetBuddy.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    [Migration("20250424175012_AccountsAndAccountTypes")]
+    [Migration("20250424180540_AccountsAndAccountTypes")]
     partial class AccountsAndAccountTypes
     {
         /// <inheritdoc />
@@ -25,28 +25,7 @@ namespace BudgetBuddy.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BudgetBuddy.Models.AccountTypes", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AccountType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AccountTypes");
-                });
-
-            modelBuilder.Entity("BudgetBuddy.Models.Accounts", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Account", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,6 +53,23 @@ namespace BudgetBuddy.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Accounts");
+                });
+
+            modelBuilder.Entity("BudgetBuddy.Models.AccountType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AccountTypes");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Budget", b =>
@@ -292,7 +288,7 @@ namespace BudgetBuddy.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Account_id")
+                    b.Property<int>("AccountId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -304,9 +300,9 @@ namespace BudgetBuddy.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Accounts", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Account", b =>
                 {
-                    b.HasOne("BudgetBuddy.Models.AccountTypes", "AccountTypes")
+                    b.HasOne("BudgetBuddy.Models.AccountType", "AccountType")
                         .WithMany("Accounts")
                         .HasForeignKey("AccountTypesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -318,7 +314,7 @@ namespace BudgetBuddy.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("AccountTypes");
+                    b.Navigation("AccountType");
 
                     b.Navigation("User");
                 });
@@ -402,7 +398,7 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.AccountTypes", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.AccountType", b =>
                 {
                     b.Navigation("Accounts");
                 });
