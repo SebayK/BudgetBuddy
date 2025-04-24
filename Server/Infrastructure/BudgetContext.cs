@@ -96,6 +96,18 @@ namespace BudgetBuddy.Infrastructure
                 entity.Property(i => i.Amount)
                     .HasPrecision(18, 2);
             });
+            // Accounts -> User (One-to-Many)
+            modelBuilder.Entity<Accounts>()
+                .HasOne(a => a.User)
+                .WithMany(u => u.Accounts)
+                .HasForeignKey(a => a.UserId);
+            // Accounts -> AccountTypes (Many-to-One)
+            modelBuilder.Entity<AccountTypes>()
+                .HasMany(at => at.Accounts)
+                .WithOne(a => a.AccountTypes)
+                .HasForeignKey(a => a.AccountTypesId);
+
+
         }
 
 
@@ -108,5 +120,7 @@ namespace BudgetBuddy.Infrastructure
         public DbSet<Report> Report { get; set; }
         public DbSet<Transaction> Transaction { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Accounts> Accounts { get; set; }
+        public DbSet<AccountTypes> AccountTypes { get; set; }
     }
 }
