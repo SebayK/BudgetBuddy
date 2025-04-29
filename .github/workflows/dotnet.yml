@@ -11,8 +11,7 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Jeśli używasz msbuild, zmień na Windows
 
     steps:
     - uses: actions/checkout@v4
@@ -20,9 +19,15 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Change directory to Server
+      working-directory: ./Server # Przejście do katalogu Server
+      run: echo "Moved to Server directory"
     - name: Restore dependencies
+      working-directory: ./Server
       run: dotnet restore
     - name: Build
+      working-directory: ./Server
       run: dotnet build --no-restore
     - name: Test
+      working-directory: ./Server
       run: dotnet test --no-build --verbosity normal
