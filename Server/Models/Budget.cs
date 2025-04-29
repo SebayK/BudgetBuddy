@@ -41,7 +41,6 @@ public static class BudgetEndpoints
             var affected = await db.Budget
                 .Where(model => model.Id == id)
                 .ExecuteUpdateAsync(setters => setters
-                  .SetProperty(m => m.Id, budget.Id)
                   .SetProperty(m => m.TotalAmount, budget.TotalAmount)
                   );
             return affected == 1 ? TypedResults.Ok() : TypedResults.NotFound();
