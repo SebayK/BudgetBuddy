@@ -1,6 +1,9 @@
-using BudgetBuddy.Infrastructure;
+﻿using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Diagnostics;
+using BudgetBuddy.Controllers;
+using BudgetBuddy.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,7 @@ builder.Services.AddDbContext<BudgetContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<InvoiceService>();
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -34,7 +38,16 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+// Add global error handling middleware
+app.UseExceptionHandler("/error");
+app.Map("/error", (HttpContext context) =>
+{
+    var exception = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+    return Results.Problem(exception?.Message);
+});
+
 app.UseAuthorization();
 app.MapControllers();
+
 
 app.Run();
