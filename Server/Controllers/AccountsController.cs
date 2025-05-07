@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using Microsoft.AspNetCore.Authorization;
 
-namespace BudgetBuddy
+namespace BudgetBuddy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,6 +24,7 @@ namespace BudgetBuddy
 
         // GET: api/Accounts
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
         {
             return await _context.Accounts.ToListAsync();
@@ -30,6 +32,7 @@ namespace BudgetBuddy
 
         // GET: api/Accounts/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Account>> GetAccount(int id)
         {
             var account = await _context.Accounts.FindAsync(id);
@@ -45,6 +48,7 @@ namespace BudgetBuddy
         // PUT: api/Accounts/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutAccount(int id, Account account)
         {
             if (id != account.Id)
@@ -76,6 +80,7 @@ namespace BudgetBuddy
         // POST: api/Accounts
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Account>> PostAccount(Account account)
         {
             _context.Accounts.Add(account);
@@ -86,6 +91,7 @@ namespace BudgetBuddy
 
         // DELETE: api/Accounts/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteAccount(int id)
         {
             var account = await _context.Accounts.FindAsync(id);

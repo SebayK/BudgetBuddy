@@ -1,5 +1,6 @@
 using BudgetBuddy.Models;
 using BudgetBuddy.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetBuddy.Controllers;
@@ -16,12 +17,14 @@ public class ExpensesController : ControllerBase
     }
 
     [HttpGet]
+    [Authorize]
     public ActionResult<IEnumerable<Expense>> GetExpenses()
     {
         return Ok(_context.Expenses.ToList());
     }
 
     [HttpPost]
+    [Authorize]
     public ActionResult<Expense> AddExpense(Expense expense)
     {
         _context.Expenses.Add(expense);
