@@ -36,7 +36,7 @@ public class AuthenticationController : ControllerBase {
   }
 
   [HttpPost]
-  [Route("registeration")]
+  [Route("registration")]
   public async Task<IActionResult> Register(RegistrationModel model) {
     try {
       if (!ModelState.IsValid)
