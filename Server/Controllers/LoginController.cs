@@ -41,7 +41,10 @@ public class AuthenticationController : ControllerBase {
     try {
       if (!ModelState.IsValid)
         return BadRequest("Invalid payload");
-      var (status, message) = await _authService.Registration(model, UserRole.Admin);
+      
+      // Default to UserRole.User if no role is specified in the model
+      var role = model.Role ?? UserRole.User;
+      var (status, message) = await _authService.Registration(model, role);
       if (status == 0) {
         return BadRequest(message);
       }
