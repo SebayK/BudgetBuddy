@@ -1,15 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using BudgetBuddy.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace BudgetBuddy.Infrastructure
 {
-    public class BudgetContext : DbContext
-    {
-        public BudgetContext(DbContextOptions<BudgetContext> options)
-            : base(options)
-        {
-        }
-
+    public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDbContext<User>(options) {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
@@ -20,6 +15,8 @@ namespace BudgetBuddy.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder); 
+            
             modelBuilder.Entity<Budget>(entity =>
             {
                 entity.Property(b => b.TotalAmount)
