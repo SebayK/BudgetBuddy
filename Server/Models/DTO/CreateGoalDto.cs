@@ -1,10 +1,10 @@
-﻿namespace BudgetBuddy.Models.Dto;
-
-public class CreateGoalDto
+﻿namespace BudgetBuddy.Models.Dto
 {
-    public string Title { get; set; } = string.Empty;
-    public string? Description { get; set; }
-    public decimal TargetAmount { get; set; }
-    public DateTime Deadline { get; set; }
-    public int BudgetId { get; set; }
+    public class CreateGoalDto : BaseDto
+    {
+        public decimal TargetAmount { get; set; }
+        public DateTime Deadline { get; set; }
+        public int BudgetId { get; set; }
+        public int UserId { get; set; }
+    }
 }
