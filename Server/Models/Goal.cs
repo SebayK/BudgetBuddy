@@ -16,7 +16,13 @@ public class Goal
 
     public int BudgetId { get; set; }
     public Budget Budget { get; set; }
+<<<<<<< HEAD
 
     public int UserId { get; set; }
     public User User { get; set; }
 }
+=======
+    public User User { get; set; }
+    public string UserId { get; set; }
+}
+>>>>>>> upstream/main

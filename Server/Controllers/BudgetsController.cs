@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BudgetBuddy.Controllers
 {
@@ -23,6 +24,7 @@ namespace BudgetBuddy.Controllers
 
         // GET: api/Budgets
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Budget>>> GetBudget()
         {
             return await _context.Budget.ToListAsync();
@@ -30,6 +32,7 @@ namespace BudgetBuddy.Controllers
 
         // GET: api/Budgets/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Budget>> GetBudget(int id)
         {
             var budget = await _context.Budget.FindAsync(id);
@@ -45,6 +48,7 @@ namespace BudgetBuddy.Controllers
         // PUT: api/Budgets/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutBudget(int id, Budget budget)
         {
             if (id != budget.Id)
@@ -76,6 +80,7 @@ namespace BudgetBuddy.Controllers
         // POST: api/Budgets
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Budget>> PostBudget(Budget budget)
         {
             _context.Budget.Add(budget);
@@ -86,6 +91,7 @@ namespace BudgetBuddy.Controllers
 
         // DELETE: api/Budgets/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteBudget(int id)
         {
             var budget = await _context.Budget.FindAsync(id);

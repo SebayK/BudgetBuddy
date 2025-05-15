@@ -11,6 +11,7 @@ public class Transaction
     public string Description { get; set; } = string.Empty;
 
     public DateTime Date { get; set; }
+<<<<<<< HEAD
 
     public bool IsRecurring { get; set; } = false;
 
@@ -22,6 +23,10 @@ public class Transaction
     public int CategoryId { get; set; }
     public Category Category { get; set; }
 
+=======
+    public string UserId { get; set; }
+    public User User { get; set; }
+>>>>>>> upstream/main
     public int BudgetId { get; set; }
     public Budget Budget { get; set; }
 

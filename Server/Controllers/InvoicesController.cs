@@ -1,5 +1,6 @@
 ﻿using BudgetBuddy.Models;
 using BudgetBuddy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetBuddy.Controllers
@@ -17,6 +18,7 @@ namespace BudgetBuddy.Controllers
 
         // GET: api/Invoices
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<Invoice>>> GetAllInvoicesAsync()
         {
             var invoices = await _invoiceService.GetAllInvoicesAsync();
@@ -25,6 +27,7 @@ namespace BudgetBuddy.Controllers
 
         // GET: api/Invoices/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<Invoice>> GetInvoice(int id)
         {
             var invoice = await _invoiceService.GetInvoiceByIdAsync(id);
@@ -37,6 +40,7 @@ namespace BudgetBuddy.Controllers
 
         // PUT: api/Invoices/5
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<IActionResult> PutInvoice(int id, Invoice invoice)
         {
             var success = await _invoiceService.UpdateInvoiceAsync(id, invoice);
@@ -49,6 +53,7 @@ namespace BudgetBuddy.Controllers
 
         // POST: api/Invoices
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult<Invoice>> PostInvoice(Invoice invoice)
         {
             var createdInvoice = await _invoiceService.CreateInvoiceAsync(invoice);
@@ -57,6 +62,7 @@ namespace BudgetBuddy.Controllers
 
         // DELETE: api/Invoices/5
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<IActionResult> DeleteInvoice(int id)
         {
             var success = await _invoiceService.DeleteInvoiceAsync(id);
