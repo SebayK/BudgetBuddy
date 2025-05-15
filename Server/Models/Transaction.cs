@@ -1,4 +1,6 @@
-﻿namespace BudgetBuddy.Models;
+﻿using System;
+
+namespace BudgetBuddy.Models;
 
 public class Transaction
 {
@@ -11,25 +13,22 @@ public class Transaction
     public string Description { get; set; } = string.Empty;
 
     public DateTime Date { get; set; }
-<<<<<<< HEAD
 
+    
     public bool IsRecurring { get; set; } = false;
 
     public string? RecurrenceInterval { get; set; } // np. "Monthly", "Weekly", "Yearly"
 
     public DateTime? NextOccurrenceDate { get; set; }
 
-    // relacje
+   
     public int CategoryId { get; set; }
     public Category Category { get; set; }
 
-=======
+    
     public string UserId { get; set; }
     public User User { get; set; }
->>>>>>> upstream/main
+
     public int BudgetId { get; set; }
     public Budget Budget { get; set; }
-
-    public int UserId { get; set; }
-    public User User { get; set; }
 }
