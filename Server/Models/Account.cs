@@ -2,7 +2,7 @@
 
 public class Account {
   public int Id { get; set; }
-  public string UserId { get; set; }
+  public int UserId { get; set; }
   public int AccountNumber { get; set; }
   public AccountType AccountType { get; set; } 
   public string CurrencyId { get; set; } = string.Empty;

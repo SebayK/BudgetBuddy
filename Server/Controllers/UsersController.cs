@@ -8,8 +8,14 @@ namespace BudgetBuddy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(UserService userService) : ControllerBase {
-        private readonly UserService _userService = userService;
+    public class UsersController : ControllerBase
+    {
+        private readonly UserService _userService;
+
+        public UsersController(UserService userService)
+        {
+            _userService = userService;
+        }
 
         // GET: api/Users
         [HttpGet]
@@ -23,7 +29,7 @@ namespace BudgetBuddy.Controllers
         // GET: api/Users/5
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<User>> GetUser(string id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             var user = await _userService.GetUserByIdAsync(id);
 
@@ -43,8 +49,11 @@ namespace BudgetBuddy.Controllers
 
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutUser(string id, User user)
+        public async Task<IActionResult> PutUser(int id, User user)
         {
+            if (id != user.Id)
+                return BadRequest();
+
             var success = await _userService.UpdateUserAsync(id, user);
 
             if (!success)
@@ -55,7 +64,7 @@ namespace BudgetBuddy.Controllers
 
         [HttpDelete("{id}")]
         [Authorize]
-        public async Task<IActionResult> DeleteUser(string id)
+        public async Task<IActionResult> DeleteUser(int id)
         {
             var success = await _userService.DeleteUserAsync(id);
 
