@@ -2,32 +2,41 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.Http.HttpResults;
+
 namespace BudgetBuddy.Models;
 
 public class Budget
 {
     public int Id { get; set; }
     public decimal TotalAmount { get; set; }
+
     public ICollection<Goal> Goals { get; set; }
     public ICollection<Transaction> Transactions { get; set; }
+
+    // ➕ NOWE: lista użytkowników przypisanych do budżetu
+    public ICollection<UserBudget> UserBudgets { get; set; }
 }
 
 public static class BudgetEndpoints
 {
-	public static void MapBudgetEndpoints (this IEndpointRouteBuilder routes)
+    public static void MapBudgetEndpoints(this IEndpointRouteBuilder routes)
     {
         var group = routes.MapGroup("/api/Budget").WithTags(nameof(Budget));
 
         group.MapGet("/", async (BudgetContext db) =>
         {
-            return await db.Budget.ToListAsync();
+            return await db.Budget
+                .Include(b => b.UserBudgets) // opcjonalnie: wczytaj przypisanych użytkowników
+                .ToListAsync();
         })
         .WithName("GetAllBudgets")
         .WithOpenApi();
 
         group.MapGet("/{id}", async Task<Results<Ok<Budget>, NotFound>> (int id, BudgetContext db) =>
         {
-            return await db.Budget.AsNoTracking()
+            return await db.Budget
+                .Include(b => b.UserBudgets) // opcjonalnie
+                .AsNoTracking()
                 .FirstOrDefaultAsync(model => model.Id == id)
                 is Budget model
                     ? TypedResults.Ok(model)
@@ -52,7 +61,7 @@ public static class BudgetEndpoints
         {
             db.Budget.Add(budget);
             await db.SaveChangesAsync();
-            return TypedResults.Created($"/api/Budget/{budget.Id}",budget);
+            return TypedResults.Created($"/api/Budget/{budget.Id}", budget);
         })
         .WithName("CreateBudget")
         .WithOpenApi();
