@@ -18,7 +18,7 @@ namespace BudgetBuddy.Services
             return await context.User.AsNoTracking().ToListAsync();
         }
 
-        public async Task<User?> GetUserByIdAsync(int id)
+        public async Task<User?> GetUserByIdAsync(string id)
         {
             return await context.User.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
         }
@@ -30,7 +30,7 @@ namespace BudgetBuddy.Services
             return user;
         }
 
-        public async Task<bool> UpdateUserAsync(int id, User user)
+        public async Task<bool> UpdateUserAsync(string id, User user)
         {
             if (id != user.Id)
                 return false;
@@ -51,7 +51,7 @@ namespace BudgetBuddy.Services
             }
         }
 
-        public async Task<bool> DeleteUserAsync(int id)
+        public async Task<bool> DeleteUserAsync(string id)
         {
             var user = await context.User.FindAsync(id);
             if (user == null)
@@ -62,7 +62,7 @@ namespace BudgetBuddy.Services
             return true;
         }
 
-        private async Task<bool> UserExistsAsync(int id)
+        private async Task<bool> UserExistsAsync(string id)
         {
             return await context.User.AnyAsync(u => u.Id == id);
         }

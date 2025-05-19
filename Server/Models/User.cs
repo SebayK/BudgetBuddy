@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BudgetBuddy.Models;
 
-public class User : IdentityUser<int> 
+public class User : IdentityUser
 {
     public int AccountId { get; set; }
     public string FirstName { get; set; }

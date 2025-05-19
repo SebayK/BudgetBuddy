@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 
 namespace BudgetBuddy.Infrastructure
 {
-    public class BudgetContext : IdentityDbContext<User, IdentityRole<int>, int>
+    public class BudgetContext : IdentityDbContext<User> // było tutaj "IdentityRole" -zobacz czy nie trzeba potem dodac
 
     {
         public BudgetContext(DbContextOptions<BudgetContext> options)
@@ -79,7 +79,7 @@ namespace BudgetBuddy.Infrastructure
                 .WithOne(e => e.Invoice)
                 .HasForeignKey<Invoice>(i => i.ExpenseId);
 
-            modelBuilder.Entity<Incomes>(entity =>
+            modelBuilder.Entity<Income>(entity =>
             {
                 entity.Property(i => i.Amount)
                     .HasPrecision(18, 2);
@@ -112,7 +112,7 @@ namespace BudgetBuddy.Infrastructure
         }
 
         public DbSet<Expense> Expenses { get; set; }
-        public DbSet<Incomes> Incomes { get; set; }
+        public DbSet<Income> Incomes { get; set; }
         public DbSet<Budget> Budget { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Goal> Goal { get; set; }

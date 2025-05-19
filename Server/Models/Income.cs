@@ -1,11 +1,13 @@
 namespace BudgetBuddy.Models;
 
-public class Incomes
+public class Income
 {
     public int Id { get; set; }
-    public string Source { get; set; } = string.Empty;
+    public required string Source { get; set; }
     public decimal Amount { get; set; }
     public DateTime Date { get; set; }
-    public Category Category { get; set; }
+
+    public required Category Category { get; set; }
     public int CategoryId { get; set; }
 }
+

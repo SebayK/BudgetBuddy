@@ -11,10 +11,10 @@ namespace BudgetBuddy.Services;
 public class AuthorizationService : IAuthorizationService
 {
     private readonly UserManager<User> userManager;
-    private readonly RoleManager<IdentityRole<int>> roleManager;
+    private readonly RoleManager<IdentityRole> roleManager;
     private readonly IConfiguration _configuration;
 
-    public AuthorizationService(UserManager<User> userManager, RoleManager<IdentityRole<int>> roleManager,
+    public AuthorizationService(UserManager<User> userManager, RoleManager<IdentityRole> roleManager,
         IConfiguration configuration)
     {
         this.userManager = userManager;
@@ -42,7 +42,7 @@ public class AuthorizationService : IAuthorizationService
             return (0, "User creation failed! Please check user details and try again.");
 
         if (!await roleManager.RoleExistsAsync(role.ToString()))
-            await roleManager.CreateAsync(new IdentityRole<int>(role.ToString()));
+            await roleManager.CreateAsync(new IdentityRole(role.ToString()));
 
         if (await roleManager.RoleExistsAsync(role.ToString()))
             await userManager.AddToRoleAsync(user, role.ToString());

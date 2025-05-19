@@ -24,7 +24,7 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddControllers();
 
 // Konfiguracja Identity z kluczem int
-builder.Services.AddIdentity<User, IdentityRole<int>>(options =>
+builder.Services.AddIdentity<User, IdentityRole>(options =>
     {
         options.Password.RequireDigit = false;
         options.Password.RequireLowercase = false;
