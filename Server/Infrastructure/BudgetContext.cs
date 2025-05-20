@@ -104,6 +104,18 @@ namespace BudgetBuddy.Infrastructure
                 .WithOne(a => a.AccountType)
                 .HasForeignKey(a => a.AccountTypesId);
 
+            modelBuilder.Entity<UserBudget>()
+                .HasKey(ub => new { ub.UserId, ub.BudgetId });
+
+            modelBuilder.Entity<UserBudget>()
+                .HasOne(ub => ub.User)
+                .WithMany(u => u.UserBudgets)
+                .HasForeignKey(ub => ub.UserId);
+
+            modelBuilder.Entity<UserBudget>()
+                .HasOne(ub => ub.Budget)
+                .WithMany(b => b.UserBudgets)
+                .HasForeignKey(ub => ub.BudgetId);
 
         }
 
