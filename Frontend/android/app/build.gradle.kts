@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.budgetbuddy.budget_buddy_frontend"
+    namespace = "com.example.budget_buddy_app"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.budgetbuddy.budget_buddy_frontend"
+        applicationId = "com.example.budget_buddy_app"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

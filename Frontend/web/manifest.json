@@ -1,6 +1,6 @@
 {
-    "name": "budget_buddy_frontend",
-    "short_name": "budget_buddy_frontend",
+    "name": "budget_buddy_app",
+    "short_name": "budget_buddy_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
