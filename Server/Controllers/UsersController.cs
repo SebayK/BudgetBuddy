@@ -8,10 +8,15 @@ namespace BudgetBuddy.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController(UserService userService) : ControllerBase {
-        private readonly UserService _userService = userService;
+    public class UsersController : ControllerBase
+    {
+        private readonly UserService _userService;
 
-        // GET: api/Users
+        public UsersController(UserService userService)
+        {
+            _userService = userService;
+        }
+
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsersAsync()
@@ -20,7 +25,6 @@ namespace BudgetBuddy.Controllers
             return Ok(users);
         }
 
-        // GET: api/Users/5
         [HttpGet("{id}")]
         [Authorize]
         public async Task<ActionResult<User>> GetUser(string id)
@@ -45,6 +49,9 @@ namespace BudgetBuddy.Controllers
         [Authorize]
         public async Task<IActionResult> PutUser(string id, User user)
         {
+            if (id != user.Id)
+                return BadRequest();
+
             var success = await _userService.UpdateUserAsync(id, user);
 
             if (!success)

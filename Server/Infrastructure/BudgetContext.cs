@@ -1,10 +1,19 @@
 using Microsoft.EntityFrameworkCore;
 using BudgetBuddy.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace BudgetBuddy.Infrastructure
 {
-    public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDbContext<User>(options) {
+    public class BudgetContext : IdentityDbContext<User> // było tutaj "IdentityRole" -zobacz czy nie trzeba potem dodac
+
+    {
+        public BudgetContext(DbContextOptions<BudgetContext> options)
+            : base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
@@ -41,13 +50,6 @@ namespace BudgetBuddy.Infrastructure
                 .WithMany(u => u.Transactions)
                 .HasForeignKey(t => t.UserId);
 
-            /* User -> Notification (One-to-Many)
-            modelBuilder.Entity<Notification>()
-                .HasOne(n => n.User)
-                .WithMany(u => u.Notifications)
-                .HasForeignKey(n => n.UserId);*/
-
-
             // Goal -> Budget  (One-to-Many)
             modelBuilder.Entity<Goal>()
                 .HasOne(g => g.Budget)
@@ -65,18 +67,6 @@ namespace BudgetBuddy.Infrastructure
                 .WithMany(b => b.Transactions)
                 .HasForeignKey(t => t.BudgetId);
 
-
-            // Transaction -> User (Many-to-One)
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.User)
-                .WithMany(u => u.Transactions)
-                .HasForeignKey(t => t.UserId);
-
-            // Transaction -> Budget (Many-to-One)
-            modelBuilder.Entity<Transaction>()
-                .HasOne(t => t.Budget)
-                .WithMany(b => b.Transactions)
-                .HasForeignKey(t => t.BudgetId);
             modelBuilder.Entity<Transaction>(entity =>
             {
                 entity.Property(t => t.Amount)
@@ -88,16 +78,19 @@ namespace BudgetBuddy.Infrastructure
                 .HasOne(i => i.Expense)
                 .WithOne(e => e.Invoice)
                 .HasForeignKey<Invoice>(i => i.ExpenseId);
-            modelBuilder.Entity<Incomes>(entity =>
+
+            modelBuilder.Entity<Income>(entity =>
             {
                 entity.Property(i => i.Amount)
                     .HasPrecision(18, 2);
             });
+
             // Accounts -> User (One-to-Many)
             modelBuilder.Entity<Account>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Accounts)
                 .HasForeignKey(a => a.UserId);
+
             // Accounts -> AccountTypes (Many-to-One)
             modelBuilder.Entity<AccountType>()
                 .HasMany(at => at.Accounts)
@@ -116,12 +109,10 @@ namespace BudgetBuddy.Infrastructure
                 .HasOne(ub => ub.Budget)
                 .WithMany(b => b.UserBudgets)
                 .HasForeignKey(ub => ub.BudgetId);
-
         }
 
-
         public DbSet<Expense> Expenses { get; set; }
-        public DbSet<Incomes> Incomes { get; set; }
+        public DbSet<Income> Incomes { get; set; }
         public DbSet<Budget> Budget { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Goal> Goal { get; set; }
@@ -131,5 +122,6 @@ namespace BudgetBuddy.Infrastructure
         public DbSet<User> User { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<AccountType> AccountTypes { get; set; }
+        public DbSet<UserBudget> UserBudgets { get; set; }
     }
 }

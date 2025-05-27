@@ -171,7 +171,7 @@ namespace BudgetBuddy.Migrations
                     b.ToTable("Goal");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -376,7 +376,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("BudgetId");
 
-                    b.ToTable("UserBudget");
+                    b.ToTable("UserBudgets");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -569,7 +569,7 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
                 {
                     b.HasOne("BudgetBuddy.Models.Category", "Category")
                         .WithMany("Incomes")

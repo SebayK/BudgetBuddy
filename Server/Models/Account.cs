@@ -2,10 +2,10 @@
 
 public class Account {
   public int Id { get; set; }
-  public string UserId { get; set; }
-  public int AccountNumber { get; set; }
-  public AccountType AccountType { get; set; } 
-  public string CurrencyId { get; set; } = string.Empty;
-  public User User { get; set; }
-  public int AccountTypesId { get; set; }
+    public string UserId { get; set; }
+    public int AccountNumber { get; set; }
+    public required AccountType AccountType { get; set; }
+    public required string CurrencyId { get; set; }
+    public required User User { get; set; }
+    public int AccountTypesId { get; set; }
 }
