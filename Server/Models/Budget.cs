@@ -1,4 +1,4 @@
-﻿using BudgetBuddy.Infrastructure;
+using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.AspNetCore.Http.HttpResults;
