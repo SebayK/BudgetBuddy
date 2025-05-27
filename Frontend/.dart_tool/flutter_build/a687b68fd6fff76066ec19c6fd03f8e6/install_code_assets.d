@@ -1,0 +1,1 @@
+ /Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/.dart_tool/flutter_build/a687b68fd6fff76066ec19c6fd03f8e6/native_assets.json: 

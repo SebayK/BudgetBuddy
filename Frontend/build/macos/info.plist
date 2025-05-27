@@ -3,7 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>LastAccessedDate</key>
+<<<<<<< HEAD
 	<date>2025-06-07T14:09:09Z</date>
+=======
+	<date>2025-05-27T19:32:51Z</date>
+>>>>>>> 050ff11 (Dodanie frontendu Flutter jako jeden commit)
 	<key>WorkspacePath</key>
 	<string>/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/macos/Runner.xcworkspace</string>
 </dict>

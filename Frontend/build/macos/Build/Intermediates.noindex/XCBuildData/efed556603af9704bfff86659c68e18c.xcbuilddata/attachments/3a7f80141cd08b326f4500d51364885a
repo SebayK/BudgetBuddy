@@ -1,0 +1,30 @@
+{
+  "" : {
+    "const-values" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.swiftconstvalues",
+    "dependencies" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.d",
+    "diagnostics" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.dia",
+    "emit-module-dependencies" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master-emit-module.dia",
+    "swift-dependencies" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/Runner-master.swiftdeps"
+  },
+  "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/Runner.build/Release/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  },
+  "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/macos/Flutter/GeneratedPluginRegistrant.swift" : {
+    "index-unit-output-path" : "/Runner.build/Release/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.o",
+    "llvm-bc" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.bc",
+    "object" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/GeneratedPluginRegistrant.o"
+  },
+  "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/macos/Runner/AppDelegate.swift" : {
+    "index-unit-output-path" : "/Runner.build/Release/Runner.build/Objects-normal/arm64/AppDelegate.o",
+    "llvm-bc" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/AppDelegate.bc",
+    "object" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/AppDelegate.o"
+  },
+  "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/macos/Runner/MainFlutterWindow.swift" : {
+    "index-unit-output-path" : "/Runner.build/Release/Runner.build/Objects-normal/arm64/MainFlutterWindow.o",
+    "llvm-bc" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/MainFlutterWindow.bc",
+    "object" : "/Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/build/macos/Build/Intermediates.noindex/Runner.build/Release/Runner.build/Objects-normal/arm64/MainFlutterWindow.o"
+  }
+}
