@@ -1,78 +1,68 @@
-using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class TransactionController : ControllerBase {
-  private readonly BudgetContext _context;
+  private readonly TransactionService _transactionService;
 
-  public TransactionController(BudgetContext context) {
-    _context = context;
+  public TransactionController(TransactionService transactionService) {
+    _transactionService = transactionService;
   }
 
-  // GET: api/Tramsaction
+  // GET: api/transaction
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<Transaction>>> GetTransaction() {
-    return await _context.Transaction.ToListAsync();
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Transaction>>> GetAllTransactionsAsync() {
+    var transaction = await _transactionService.GetAllTransactionsAsync();
+    return Ok(transaction);
   }
 
-  // GET: api/Tramsaction/5
+  // GET: api/transaction/5
   [HttpGet("{id}")]
+  [Authorize]
   public async Task<ActionResult<Transaction>> GetTransaction(int id) {
-    var transaction = await _context.Transaction.FindAsync(id);
+    var transaction = await _transactionService.GetTransactionByIdAsync(id);
 
-    if (transaction == null) return NotFound();
+    if (transaction == null)
+      return NotFound();
 
-    return transaction;
+    return Ok(transaction);
   }
 
-  // PUT: api/Tramsaction/5
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+  // PUT: api/transaction/5
   [HttpPut("{id}")]
+  [Authorize]
   public async Task<IActionResult> PutTransaction(int id, Transaction transaction) {
-    if (id != transaction.Id) return BadRequest();
+    var success = await _transactionService.UpdateTransactionAsync(id, transaction);
 
-    _context.Entry(transaction).State = EntityState.Modified;
-
-    try {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException) {
-      if (!TransactionExists(id)) return NotFound();
-
-      throw;
-    }
+    if (!success)
+      return NotFound();
 
     return NoContent();
   }
 
-  // POST: api/Tramsaction
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+  // POST: api/transaction
   [HttpPost]
+  [Authorize]
   public async Task<ActionResult<Transaction>> PostTransaction(Transaction transaction) {
-    _context.Transaction.Add(transaction);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction("GetTransaction", new { id = transaction.Id }, transaction);
+    var createdTransaction = await _transactionService.CreateTransactionAsync(transaction);
+    return CreatedAtAction(nameof(GetTransaction), new { id = createdTransaction.Id }, createdTransaction);
   }
 
-  // DELETE: api/Tramsaction/5
+  // DELETE: api/transaction/5
   [HttpDelete("{id}")]
+  [Authorize]
   public async Task<IActionResult> DeleteTransaction(int id) {
-    var transaction = await _context.Transaction.FindAsync(id);
-    if (transaction == null) return NotFound();
+    var success = await _transactionService.DeleteTransactionAsync(id);
 
-    _context.Transaction.Remove(transaction);
-    await _context.SaveChangesAsync();
+    if (!success)
+      return NotFound();
 
     return NoContent();
-  }
-
-  private bool TransactionExists(int id) {
-    return _context.Transaction.Any(e => e.Id == id);
   }
 }

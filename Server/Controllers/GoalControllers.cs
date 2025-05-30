@@ -1,78 +1,68 @@
-using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class GoalControllers : ControllerBase {
-  private readonly BudgetContext _context;
+public class GoalController : ControllerBase {
+  private readonly GoalService _goalService;
 
-  public GoalControllers(BudgetContext context) {
-    _context = context;
+  public GoalController(GoalService goalService) {
+    _goalService = goalService;
   }
 
-  // GET: api/GoalControllers
+  // GET: api/Goal
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<Goal>>> GetGoal() {
-    return await _context.Goal.ToListAsync();
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Goal>>> GetAllGoalsAsync() {
+    var goal = await _goalService.GetAllGoalsAsync();
+    return Ok(goal);
   }
 
-  // GET: api/GoalControllers/5
+  // GET: api/Goal/5
   [HttpGet("{id}")]
+  [Authorize]
   public async Task<ActionResult<Goal>> GetGoal(int id) {
-    var goal = await _context.Goal.FindAsync(id);
+    var goal = await _goalService.GetGoalByIdAsync(id);
 
-    if (goal == null) return NotFound();
+    if (goal == null)
+      return NotFound();
 
-    return goal;
+    return Ok(goal);
   }
 
-  // PUT: api/GoalControllers/5
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+  // PUT: api/Goal/5
   [HttpPut("{id}")]
+  [Authorize]
   public async Task<IActionResult> PutGoal(int id, Goal goal) {
-    if (id != goal.Id) return BadRequest();
+    var success = await _goalService.UpdateGoalAsync(id, goal);
 
-    _context.Entry(goal).State = EntityState.Modified;
-
-    try {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException) {
-      if (!GoalExists(id)) return NotFound();
-
-      throw;
-    }
+    if (!success)
+      return NotFound();
 
     return NoContent();
   }
 
-  // POST: api/GoalControllers
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+  // POST: api/Goal
   [HttpPost]
+  [Authorize]
   public async Task<ActionResult<Goal>> PostGoal(Goal goal) {
-    _context.Goal.Add(goal);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction("GetGoal", new { id = goal.Id }, goal);
+    var createdGoal = await _goalService.CreateGoalAsync(goal);
+    return CreatedAtAction(nameof(GetGoal), new { id = createdGoal.Id }, createdGoal);
   }
 
-  // DELETE: api/GoalControllers/5
+  // DELETE: api/Goal/5
   [HttpDelete("{id}")]
+  [Authorize]
   public async Task<IActionResult> DeleteGoal(int id) {
-    var goal = await _context.Goal.FindAsync(id);
-    if (goal == null) return NotFound();
+    var success = await _goalService.DeleteGoalAsync(id);
 
-    _context.Goal.Remove(goal);
-    await _context.SaveChangesAsync();
+    if (!success)
+      return NotFound();
 
     return NoContent();
-  }
-
-  private bool GoalExists(int id) {
-    return _context.Goal.Any(e => e.Id == id);
   }
 }

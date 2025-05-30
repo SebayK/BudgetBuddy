@@ -1,78 +1,68 @@
-using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class ReportController : ControllerBase {
-  private readonly BudgetContext _context;
+  private readonly ReportService _reportService;
 
-  public ReportController(BudgetContext context) {
-    _context = context;
+  public ReportController(ReportService reportService) {
+    _reportService = reportService;
   }
 
   // GET: api/Report
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<Report>>> GetReport() {
-    return await _context.Report.ToListAsync();
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Report>>> GetAllReportsAsync() {
+    var report = await _reportService.GetAllReportsAsync();
+    return Ok(report);
   }
 
   // GET: api/Report/5
   [HttpGet("{id}")]
+  [Authorize]
   public async Task<ActionResult<Report>> GetReport(int id) {
-    var report = await _context.Report.FindAsync(id);
+    var report = await _reportService.GetReportByIdAsync(id);
 
-    if (report == null) return NotFound();
+    if (report == null)
+      return NotFound();
 
-    return report;
+    return Ok(report);
   }
 
   // PUT: api/Report/5
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
   [HttpPut("{id}")]
+  [Authorize]
   public async Task<IActionResult> PutReport(int id, Report report) {
-    if (id != report.Id) return BadRequest();
+    var success = await _reportService.UpdateReportAsync(id, report);
 
-    _context.Entry(report).State = EntityState.Modified;
-
-    try {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException) {
-      if (!ReportExists(id)) return NotFound();
-
-      throw;
-    }
+    if (!success)
+      return NotFound();
 
     return NoContent();
   }
 
   // POST: api/Report
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
   [HttpPost]
+  [Authorize]
   public async Task<ActionResult<Report>> PostReport(Report report) {
-    _context.Report.Add(report);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction("GetReport", new { id = report.Id }, report);
+    var createdReport = await _reportService.CreateReportAsync(report);
+    return CreatedAtAction(nameof(GetReport), new { id = createdReport.Id }, createdReport);
   }
 
   // DELETE: api/Report/5
   [HttpDelete("{id}")]
+  [Authorize]
   public async Task<IActionResult> DeleteReport(int id) {
-    var report = await _context.Report.FindAsync(id);
-    if (report == null) return NotFound();
+    var success = await _reportService.DeleteReportAsync(id);
 
-    _context.Report.Remove(report);
-    await _context.SaveChangesAsync();
+    if (!success)
+      return NotFound();
 
     return NoContent();
-  }
-
-  private bool ReportExists(int id) {
-    return _context.Report.Any(e => e.Id == id);
   }
 }

@@ -1,78 +1,68 @@
-using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class IncomeController : ControllerBase {
-  private readonly BudgetContext _context;
+  private readonly IncomeService _incomeService;
 
-  public IncomeController(BudgetContext context) {
-    _context = context;
+  public IncomeController(IncomeService incomeService) {
+    _incomeService = incomeService;
   }
 
   // GET: api/Income
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<Incomes>>> GetIncomes() {
-    return await _context.Incomes.ToListAsync();
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Incomes>>> GetAllIncomesAsync() {
+    var income = await _incomeService.GetAllIncomesAsync();
+    return Ok(income);
   }
 
   // GET: api/Income/5
   [HttpGet("{id}")]
-  public async Task<ActionResult<Incomes>> GetIncomes(int id) {
-    var incomes = await _context.Incomes.FindAsync(id);
+  [Authorize]
+  public async Task<ActionResult<Incomes>> GetIncome(int id) {
+    var income = await _incomeService.GetIncomeByIdAsync(id);
 
-    if (incomes == null) return NotFound();
+    if (income == null)
+      return NotFound();
 
-    return incomes;
+    return Ok(income);
   }
 
   // PUT: api/Income/5
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
   [HttpPut("{id}")]
-  public async Task<IActionResult> PutIncomes(int id, Incomes incomes) {
-    if (id != incomes.Id) return BadRequest();
+  [Authorize]
+  public async Task<IActionResult> PutIncome(int id, Incomes income) {
+    var success = await _incomeService.UpdateIncomeAsync(id, income);
 
-    _context.Entry(incomes).State = EntityState.Modified;
-
-    try {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException) {
-      if (!IncomesExists(id)) return NotFound();
-
-      throw;
-    }
+    if (!success)
+      return NotFound();
 
     return NoContent();
   }
 
   // POST: api/Income
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
   [HttpPost]
-  public async Task<ActionResult<Incomes>> PostIncomes(Incomes incomes) {
-    _context.Incomes.Add(incomes);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction("GetIncomes", new { id = incomes.Id }, incomes);
+  [Authorize]
+  public async Task<ActionResult<Incomes>> PostIncome(Incomes income) {
+    var createdIncome = await _incomeService.CreateIncomeAsync(income);
+    return CreatedAtAction(nameof(GetIncome), new { id = createdIncome.Id }, createdIncome);
   }
 
   // DELETE: api/Income/5
   [HttpDelete("{id}")]
-  public async Task<IActionResult> DeleteIncomes(int id) {
-    var incomes = await _context.Incomes.FindAsync(id);
-    if (incomes == null) return NotFound();
+  [Authorize]
+  public async Task<IActionResult> DeleteIncome(int id) {
+    var success = await _incomeService.DeleteIncomeAsync(id);
 
-    _context.Incomes.Remove(incomes);
-    await _context.SaveChangesAsync();
+    if (!success)
+      return NotFound();
 
     return NoContent();
-  }
-
-  private bool IncomesExists(int id) {
-    return _context.Incomes.Any(e => e.Id == id);
   }
 }
