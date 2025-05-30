@@ -1,14 +1,13 @@
 ﻿using System.Text;
 using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Diagnostics;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +19,15 @@ builder.Services.AddTransient<IAuthorizationService, AuthorizationService>();
 builder.Services.AddControllers();
 builder.Services.AddScoped<InvoiceService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<BudgetService>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ExpenseService>();
+builder.Services.AddScoped<GoalService>();
+builder.Services.AddScoped<IncomeService>();
+builder.Services.AddScoped<ReportService>();
+builder.Services.AddScoped<TransactionService>();
+builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<AccountTypeService>();
 
 builder.Services.AddIdentity<User, IdentityRole>()
   .AddEntityFrameworkStores<BudgetContext>()
@@ -59,8 +67,7 @@ builder.Services.AddSwaggerGen(c => {
     Description = "API do zarządzania budżetem domowym"
   });
   // Konfiguracja autoryzacji
-  c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-  {
+  c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme {
     Name = "Authorization",
     Type = SecuritySchemeType.Http,
     Scheme = "bearer",
@@ -68,13 +75,10 @@ builder.Services.AddSwaggerGen(c => {
     In = ParameterLocation.Header,
     Description = "Wprowadź token JWT"
   });
-  c.AddSecurityRequirement(new OpenApiSecurityRequirement
-  {
+  c.AddSecurityRequirement(new OpenApiSecurityRequirement {
     {
-      new OpenApiSecurityScheme
-      {
-        Reference = new OpenApiReference
-        {
+      new OpenApiSecurityScheme {
+        Reference = new OpenApiReference {
           Type = ReferenceType.SecurityScheme,
           Id = "Bearer"
         }

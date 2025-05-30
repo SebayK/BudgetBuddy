@@ -1,114 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BudgetBuddy.Infrastructure;
-using BudgetBuddy.Models;
+﻿using BudgetBuddy.Models;
+using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace BudgetBuddy.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BudgetsController : ControllerBase
-    {
-        private readonly BudgetContext _context;
+namespace BudgetBuddy.Controllers;
 
-        public BudgetsController(BudgetContext context)
-        {
-            _context = context;
-        }
+[Route("api/[controller]")]
+[ApiController]
+public class BudgetsController : ControllerBase {
+  private readonly BudgetService _budgetService;
 
-        // GET: api/Budgets
-        [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<IEnumerable<Budget>>> GetBudget()
-        {
-            return await _context.Budget.ToListAsync();
-        }
+  public BudgetsController(BudgetService budgetService) {
+    _budgetService = budgetService;
+  }
 
-        // GET: api/Budgets/5
-        [HttpGet("{id}")]
-        [Authorize]
-        public async Task<ActionResult<Budget>> GetBudget(int id)
-        {
-            var budget = await _context.Budget.FindAsync(id);
+  // GET: api/Budget
+  [HttpGet]
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Budget>>> GetAllBudgetsAsync() {
+    var budget = await _budgetService.GetAllBudgetsAsync();
+    return Ok(budget);
+  }
 
-            if (budget == null)
-            {
-                return NotFound();
-            }
+  // GET: api/Budget/5
+  [HttpGet("{id}")]
+  [Authorize]
+  public async Task<ActionResult<Budget>> GetBudget(int id) {
+    var budget = await _budgetService.GetBudgetByIdAsync(id);
 
-            return budget;
-        }
+    if (budget == null)
+      return NotFound();
 
-        // PUT: api/Budgets/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        [Authorize]
-        public async Task<IActionResult> PutBudget(int id, Budget budget)
-        {
-            if (id != budget.Id)
-            {
-                return BadRequest();
-            }
+    return Ok(budget);
+  }
 
-            _context.Entry(budget).State = EntityState.Modified;
+  // PUT: api/Budget/5
+  [HttpPut("{id}")]
+  [Authorize]
+  public async Task<IActionResult> PutBudget(int id, Budget budget) {
+    var success = await _budgetService.UpdateBudgetAsync(id, budget);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!BudgetExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+    if (!success)
+      return NotFound();
 
-            return NoContent();
-        }
+    return NoContent();
+  }
 
-        // POST: api/Budgets
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<Budget>> PostBudget(Budget budget)
-        {
-            _context.Budget.Add(budget);
-            await _context.SaveChangesAsync();
+  // POST: api/Budget
+  [HttpPost]
+  [Authorize]
+  public async Task<ActionResult<Budget>> PostBudget(Budget budget) {
+    var createdBudget = await _budgetService.CreateBudgetAsync(budget);
+    return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
+  }
 
-            return CreatedAtAction("GetBudget", new { id = budget.Id }, budget);
-        }
+  // DELETE: api/Budget/5
+  [HttpDelete("{id}")]
+  [Authorize]
+  public async Task<IActionResult> DeleteBudget(int id) {
+    var success = await _budgetService.DeleteBudgetAsync(id);
 
-        // DELETE: api/Budgets/5
-        [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<IActionResult> DeleteBudget(int id)
-        {
-            var budget = await _context.Budget.FindAsync(id);
-            if (budget == null)
-            {
-                return NotFound();
-            }
+    if (!success)
+      return NotFound();
 
-            _context.Budget.Remove(budget);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool BudgetExists(int id)
-        {
-            return _context.Budget.Any(e => e.Id == id);
-        }
-    }
+    return NoContent();
+  }
 }

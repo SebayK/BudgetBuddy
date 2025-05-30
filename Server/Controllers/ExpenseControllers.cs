@@ -1,34 +1,68 @@
 using BudgetBuddy.Models;
-using BudgetBuddy.Infrastructure;
+using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BudgetBuddy.Controllers;
 
-[ApiController]
 [Route("api/[controller]")]
-public class ExpensesController : ControllerBase
-{
-    private readonly BudgetContext _context;
+[ApiController]
+public class ExpenseController : ControllerBase {
+  private readonly ExpenseService _expenseService;
 
-    public ExpensesController(BudgetContext context)
-    {
-        _context = context;
-    }
+  public ExpenseController(ExpenseService expenseService) {
+    _expenseService = expenseService;
+  }
 
-    [HttpGet]
-    [Authorize]
-    public ActionResult<IEnumerable<Expense>> GetExpenses()
-    {
-        return Ok(_context.Expenses.ToList());
-    }
+  // GET: api/Expense
+  [HttpGet]
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Expense>>> GetAllExpensesAsync() {
+    var expense = await _expenseService.GetAllExpensesAsync();
+    return Ok(expense);
+  }
 
-    [HttpPost]
-    [Authorize]
-    public ActionResult<Expense> AddExpense(Expense expense)
-    {
-        _context.Expenses.Add(expense);
-        _context.SaveChanges();
-        return CreatedAtAction(nameof(GetExpenses), new { id = expense.Id }, expense);
-    }
+  // GET: api/Expense/5
+  [HttpGet("{id}")]
+  [Authorize]
+  public async Task<ActionResult<Expense>> GetExpense(int id) {
+    var expense = await _expenseService.GetExpenseByIdAsync(id);
+
+    if (expense == null)
+      return NotFound();
+
+    return Ok(expense);
+  }
+
+  // PUT: api/Expense/5
+  [HttpPut("{id}")]
+  [Authorize]
+  public async Task<IActionResult> PutExpense(int id, Expense expense) {
+    var success = await _expenseService.UpdateExpenseAsync(id, expense);
+
+    if (!success)
+      return NotFound();
+
+    return NoContent();
+  }
+
+  // POST: api/Expense
+  [HttpPost]
+  [Authorize]
+  public async Task<ActionResult<Expense>> PostExpense(Expense expense) {
+    var createdExpense = await _expenseService.CreateExpenseAsync(expense);
+    return CreatedAtAction(nameof(GetExpense), new { id = createdExpense.Id }, createdExpense);
+  }
+
+  // DELETE: api/Expense/5
+  [HttpDelete("{id}")]
+  [Authorize]
+  public async Task<IActionResult> DeleteExpense(int id) {
+    var success = await _expenseService.DeleteExpenseAsync(id);
+
+    if (!success)
+      return NotFound();
+
+    return NoContent();
+  }
 }
