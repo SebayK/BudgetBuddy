@@ -26,6 +26,8 @@ builder.Services.AddScoped<GoalService>();
 builder.Services.AddScoped<IncomeService>();
 builder.Services.AddScoped<ReportService>();
 builder.Services.AddScoped<TransactionService>();
+builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<AccountTypeService>();
 
 builder.Services.AddIdentity<User, IdentityRole>()
   .AddEntityFrameworkStores<BudgetContext>()

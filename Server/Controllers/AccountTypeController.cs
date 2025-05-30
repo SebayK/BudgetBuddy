@@ -1,78 +1,68 @@
-using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class AccountTypeController : ControllerBase {
-  private readonly BudgetContext _context;
+  private readonly AccountTypeService _accountTypeService;
 
-  public AccountTypeController(BudgetContext context) {
-    _context = context;
+  public AccountTypeController(AccountTypeService accountTypeService) {
+    _accountTypeService = accountTypeService;
   }
 
   // GET: api/AccountType
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<AccountType>>> GetAccountTypes() {
-    return await _context.AccountTypes.ToListAsync();
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<AccountType>>> GetAllAccountTypesAsync() {
+    var accountType = await _accountTypeService.GetAllAccountTypesAsync();
+    return Ok(accountType);
   }
 
   // GET: api/AccountType/5
   [HttpGet("{id}")]
+  [Authorize]
   public async Task<ActionResult<AccountType>> GetAccountType(int id) {
-    var accountType = await _context.AccountTypes.FindAsync(id);
+    var accountType = await _accountTypeService.GetAccountTypeByIdAsync(id);
 
-    if (accountType == null) return NotFound();
+    if (accountType == null)
+      return NotFound();
 
-    return accountType;
+    return Ok(accountType);
   }
 
   // PUT: api/AccountType/5
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
   [HttpPut("{id}")]
+  [Authorize]
   public async Task<IActionResult> PutAccountType(int id, AccountType accountType) {
-    if (id != accountType.Id) return BadRequest();
+    var success = await _accountTypeService.UpdateAccountTypeAsync(id, accountType);
 
-    _context.Entry(accountType).State = EntityState.Modified;
-
-    try {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException) {
-      if (!AccountTypeExists(id)) return NotFound();
-
-      throw;
-    }
+    if (!success)
+      return NotFound();
 
     return NoContent();
   }
 
   // POST: api/AccountType
-  // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
   [HttpPost]
+  [Authorize]
   public async Task<ActionResult<AccountType>> PostAccountType(AccountType accountType) {
-    _context.AccountTypes.Add(accountType);
-    await _context.SaveChangesAsync();
-
-    return CreatedAtAction("GetAccountType", new { id = accountType.Id }, accountType);
+    var createdAccountType = await _accountTypeService.CreateAccountTypeAsync(accountType);
+    return CreatedAtAction(nameof(GetAccountType), new { id = createdAccountType.Id }, createdAccountType);
   }
 
   // DELETE: api/AccountType/5
   [HttpDelete("{id}")]
-  public async Task<IActionResult> DeleteAccountType(int id) {
-    var accountType = await _context.AccountTypes.FindAsync(id);
-    if (accountType == null) return NotFound();
+  [Authorize]
+  public async Task<IActionResult> DeleteAccountTypeAsync(int id) {
+    var success = await _accountTypeService.DeleteAccountTypeAsync(id);
 
-    _context.AccountTypes.Remove(accountType);
-    await _context.SaveChangesAsync();
+    if (!success)
+      return NotFound();
 
     return NoContent();
-  }
-
-  private bool AccountTypeExists(int id) {
-    return _context.AccountTypes.Any(e => e.Id == id);
   }
 }

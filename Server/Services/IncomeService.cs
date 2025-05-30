@@ -12,7 +12,7 @@ public class IncomeService {
   }
 
   public async Task<IEnumerable<Incomes>> GetAllIncomesAsync() {
-    return await _context.Incomes.ToListAsync();
+    return await _context.Incomes.AsNoTracking().ToListAsync();
   }
 
   public async Task<Incomes?> GetIncomeByIdAsync(int id) {
