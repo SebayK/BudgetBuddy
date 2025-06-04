@@ -17,6 +17,7 @@ public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDb
   public DbSet<Account> Accounts { get; set; }
   public DbSet<AccountType> AccountTypes { get; set; }
   public DbSet<Notifications> Notifications { get; set; }
+  public DbSet<ShareBudget> ShareBudget { get; set; }
 
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
     optionsBuilder
