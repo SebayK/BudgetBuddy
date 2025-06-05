@@ -1,5 +1,6 @@
 ﻿using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace BudgetBuddy.Services;
@@ -11,12 +12,25 @@ public class BudgetService {
     _context = context;
   }
 
-  public async Task<IEnumerable<Budget>> GetAllBudgetsAsync() {
-    return await _context.Budget.AsNoTracking().ToListAsync();
+  public async Task<IEnumerable<Budget>> GetAllBudgetsAsync(string userId) {
+    return await _context.Budget
+      .AsNoTracking()
+      .Where(b => b.UserBudgets.Any(ub => ub.UserId == userId))
+      .ToListAsync();
   }
 
-  public async Task<Budget?> GetBudgetByIdAsync(int id) {
-    return await _context.Budget.AsNoTracking().FirstOrDefaultAsync(b => b.Id == id);
+  public async Task<BudgetDto?> GetBudgetByIdAsync(int id, string userId) {
+    return await _context.Budget
+      .AsNoTracking()
+      .Where(b => b.UserBudgets.Any(ub => ub.UserId == userId))
+      .Select(b => new BudgetDto {
+        Id = b.Id,
+        TotalAmount = b.TotalAmount,
+        Goals = [],
+        Transactions = [],
+        UserBudgets = []
+      })
+      .FirstOrDefaultAsync(b => b.Id == id);
   }
 
   public async Task<bool> UpdateBudgetAsync(int id, Budget budget) {
@@ -39,9 +53,13 @@ public class BudgetService {
     }
   }
 
-  public async Task<Budget> CreateBudgetAsync(Budget budget) {
+  public async Task<Budget> CreateBudgetAsync(Budget budget, string userId) {
     if (budget == null)
       throw new ArgumentNullException(nameof(budget));
+    if (string.IsNullOrEmpty(userId))
+      throw new ArgumentNullException(nameof(userId));
+    budget.UserBudgets = budget.UserBudgets ?? new List<UserBudget>();
+    budget.UserBudgets.Add(new UserBudget { UserId = userId, Budget = budget, Role = "Owner" });
     _context.Budget.Add(budget);
     await _context.SaveChangesAsync();
     return budget;
