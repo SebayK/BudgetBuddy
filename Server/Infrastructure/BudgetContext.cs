@@ -117,7 +117,6 @@ public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDb
       .HasOne(ub => ub.Budget)
       .WithMany(b => b.UserBudgets)
       .HasForeignKey(ub => ub.BudgetId);
-
     // User -> Notification (One-to-Many)
     modelBuilder.Entity<Notifications>()
       .HasOne(n => n.User)
