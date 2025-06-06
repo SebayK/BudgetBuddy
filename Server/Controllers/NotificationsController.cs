@@ -50,6 +50,9 @@ public class NotificationsController : ControllerBase {
   [HttpPost]
   [Authorize]
   public async Task<ActionResult<Notifications>> PostNotifications(Notifications notifications) {
+    if (!ModelState.IsValid)
+      return BadRequest(ModelState);
+
     var createdNotifications = await _notificationsService.CreateNotificationAsync(notifications);
     return CreatedAtAction(nameof(GetNotifications), new { id = createdNotifications.Id }, createdNotifications);
   }

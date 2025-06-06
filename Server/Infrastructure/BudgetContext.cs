@@ -117,19 +117,20 @@ public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDb
       .HasOne(ub => ub.Budget)
       .WithMany(b => b.UserBudgets)
       .HasForeignKey(ub => ub.BudgetId);
-    /*modelBuilder.Entity<Notifications>(entity =>
-    {
-        entity.ToTable("Notifications");
-        entity.HasKey ("Id");
-        entity.Property("UserId").IsRequired();
-        entity.Property("Message").IsRequired();
-        entity.Property("CreatedAt").IsRequired();
-        entity.Property("IsRead").IsRequired();
-    }); */
+
     // User -> Notification (One-to-Many)
     modelBuilder.Entity<Notifications>()
       .HasOne(n => n.User)
       .WithMany(u => u.Notifications)
       .HasForeignKey(n => n.UserId);
+
+    modelBuilder.Entity<Notifications>()
+      .Property(n => n.UserId)
+      .IsRequired()
+      .HasMaxLength(450);
+    modelBuilder.Entity<Notifications>()
+      .Property(n => n.Message)
+      .IsRequired()
+      .HasMaxLength(256);
   }
 }

@@ -242,13 +242,15 @@ namespace BudgetBuddy.Migrations
 
                     b.Property<string>("Message")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<DateTime?>("RemindAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")
                         .IsRequired()
+                        .HasMaxLength(450)
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");

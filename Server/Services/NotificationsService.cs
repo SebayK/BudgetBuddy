@@ -12,6 +12,13 @@ public class NotificationsService {
   }
 
   public async Task<IEnumerable<Notifications>> GetAllNotificationsAsync() {
+    /*
+     * TODO  - after handling user authentication, filter notifications by userId
+     * return await _context.Notifications
+      .AsNoTracking()
+      .Where(n => n.UserId == userId)
+      .ToListAsync();
+     */
     return await _context.Notifications.AsNoTracking().ToListAsync();
   }
 
