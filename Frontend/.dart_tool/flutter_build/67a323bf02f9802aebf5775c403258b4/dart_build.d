@@ -1,0 +1,1 @@
+ /Users/jakubkowalczyk/Projects/BudgetBuddy-main-2/Server/Frontend/.dart_tool/flutter_build/67a323bf02f9802aebf5775c403258b4/dart_build_result.json: 
