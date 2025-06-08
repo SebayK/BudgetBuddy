@@ -42,7 +42,7 @@ public class BudgetsController : ControllerBase {
   [HttpPut("{id}")]
   [Authorize]
   public async Task<IActionResult> PutBudget(int id, Budget budget) {
-    var success = await _budgetService.UpdateBudgetAsync(id, budget);
+    var success = await _budgetService.UpdateBudgetAsync(id, budget, UserId);
 
     if (!success)
       return NotFound();
@@ -54,8 +54,7 @@ public class BudgetsController : ControllerBase {
   [HttpPost]
   [Authorize]
   public async Task<ActionResult<Budget>> PostBudget(Budget budget) {
-    var userId = UserId;
-    var createdBudget = await _budgetService.CreateBudgetAsync(budget, userId);
+    var createdBudget = await _budgetService.CreateBudgetAsync(budget, UserId);
     return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
   }
 
@@ -63,7 +62,7 @@ public class BudgetsController : ControllerBase {
   [HttpDelete("{id}")]
   [Authorize]
   public async Task<IActionResult> DeleteBudget(int id) {
-    var success = await _budgetService.DeleteBudgetAsync(id);
+    var success = await _budgetService.DeleteBudgetAsync(id, UserId);
 
     if (!success)
       return NotFound();
