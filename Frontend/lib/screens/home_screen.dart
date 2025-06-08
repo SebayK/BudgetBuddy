@@ -30,7 +30,6 @@ class OverviewScreen extends StatelessWidget {
               children: [
                 Text('Przegląd', style: textStyleHeader),
                 const SizedBox(height: 20),
-
                 // Duża karta saldo kont
                 Card(
                   shape: RoundedRectangleBorder(
@@ -45,7 +44,8 @@ class OverviewScreen extends StatelessWidget {
                         Text('Salda kont (2025)', style: textStyleSectionTitle),
                         const SizedBox(height: 16),
                         ...accounts.map((acc) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 6),
+                          padding:
+                          const EdgeInsets.symmetric(vertical: 6),
                           child: Row(
                             mainAxisAlignment:
                             MainAxisAlignment.spaceBetween,
@@ -65,9 +65,7 @@ class OverviewScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 24),
-
                 // Planowane i Oczekujące w kolumnie
                 Column(
                   children: [
@@ -82,7 +80,8 @@ class OverviewScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Planowane', style: textStyleSectionTitle),
+                              Text('Planowane',
+                                  style: textStyleSectionTitle),
                               const Spacer(),
                               Center(
                                 child: Text(
@@ -90,7 +89,8 @@ class OverviewScreen extends StatelessWidget {
                                       ? 'Brak planowanych transakcji'
                                       : '',
                                   style: theme.textTheme.bodyMedium
-                                      ?.copyWith(fontStyle: FontStyle.italic),
+                                      ?.copyWith(
+                                      fontStyle: FontStyle.italic),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -112,7 +112,8 @@ class OverviewScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Oczekujące', style: textStyleSectionTitle),
+                              Text('Oczekujące',
+                                  style: textStyleSectionTitle),
                               const Spacer(),
                               Center(
                                 child: Text(
@@ -120,7 +121,8 @@ class OverviewScreen extends StatelessWidget {
                                       ? 'Brak oczekujących transakcji'
                                       : '',
                                   style: theme.textTheme.bodyMedium
-                                      ?.copyWith(fontStyle: FontStyle.italic),
+                                      ?.copyWith(
+                                      fontStyle: FontStyle.italic),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -132,7 +134,6 @@ class OverviewScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 50),
               ],
             ),
@@ -143,40 +144,245 @@ class OverviewScreen extends StatelessWidget {
   }
 }
 
-// Ekran Transakcje (dochody + wydatki razem)
+// Rozbudowany Ekran Transakcje
 class TransactionsScreen extends StatelessWidget {
-  const TransactionsScreen({Key? key}) : super(key: key);
+  final List<Map<String, dynamic>> incomes;
+  final List<Map<String, dynamic>> expenses;
+  final bool isEmpty;
+
+  TransactionsScreen({
+    Key? key,
+    this.incomes = const [],
+    this.expenses = const [],
+  })  : isEmpty = incomes.isEmpty && expenses.isEmpty,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final transactions = [
-      {'type': 'Wydatek', 'name': 'Zakupy spożywcze', 'amount': 120},
-      {'type': 'Wydatek', 'name': 'Kawa', 'amount': 15},
-      {'type': 'Przychód', 'name': 'Wynagrodzenie', 'amount': 3500},
-    ];
-
     final theme = Theme.of(context);
 
-    return ListView(
-      children: transactions
-          .map((tx) => ListTile(
-        leading: Icon(
-            tx['type'].toString() == 'Wydatek'
-                ? Icons.remove_circle
-                : Icons.add_circle,
-            color: tx['type'].toString() == 'Wydatek'
-                ? Colors.red
-                : Colors.green),
-        title: Text(
-          tx['name'].toString(),
-          style: theme.textTheme.bodyLarge,
+    return Scaffold(
+      backgroundColor: theme.colorScheme.background,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Nagłówek
+              Text(
+                'Transakcje',
+                style: theme.textTheme.headlineLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.amber[800],
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Podział na Dochody i Wydatki
+              Row(
+                children: [
+                  Expanded(
+                    child: Card(
+                      color: Colors.green[100],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            Icon(Icons.arrow_downward, color: Colors.green),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Dochody',
+                              style: theme.textTheme.titleMedium,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              incomes.isNotEmpty
+                                  ? '${incomes.fold(0, (sum, i) => sum + (i['amount'] as int))} zł'
+                                  : '0 zł',
+                              style: theme.textTheme.headlineSmall,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Card(
+                      color: Colors.red[100],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Column(
+                          children: [
+                            Icon(Icons.arrow_upward, color: Colors.red),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Wydatki',
+                              style: theme.textTheme.titleMedium,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              expenses.isNotEmpty
+                                  ? '${expenses.fold(0, (sum, i) => sum + (i['amount'] as int))} zł'
+                                  : '0 zł',
+                              style: theme.textTheme.headlineSmall,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+
+              // Analiza i Planowane
+              Row(
+                children: [
+                  Expanded(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                      color: theme.colorScheme.surfaceVariant,
+                      child: SizedBox(
+                        height: 90,
+                        child: Center(
+                          child: Text(
+                            'Analiza\n(wkrótce)',
+                            style: theme.textTheme.bodyMedium,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16)),
+                      color: theme.colorScheme.surfaceVariant,
+                      child: SizedBox(
+                        height: 90,
+                        child: Center(
+                          child: Text(
+                            'Planowane\n(wkrótce)',
+                            style: theme.textTheme.bodyMedium,
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 32),
+
+              // Lista transakcji lub pusty stan
+              Expanded(
+                child: isEmpty
+                    ? Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.info_outline,
+                          size: 48, color: Colors.grey),
+                      const SizedBox(height: 12),
+                      Text(
+                        'Nie znaleziono transakcji',
+                        style: theme.textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Kliknij przycisk "+", aby dodać nową transakcję',
+                        style: theme.textTheme.bodyMedium,
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          // Dodaj nawigację do dodawania transakcji
+                        },
+                        icon: const Icon(Icons.add),
+                        label: const Text('Nowa transakcja'),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.amber,
+                          foregroundColor: Colors.black,
+                          textStyle: const TextStyle(fontSize: 18),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24, vertical: 12),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12)),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+                    : ListView(
+                  children: [
+                    if (incomes.isNotEmpty) ...[
+                      Padding(
+                        padding:
+                        const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(
+                          'Dochody',
+                          style: theme.textTheme.titleMedium
+                              ?.copyWith(color: Colors.green[700]),
+                        ),
+                      ),
+                      ...incomes.map(
+                            (income) => ListTile(
+                          leading: const Icon(Icons.add_circle,
+                              color: Colors.green),
+                          title: Text(income['name']),
+                          trailing:
+                          Text('${income['amount']} zł'),
+                        ),
+                      ),
+                    ],
+                    if (expenses.isNotEmpty) ...[
+                      Padding(
+                        padding:
+                        const EdgeInsets.symmetric(vertical: 8),
+                        child: Text(
+                          'Wydatki',
+                          style: theme.textTheme.titleMedium
+                              ?.copyWith(color: Colors.red[700]),
+                        ),
+                      ),
+                      ...expenses.map(
+                            (expense) => ListTile(
+                          leading: const Icon(Icons.remove_circle,
+                              color: Colors.red),
+                          title: Text(expense['name']),
+                          trailing:
+                          Text('${expense['amount']} zł'),
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-        trailing: Text(
-          '${tx['amount']} zł',
-          style: theme.textTheme.bodyLarge,
-        ),
-      ))
-          .toList(),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          // Dodaj przejście do ekranu dodawania transakcji
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Nowa transakcja'),
+        backgroundColor: Colors.amber,
+        foregroundColor: Colors.black,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
@@ -247,12 +453,32 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
-  late final List<Widget> _pages = const [
-    OverviewScreen(),
-    TransactionsScreen(),
-    BudgetsScreen(),
-    OtherScreen(),
+  // Przykładowe dane (możesz później podmienić na rzeczywiste)
+  final List<Map<String, dynamic>> incomes = [
+    {'name': 'Wynagrodzenie', 'amount': 3500},
+    {'name': 'Zwrot podatku', 'amount': 700},
   ];
+  final List<Map<String, dynamic>> expenses = [
+    {'name': 'Zakupy spożywcze', 'amount': 250},
+    {'name': 'Paliwo', 'amount': 150},
+    {'name': 'Internet', 'amount': 90},
+  ];
+
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      const OverviewScreen(),
+      TransactionsScreen(
+        incomes: incomes,
+        expenses: expenses,
+      ),
+      const BudgetsScreen(),
+      const OtherScreen(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -260,7 +486,8 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  IconData get themeIcon => widget.isDarkMode ? Icons.dark_mode : Icons.light_mode;
+  IconData get themeIcon =>
+      widget.isDarkMode ? Icons.dark_mode : Icons.light_mode;
 
   @override
   Widget build(BuildContext context) {
@@ -286,10 +513,14 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: 'Przegląd'),
-          BottomNavigationBarItem(icon: Icon(Icons.swap_horiz), label: 'Transakcje'),
-          BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet), label: 'Budżety'),
-          BottomNavigationBarItem(icon: Icon(Icons.more_horiz), label: 'Inne'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.dashboard), label: 'Przegląd'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.swap_horiz), label: 'Transakcje'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_balance_wallet), label: 'Budżety'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.more_horiz), label: 'Inne'),
         ],
       ),
     );
