@@ -1,114 +1,68 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
+using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
-namespace BudgetBuddy.Controllers
-{
-    [Route("api/[controller]")]
-    [ApiController]
-    public class AccountsController : ControllerBase
-    {
-        private readonly BudgetContext _context;
+namespace BudgetBuddy.Controllers;
 
-        public AccountsController(BudgetContext context)
-        {
-            _context = context;
-        }
+[Route("api/[controller]")]
+[ApiController]
+public class AccountController : ControllerBase {
+  private readonly AccountService _accountService;
 
-        // GET: api/Accounts
-        [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
-        {
-            return await _context.Accounts.ToListAsync();
-        }
+  public AccountController(AccountService accountService) {
+    _accountService = accountService;
+  }
 
-        // GET: api/Accounts/5
-        [HttpGet("{id}")]
-        [Authorize]
-        public async Task<ActionResult<Account>> GetAccount(int id)
-        {
-            var account = await _context.Accounts.FindAsync(id);
+  // GET: api/Account
+  [HttpGet]
+  [Authorize]
+  public async Task<ActionResult<IEnumerable<Account>>> GetAllAccountsAsync() {
+    var account = await _accountService.GetAllAccountsAsync();
+    return Ok(account);
+  }
 
-            if (account == null)
-            {
-                return NotFound();
-            }
+  // GET: api/Account/5
+  [HttpGet("{id}")]
+  [Authorize]
+  public async Task<ActionResult<Account>> GetAccount(int id) {
+    var account = await _accountService.GetAccountByIdAsync(id);
 
-            return account;
-        }
+    if (account == null)
+      return NotFound();
 
-        // PUT: api/Accounts/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        [Authorize]
-        public async Task<IActionResult> PutAccount(int id, Account account)
-        {
-            if (id != account.Id)
-            {
-                return BadRequest();
-            }
+    return Ok(account);
+  }
 
-            _context.Entry(account).State = EntityState.Modified;
+  // PUT: api/Account/5
+  [HttpPut("{id}")]
+  [Authorize]
+  public async Task<IActionResult> PutAccount(int id, Account account) {
+    var success = await _accountService.UpdateAccountAsync(id, account);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AccountExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+    if (!success)
+      return NotFound();
 
-            return NoContent();
-        }
+    return NoContent();
+  }
 
-        // POST: api/Accounts
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        [Authorize]
-        public async Task<ActionResult<Account>> PostAccount(Account account)
-        {
-            _context.Accounts.Add(account);
-            await _context.SaveChangesAsync();
+  // POST: api/Account
+  [HttpPost]
+  [Authorize]
+  public async Task<ActionResult<Account>> PostAccount(Account account) {
+    var createdAccount = await _accountService.CreateAccountAsync(account);
+    return CreatedAtAction(nameof(GetAccount), new { id = createdAccount.Id }, createdAccount);
+  }
 
-            return CreatedAtAction("GetAccount", new { id = account.Id }, account);
-        }
+  // DELETE: api/Account/5
+  [HttpDelete("{id}")]
+  [Authorize]
+  public async Task<IActionResult> DeleteAccount(int id) {
+    var success = await _accountService.DeleteAccountAsync(id);
 
-        // DELETE: api/Accounts/5
-        [HttpDelete("{id}")]
-        [Authorize]
-        public async Task<IActionResult> DeleteAccount(int id)
-        {
-            var account = await _context.Accounts.FindAsync(id);
-            if (account == null)
-            {
-                return NotFound();
-            }
+    if (!success)
+      return NotFound();
 
-            _context.Accounts.Remove(account);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool AccountExists(int id)
-        {
-            return _context.Accounts.Any(e => e.Id == id);
-        }
-    }
+    return NoContent();
+  }
 }

@@ -4,6 +4,7 @@ using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetBuddy.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    partial class BudgetContextModelSnapshot : ModelSnapshot
+    [Migration("20250606182849_Notification")]
+    partial class Notification
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,7 +174,7 @@ namespace BudgetBuddy.Migrations
                     b.ToTable("Goal");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -432,7 +435,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("BudgetId");
 
-                    b.ToTable("UserBudgets");
+                    b.ToTable("UserBudget");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -625,7 +628,7 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
                 {
                     b.HasOne("BudgetBuddy.Models.Category", "Category")
                         .WithMany("Incomes")
