@@ -1,4 +1,5 @@
 ﻿using BudgetBuddy.Models;
+using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,62 +8,78 @@ namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class BudgetsController : ControllerBase {
-  private readonly BudgetService _budgetService;
+public class BudgetsController : ControllerBase
+{
+    private readonly BudgetService _budgetService;
 
-  public BudgetsController(BudgetService budgetService) {
-    _budgetService = budgetService;
-  }
+    public BudgetsController(BudgetService budgetService)
+    {
+        _budgetService = budgetService;
+    }
 
-  // GET: api/Budget
-  [HttpGet]
-  [Authorize]
-  public async Task<ActionResult<IEnumerable<Budget>>> GetAllBudgetsAsync() {
-    var budget = await _budgetService.GetAllBudgetsAsync();
-    return Ok(budget);
-  }
+    [HttpGet]
+    [Authorize]
+    public async Task<ActionResult<IEnumerable<Budget>>> GetAllBudgetsAsync()
+    {
+        var budgets = await _budgetService.GetAllBudgetsAsync();
+        return Ok(budgets);
+    }
 
-  // GET: api/Budget/5
-  [HttpGet("{id}")]
-  [Authorize]
-  public async Task<ActionResult<Budget>> GetBudget(int id) {
-    var budget = await _budgetService.GetBudgetByIdAsync(id);
+    [HttpGet("{id}")]
+    [Authorize]
+    public async Task<ActionResult<Budget>> GetBudget(int id)
+    {
+        var budget = await _budgetService.GetBudgetByIdAsync(id);
 
-    if (budget == null)
-      return NotFound();
+        if (budget == null)
+            return NotFound();
 
-    return Ok(budget);
-  }
+        return Ok(budget);
+    }
 
-  // PUT: api/Budget/5
-  [HttpPut("{id}")]
-  [Authorize]
-  public async Task<IActionResult> PutBudget(int id, Budget budget) {
-    var success = await _budgetService.UpdateBudgetAsync(id, budget);
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<IActionResult> PutBudget(int id, Budget budget)
+    {
+        var success = await _budgetService.UpdateBudgetAsync(id, budget);
 
-    if (!success)
-      return NotFound();
+        if (!success)
+            return NotFound();
 
-    return NoContent();
-  }
+        return NoContent();
+    }
 
-  // POST: api/Budget
-  [HttpPost]
-  [Authorize]
-  public async Task<ActionResult<Budget>> PostBudget(Budget budget) {
-    var createdBudget = await _budgetService.CreateBudgetAsync(budget);
-    return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
-  }
+    [HttpPost]
+    [Authorize]
+    public async Task<ActionResult<Budget>> PostBudget([FromBody] CreateBudgetDto dto)
+    {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
-  // DELETE: api/Budget/5
-  [HttpDelete("{id}")]
-  [Authorize]
-  public async Task<IActionResult> DeleteBudget(int id) {
-    var success = await _budgetService.DeleteBudgetAsync(id);
+        var newBudget = new Budget
+        {
+            TotalAmount = dto.TotalAmount,
+            UserBudgets = dto.Users.Select(u => new UserBudget
+            {
+                UserId = u.UserId,
+                Role = string.IsNullOrWhiteSpace(u.Role) ? "Owner" : u.Role
+            }).ToList()
+        };
 
-    if (!success)
-      return NotFound();
+        var createdBudget = await _budgetService.CreateBudgetAsync(newBudget);
 
-    return NoContent();
-  }
+        return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
+    }
+
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<IActionResult> DeleteBudget(int id)
+    {
+        var success = await _budgetService.DeleteBudgetAsync(id);
+
+        if (!success)
+            return NotFound();
+
+        return NoContent();
+    }
 }

@@ -1,6 +1,6 @@
 namespace BudgetBuddy.Models.DTO
 {
-    public class IncomeDto
+    public class IncomesDto
     {
         public int Id { get; set; }
         public string Source { get; set; }

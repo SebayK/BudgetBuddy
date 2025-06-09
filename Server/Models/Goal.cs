@@ -3,13 +3,19 @@
 public class Goal
 {
     public int Id { get; set; }
-    public required string Name { get; set; }
 
-    public decimal TargetAmount { get; set; } // zmienione z float na decimal, nie działa z SQL server
+    public string Name { get; set; } = string.Empty;
+
+    public decimal TargetAmount { get; set; }  // decimal OK dla SQL Server
+
+    public DateTime TargetDate { get; set; }   // dodaj, jeśli używasz go w kontrolerze
 
     public int BudgetId { get; set; }
-    public required Budget Budget { get; set; }
 
-    public string UserId { get; set; }
-    public required User User { get; set; }
+    public string UserId { get; set; } = string.Empty;
+
+    // Poprawione: NIE wymagane (bez `required`)
+    public Budget? Budget { get; set; }
+
+    public User? User { get; set; }
 }
