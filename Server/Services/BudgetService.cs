@@ -14,7 +14,7 @@ public class BudgetService {
   }
 
   public async Task<IEnumerable<BudgetDto>> GetAllBudgetsAsync(string userId) {
-    var budgets =  await _context.Budget
+    var budgets = await _context.Budget
       .AsNoTracking()
       .Where(b => b.UserBudgets.Any(ub => ub.UserId == userId))
       .ToListAsync();
@@ -27,7 +27,7 @@ public class BudgetService {
       .AsNoTracking()
       .Where(b => b.UserBudgets.Any(ub => ub.UserId == userId))
       .FirstOrDefaultAsync(b => b.Id == id);
-    
+
     return budget == null ? null : MapToBudgetDto(budget);
   }
 
@@ -60,13 +60,15 @@ public class BudgetService {
       throw new ArgumentNullException(nameof(budget));
     if (string.IsNullOrEmpty(userId))
       throw new ArgumentNullException(nameof(userId));
-    if (!budget.UserBudgets.Any()) {
+    if (budget.UserBudgets.All(ub => ub.Role != UserBudgetRole.Owner)) {
       budget.UserBudgets = new List<UserBudget>();
       budget.UserBudgets.Add(new UserBudget { UserId = userId, Budget = budget, Role = UserBudgetRole.Owner });
     }
-    if (budget.UserBudgets.Any(ub => ub.Role == UserBudgetRole.Owner))
+
+    if (budget.UserBudgets.Count(ub => ub.Role == UserBudgetRole.Owner) > 1)
       throw new InvalidOperationException("Budżet może mieć tylko jednego ownera. Dodaj użytkownika z inną rolą.");
-    
+
+
     _context.Budget.Add(budget);
     await _context.SaveChangesAsync();
     return budget;
@@ -87,7 +89,7 @@ public class BudgetService {
   private async Task<bool> BudgetExistsAsync(int id) {
     return await _context.Budget.AnyAsync(b => b.Id == id);
   }
-  
+
   private static BudgetDto MapToBudgetDto(Budget b) {
     return new BudgetDto {
       Id = b.Id,
