@@ -9,16 +9,20 @@ namespace BudgetBuddy.Controllers;
 [ApiController]
 public class BudgetsController : ControllerBase {
   private readonly BudgetService _budgetService;
+  private readonly IHttpContextAccessor _httpContextAccessor;
+  
+  private string? UserId => _httpContextAccessor.HttpContext?.Items["UserId"] as string;
 
-  public BudgetsController(BudgetService budgetService) {
+  public BudgetsController (BudgetService budgetService, IHttpContextAccessor httpContextAccessor) {
     _budgetService = budgetService;
+    _httpContextAccessor = httpContextAccessor;
   }
 
   // GET: api/Budget
   [HttpGet]
   [Authorize]
   public async Task<ActionResult<IEnumerable<Budget>>> GetAllBudgetsAsync() {
-    var budget = await _budgetService.GetAllBudgetsAsync();
+    var budget = await _budgetService.GetAllBudgetsAsync(UserId);
     return Ok(budget);
   }
 
@@ -26,7 +30,7 @@ public class BudgetsController : ControllerBase {
   [HttpGet("{id}")]
   [Authorize]
   public async Task<ActionResult<Budget>> GetBudget(int id) {
-    var budget = await _budgetService.GetBudgetByIdAsync(id);
+    var budget = await _budgetService.GetBudgetByIdAsync(id, UserId);
 
     if (budget == null)
       return NotFound();
@@ -38,7 +42,7 @@ public class BudgetsController : ControllerBase {
   [HttpPut("{id}")]
   [Authorize]
   public async Task<IActionResult> PutBudget(int id, Budget budget) {
-    var success = await _budgetService.UpdateBudgetAsync(id, budget);
+    var success = await _budgetService.UpdateBudgetAsync(id, budget, UserId);
 
     if (!success)
       return NotFound();
@@ -50,7 +54,7 @@ public class BudgetsController : ControllerBase {
   [HttpPost]
   [Authorize]
   public async Task<ActionResult<Budget>> PostBudget(Budget budget) {
-    var createdBudget = await _budgetService.CreateBudgetAsync(budget);
+    var createdBudget = await _budgetService.CreateBudgetAsync(budget, UserId);
     return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
   }
 
@@ -58,7 +62,7 @@ public class BudgetsController : ControllerBase {
   [HttpDelete("{id}")]
   [Authorize]
   public async Task<IActionResult> DeleteBudget(int id) {
-    var success = await _budgetService.DeleteBudgetAsync(id);
+    var success = await _budgetService.DeleteBudgetAsync(id, UserId);
 
     if (!success)
       return NotFound();
