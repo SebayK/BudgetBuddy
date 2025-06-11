@@ -2,6 +2,7 @@
 using BudgetBuddy.Infrastructure;
 using BudgetBuddy.Models;
 using BudgetBuddy.Services;
+using BudgetBuddy.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
@@ -16,7 +17,12 @@ builder.Services.AddDbContext<BudgetContext>(options =>
   options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddTransient<IAuthorizationService, AuthorizationService>();
 
-builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddControllers()
+  .AddJsonOptions(options => {
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+  });
+
 builder.Services.AddScoped<InvoiceService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<BudgetService>();
@@ -103,6 +109,7 @@ app.Map("/error", (HttpContext context) => {
   return Results.Problem(exception?.Message);
 });
 
+app.UseMiddleware<UserMiddleware>();
 app.UseAuthorization();
 app.MapControllers();
 

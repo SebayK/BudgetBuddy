@@ -575,8 +575,8 @@ namespace BudgetBuddy.Migrations
             migrationBuilder.DropTable(
                 name: "Transaction");
 
-            migrationBuilder.DropTable(
-                name: "UserBudget");
+          //  migrationBuilder.DropTable(
+          //      name: "UserBudget");
 
             migrationBuilder.DropTable(
                 name: "AccountTypes");

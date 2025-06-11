@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 
+using BudgetBuddy.Enums;
+
 namespace BudgetBuddy.Models
 {
     public class UserBudget
@@ -14,6 +16,6 @@ namespace BudgetBuddy.Models
         [JsonIgnore] 
         public Budget Budget { get; set; }
 
-        public string Role { get; set; } // Np. "Owner", "Editor", "Viewer"
+        public UserBudgetRole Role { get; set; } // Np. "Owner", "Editor", "Viewer"
     }
 }

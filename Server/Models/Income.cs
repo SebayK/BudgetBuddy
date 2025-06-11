@@ -1,6 +1,6 @@
 namespace BudgetBuddy.Models;
 
-public class Incomes
+public class Income
 {
     public int Id { get; set; }
 

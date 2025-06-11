@@ -13,37 +13,40 @@ namespace BudgetBuddy.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Incomes>> GetAllIncomesAsync()
+        public async Task<IEnumerable<Income>> GetAllIncomesAsync()
         {
             return await _context.Incomes
                                  .AsNoTracking()
                                  .ToListAsync();
         }
 
-        public async Task<Incomes?> GetIncomeByIdAsync(int id)
+        public async Task<Income?> GetIncomeByIdAsync(int id)
         {
+            // Można łatwo podmienić na wersję z DTO: return _mapper.Map<IncomeDTO>(await ...)
             return await _context.Incomes
                                  .AsNoTracking()
                                  .FirstOrDefaultAsync(i => i.Id == id);
+
+            // Wersja alternatywna z drugiego brancha:
+            // return await _context.Incomes.FindAsync(id);
         }
 
-        public async Task<Incomes> CreateIncomeAsync(Incomes income)
+        public async Task<Income> CreateIncomeAsync(Income income)
         {
             _context.Incomes.Add(income);
             await _context.SaveChangesAsync();
             return income;
         }
 
-        public async Task<bool> UpdateIncomeAsync(int id, Incomes updatedIncome)
+        public async Task<bool> UpdateIncomeAsync(int id, Income updatedIncome)
         {
             if (id != updatedIncome.Id)
                 return false;
 
-            
             var existing = await _context.Incomes.FindAsync(id);
             if (existing == null)
                 return false;
-            
+
             existing.Name = updatedIncome.Name;
             existing.Source = updatedIncome.Source;
             existing.Amount = updatedIncome.Amount;
@@ -51,7 +54,18 @@ namespace BudgetBuddy.Services
             existing.UserId = updatedIncome.UserId;
             existing.CategoryId = updatedIncome.CategoryId;
 
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await IncomeExistsAsync(id))
+                    return false;
+
+                throw;
+            }
+
             return true;
         }
 

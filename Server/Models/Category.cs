@@ -13,5 +13,5 @@ public class Category
     public string UserId { get; set; } = string.Empty;
 
     public List<Expense> Expenses { get; set; } = new();
-    public List<Incomes> Incomes { get; set; } = new();
+    public List<Income> Incomes { get; set; } = new();
 }

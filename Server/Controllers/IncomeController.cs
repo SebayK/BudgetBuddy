@@ -20,7 +20,7 @@ public class IncomeController : ControllerBase
     // GET: api/Income
     [HttpGet]
     [Authorize]
-    public async Task<ActionResult<IEnumerable<Incomes>>> GetAllIncomesAsync()
+    public async Task<ActionResult<IEnumerable<Income>>> GetAllIncomesAsync()
     {
         var incomes = await _incomeService.GetAllIncomesAsync();
         return Ok(incomes);
@@ -29,7 +29,7 @@ public class IncomeController : ControllerBase
     // GET: api/Income/5
     [HttpGet("{id}")]
     [Authorize]
-    public async Task<ActionResult<Incomes>> GetIncome(int id)
+    public async Task<ActionResult<Income>> GetIncome(int id)
     {
         var income = await _incomeService.GetIncomeByIdAsync(id);
 
@@ -42,7 +42,7 @@ public class IncomeController : ControllerBase
     // PUT: api/Income/5
     [HttpPut("{id}")]
     [Authorize]
-    public async Task<IActionResult> PutIncome(int id, Incomes income)
+    public async Task<IActionResult> PutIncome(int id, Income income)
     {
         var success = await _incomeService.UpdateIncomeAsync(id, income);
 
@@ -55,12 +55,12 @@ public class IncomeController : ControllerBase
     // POST: api/Income
     [HttpPost]
     [Authorize]
-    public async Task<ActionResult<Incomes>> PostIncome([FromBody] CreateIncomeDto dto)
+    public async Task<ActionResult<Income>> PostIncome([FromBody] CreateIncomeDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
-        var newIncome = new Incomes
+        var newIncome = new Income
         {
             Name = dto.Name,
             Source = dto.Source,
@@ -74,6 +74,10 @@ public class IncomeController : ControllerBase
         var createdIncome = await _incomeService.CreateIncomeAsync(newIncome);
 
         return CreatedAtAction(nameof(GetIncome), new { id = createdIncome.Id }, createdIncome);
+
+        // Alternatywa z main:
+        // var createdIncome = await _incomeService.CreateIncomeAsync(income);
+        // return CreatedAtAction(nameof(GetIncome), new { id = createdIncome.Id }, createdIncome);
     }
 
     // DELETE: api/Income/5
