@@ -17,7 +17,7 @@ public class IncomeController : ControllerBase {
   // GET: api/Income
   [HttpGet]
   [Authorize]
-  public async Task<ActionResult<IEnumerable<Incomes>>> GetAllIncomesAsync() {
+  public async Task<ActionResult<IEnumerable<Income>>> GetAllIncomesAsync() {
     var income = await _incomeService.GetAllIncomesAsync();
     return Ok(income);
   }
@@ -25,7 +25,7 @@ public class IncomeController : ControllerBase {
   // GET: api/Income/5
   [HttpGet("{id}")]
   [Authorize]
-  public async Task<ActionResult<Incomes>> GetIncome(int id) {
+  public async Task<ActionResult<Income>> GetIncome(int id) {
     var income = await _incomeService.GetIncomeByIdAsync(id);
 
     if (income == null)
@@ -37,7 +37,7 @@ public class IncomeController : ControllerBase {
   // PUT: api/Income/5
   [HttpPut("{id}")]
   [Authorize]
-  public async Task<IActionResult> PutIncome(int id, Incomes income) {
+  public async Task<IActionResult> PutIncome(int id, Income income) {
     var success = await _incomeService.UpdateIncomeAsync(id, income);
 
     if (!success)
@@ -49,7 +49,7 @@ public class IncomeController : ControllerBase {
   // POST: api/Income
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Incomes>> PostIncome(Incomes income) {
+  public async Task<ActionResult<Income>> PostIncome(Income income) {
     var createdIncome = await _incomeService.CreateIncomeAsync(income);
     return CreatedAtAction(nameof(GetIncome), new { id = createdIncome.Id }, createdIncome);
   }

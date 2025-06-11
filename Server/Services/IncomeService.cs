@@ -11,15 +11,15 @@ public class IncomeService {
     _context = context;
   }
 
-  public async Task<IEnumerable<Incomes>> GetAllIncomesAsync() {
+  public async Task<IEnumerable<Income>> GetAllIncomesAsync() {
     return await _context.Incomes.AsNoTracking().ToListAsync();
   }
 
-  public async Task<Incomes?> GetIncomeByIdAsync(int id) {
+  public async Task<Income?> GetIncomeByIdAsync(int id) {
     return await _context.Incomes.FindAsync(id);
   }
 
-  public async Task<bool> UpdateIncomeAsync(int id, Incomes income) {
+  public async Task<bool> UpdateIncomeAsync(int id, Income income) {
     if (id != income.Id) return false;
 
     _context.Entry(income).State = EntityState.Modified;
@@ -34,7 +34,7 @@ public class IncomeService {
     }
   }
 
-  public async Task<Incomes> CreateIncomeAsync(Incomes income) {
+  public async Task<Income> CreateIncomeAsync(Income income) {
     _context.Incomes.Add(income);
     await _context.SaveChangesAsync();
     return income;

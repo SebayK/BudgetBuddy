@@ -6,7 +6,7 @@ namespace BudgetBuddy.Infrastructure;
 
 public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDbContext<User>(options) {
   public DbSet<Expense> Expenses { get; set; }
-  public DbSet<Incomes> Incomes { get; set; }
+  public DbSet<Income> Incomes { get; set; }
   public DbSet<Budget> Budget { get; set; }
   public DbSet<Category> Category { get; set; }
   public DbSet<Goal> Goal { get; set; }
@@ -90,7 +90,7 @@ public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDb
       .HasOne(i => i.Expense)
       .WithOne(e => e.Invoice)
       .HasForeignKey<Invoice>(i => i.ExpenseId);
-    modelBuilder.Entity<Incomes>(entity => {
+    modelBuilder.Entity<Income>(entity => {
       entity.Property(i => i.Amount)
         .HasPrecision(18, 2);
     });

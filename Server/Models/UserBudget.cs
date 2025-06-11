@@ -1,4 +1,6 @@
 
+using BudgetBuddy.Enums;
+
 namespace BudgetBuddy.Models
 {
     public class UserBudget
@@ -9,6 +11,6 @@ namespace BudgetBuddy.Models
         public int BudgetId { get; set; }
         public Budget Budget { get; set; }
 
-        public string Role { get; set; } // Np. "Owner", "Editor", "Viewer"
+        public UserBudgetRole Role { get; set; } // Np. "Owner", "Editor", "Viewer"
     }
 }

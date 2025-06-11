@@ -4,6 +4,7 @@ using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetBuddy.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    partial class BudgetContextModelSnapshot : ModelSnapshot
+    [Migration("20250608124029_UpdateBudgetModel")]
+    partial class UpdateBudgetModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +53,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Accounts", (string)null);
+                    b.ToTable("Accounts");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.AccountType", b =>
@@ -67,7 +70,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountTypes", (string)null);
+                    b.ToTable("AccountTypes");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Budget", b =>
@@ -84,7 +87,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Budget", (string)null);
+                    b.ToTable("Budget");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Category", b =>
@@ -101,7 +104,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Expense", b =>
@@ -136,7 +139,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Expenses", (string)null);
+                    b.ToTable("Expenses");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Goal", b =>
@@ -168,7 +171,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Goal", (string)null);
+                    b.ToTable("Goal");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
@@ -197,7 +200,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Incomes", (string)null);
+                    b.ToTable("Incomes");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Invoice", b =>
@@ -223,41 +226,7 @@ namespace BudgetBuddy.Migrations
                     b.HasIndex("ExpenseId")
                         .IsUnique();
 
-                    b.ToTable("Invoice", (string)null);
-                });
-
-            modelBuilder.Entity("BudgetBuddy.Models.Notifications", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsRead")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Message")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<DateTime?>("RemindAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasMaxLength(450)
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Notifications");
+                    b.ToTable("Invoice");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Report", b =>
@@ -281,7 +250,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Report", (string)null);
+                    b.ToTable("Report");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Transaction", b =>
@@ -334,7 +303,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Transaction", (string)null);
+                    b.ToTable("Transaction");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.User", b =>
@@ -431,7 +400,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("BudgetId");
 
-                    b.ToTable("UserBudget", (string)null);
+                    b.ToTable("UserBudget");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -646,17 +615,6 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("Expense");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Notifications", b =>
-                {
-                    b.HasOne("BudgetBuddy.Models.User", "User")
-                        .WithMany("Notifications")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("BudgetBuddy.Models.Transaction", b =>
                 {
                     b.HasOne("BudgetBuddy.Models.Budget", "Budget")
@@ -788,8 +746,6 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("Expenses");
 
                     b.Navigation("Goal");
-
-                    b.Navigation("Notifications");
 
                     b.Navigation("Transactions");
 
