@@ -11,8 +11,7 @@ public class Transaction
 
     public DateTime Date { get; set; }
 
-    public string UserId { get; set; }
-    public User User { get; set; }
+    public string UserId { get; set; } = string.Empty;
 
     public bool IsRecurring { get; set; } = false;
 
@@ -20,9 +19,12 @@ public class Transaction
 
     public DateTime? NextOccurrenceDate { get; set; }
 
-    // relacje
+    // relacje - mogą być null, jeśli tylko podajesz ID
     public int CategoryId { get; set; }
-    public Category Category { get; set; }
+    public Category? Category { get; set; }
+
     public int BudgetId { get; set; }
-    public Budget Budget { get; set; }
+    public Budget? Budget { get; set; }
+
+    public User? User { get; set; }
 }

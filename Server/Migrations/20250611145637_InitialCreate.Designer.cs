@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetBuddy.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    [Migration("20250518095537_InitWithStringUserId")]
-    partial class InitWithStringUserId
+    [Migration("20250611145637_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -102,6 +102,14 @@ namespace BudgetBuddy.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Category");
@@ -124,6 +132,9 @@ namespace BudgetBuddy.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("InvoiceId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -161,6 +172,9 @@ namespace BudgetBuddy.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("TargetDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -192,7 +206,15 @@ namespace BudgetBuddy.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Source")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -227,6 +249,40 @@ namespace BudgetBuddy.Migrations
                         .IsUnique();
 
                     b.ToTable("Invoice");
+                });
+
+            modelBuilder.Entity("BudgetBuddy.Models.Notifications", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTime?>("RemindAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasMaxLength(450)
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Report", b =>
@@ -268,8 +324,28 @@ namespace BudgetBuddy.Migrations
                     b.Property<int>("BudgetId")
                         .HasColumnType("int");
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRecurring")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("NextOccurrenceDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RecurrenceInterval")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -278,6 +354,8 @@ namespace BudgetBuddy.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BudgetId");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -371,15 +449,14 @@ namespace BudgetBuddy.Migrations
                     b.Property<int>("BudgetId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.HasKey("UserId", "BudgetId");
 
                     b.HasIndex("BudgetId");
 
-                    b.ToTable("UserBudgets");
+                    b.ToTable("UserBudget", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -594,11 +671,28 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("Expense");
                 });
 
+            modelBuilder.Entity("BudgetBuddy.Models.Notifications", b =>
+                {
+                    b.HasOne("BudgetBuddy.Models.User", "User")
+                        .WithMany("Notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("BudgetBuddy.Models.Transaction", b =>
                 {
                     b.HasOne("BudgetBuddy.Models.Budget", "Budget")
                         .WithMany("Transactions")
                         .HasForeignKey("BudgetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BudgetBuddy.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -609,6 +703,8 @@ namespace BudgetBuddy.Migrations
                         .IsRequired();
 
                     b.Navigation("Budget");
+
+                    b.Navigation("Category");
 
                     b.Navigation("User");
                 });
@@ -717,6 +813,8 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("Expenses");
 
                     b.Navigation("Goal");
+
+                    b.Navigation("Notifications");
 
                     b.Navigation("Transactions");
 

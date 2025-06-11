@@ -50,7 +50,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Accounts", (string)null);
+                    b.ToTable("Accounts");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.AccountType", b =>
@@ -67,7 +67,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AccountTypes", (string)null);
+                    b.ToTable("AccountTypes");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Budget", b =>
@@ -84,7 +84,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Budget", (string)null);
+                    b.ToTable("Budget");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Category", b =>
@@ -99,9 +99,17 @@ namespace BudgetBuddy.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Expense", b =>
@@ -122,6 +130,9 @@ namespace BudgetBuddy.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("InvoiceId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -136,7 +147,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Expenses", (string)null);
+                    b.ToTable("Expenses");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Goal", b =>
@@ -158,6 +169,9 @@ namespace BudgetBuddy.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<DateTime>("TargetDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -168,10 +182,10 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Goal", (string)null);
+                    b.ToTable("Goal");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -189,7 +203,15 @@ namespace BudgetBuddy.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Source")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -197,7 +219,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Incomes", (string)null);
+                    b.ToTable("Incomes");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Invoice", b =>
@@ -223,7 +245,7 @@ namespace BudgetBuddy.Migrations
                     b.HasIndex("ExpenseId")
                         .IsUnique();
 
-                    b.ToTable("Invoice", (string)null);
+                    b.ToTable("Invoice");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Notifications", b =>
@@ -281,7 +303,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Report", (string)null);
+                    b.ToTable("Report");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Transaction", b =>
@@ -334,7 +356,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Transaction", (string)null);
+                    b.ToTable("Transaction");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.User", b =>
@@ -624,7 +646,7 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
                 {
                     b.HasOne("BudgetBuddy.Models.Category", "Category")
                         .WithMany("Incomes")
