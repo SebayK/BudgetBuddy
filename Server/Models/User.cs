@@ -14,4 +14,5 @@ public class User : IdentityUser {
   public UserRole Role { get; set; }
   public ICollection<UserBudget> UserBudgets { get; set; }
   public ICollection<Notifications> Notifications { get; set; }
+  public ICollection<ShareBudgets> ShareBudgets { get; set; } = new List<ShareBudgets>();
 }
