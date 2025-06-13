@@ -1,8 +1,9 @@
 ﻿using System.Text;
+using System.Text.Json.Serialization;
 using BudgetBuddy.Infrastructure;
+using BudgetBuddy.Middlewares;
 using BudgetBuddy.Models;
 using BudgetBuddy.Services;
-using BudgetBuddy.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
@@ -19,9 +20,7 @@ builder.Services.AddTransient<IAuthorizationService, AuthorizationService>();
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers()
-  .AddJsonOptions(options => {
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-  });
+  .AddJsonOptions(options => { options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; });
 
 builder.Services.AddScoped<InvoiceService>();
 builder.Services.AddScoped<UserService>();
@@ -34,6 +33,7 @@ builder.Services.AddScoped<ReportService>();
 builder.Services.AddScoped<TransactionService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<AccountTypeService>();
+builder.Services.AddScoped<ShareBudgetsService>();
 
 builder.Services.AddIdentity<User, IdentityRole>()
   .AddEntityFrameworkStores<BudgetContext>()
