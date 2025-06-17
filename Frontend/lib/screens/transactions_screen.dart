@@ -4,23 +4,29 @@ import 'dart:convert';
 
 // GŁÓWNY WIDOK TRANSAKCJI
 class TransactionsScreen extends StatefulWidget {
-  const TransactionsScreen({Key? key}) : super(key: key);
+  final List<Map<String, dynamic>> incomes;
+  final List<Map<String, dynamic>> expenses;
+
+  const TransactionsScreen({
+    Key? key,
+    required this.incomes,
+    required this.expenses,
+  }) : super(key: key);
 
   @override
   State<TransactionsScreen> createState() => _TransactionsScreenState();
 }
 
 class _TransactionsScreenState extends State<TransactionsScreen> {
-  // Przykładowe listy, potem pobierz z API
-  List<Map<String, dynamic>> incomes = [
-    {'name': 'Wynagrodzenie', 'amount': 3500},
-    {'name': 'Zwrot podatku', 'amount': 700},
-  ];
-  List<Map<String, dynamic>> expenses = [
-    {'name': 'Zakupy spożywcze', 'amount': 250},
-    {'name': 'Paliwo', 'amount': 150},
-    {'name': 'Internet', 'amount': 90},
-  ];
+  late List<Map<String, dynamic>> incomes;
+  late List<Map<String, dynamic>> expenses;
+
+  @override
+  void initState() {
+    super.initState();
+    incomes = List<Map<String, dynamic>>.from(widget.incomes);
+    expenses = List<Map<String, dynamic>>.from(widget.expenses);
+  }
 
   void _addTransaction(Map<String, dynamic> transaction) {
     setState(() {
@@ -45,7 +51,6 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Nagłówek
               Text(
                 'Transakcje',
                 style: theme.textTheme.headlineLarge?.copyWith(
@@ -54,8 +59,6 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 ),
               ),
               const SizedBox(height: 24),
-
-              // Dochody (zielona strzałka w górę) i Wydatki (czerwona strzałka w dół)
               Row(
                 children: [
                   Expanded(
@@ -112,48 +115,32 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                 ],
               ),
               const SizedBox(height: 24),
-
-              // Analiza i Planowane
               Row(
                 children: [
                   Expanded(
                     child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       color: theme.colorScheme.surfaceVariant,
                       child: const SizedBox(
                         height: 90,
-                        child: Center(
-                          child: Text(
-                            'Analiza\n(wkrótce)',
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                        child: Center(child: Text('Analiza\n(wkrótce)', textAlign: TextAlign.center)),
                       ),
                     ),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       color: theme.colorScheme.surfaceVariant,
                       child: const SizedBox(
                         height: 90,
-                        child: Center(
-                          child: Text(
-                            'Planowane\n(wkrótce)',
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
+                        child: Center(child: Text('Planowane\n(wkrótce)', textAlign: TextAlign.center)),
                       ),
                     ),
                   ),
                 ],
               ),
               const SizedBox(height: 32),
-
-              // Lista transakcji lub pusty stan
               Expanded(
                 child: isEmpty
                     ? Center(
@@ -162,14 +149,12 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     children: [
                       Icon(Icons.info_outline, size: 48, color: Colors.grey),
                       const SizedBox(height: 12),
-                      Text('Nie znaleziono transakcji',
-                          style: theme.textTheme.titleMedium),
+                      Text('Nie znaleziono transakcji', style: theme.textTheme.titleMedium),
                       const SizedBox(height: 8),
                       Text(
                         'Kliknij przycisk "+", aby dodać nową transakcję',
                         style: theme.textTheme.bodyMedium,
                       ),
-                      const SizedBox(height: 20),
                     ],
                   ),
                 )
@@ -180,8 +165,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
                           'Dochody',
-                          style: theme.textTheme.titleMedium
-                              ?.copyWith(color: Colors.green[700]),
+                          style: theme.textTheme.titleMedium?.copyWith(color: Colors.green[700]),
                         ),
                       ),
                       ...incomes.map(
@@ -197,8 +181,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
                           'Wydatki',
-                          style: theme.textTheme.titleMedium
-                              ?.copyWith(color: Colors.red[700]),
+                          style: theme.textTheme.titleMedium?.copyWith(color: Colors.red[700]),
                         ),
                       ),
                       ...expenses.map(
@@ -263,8 +246,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
     });
 
     try {
-      // ZMIEN ENDPOINT na swój!
-      final uri = Uri.parse('https://twoje-api/transactions'); // <-- SWÓJ ENDPOINT!
+      final uri = Uri.parse('http://localhost:5000/transactions'); // <- zmień na swój endpoint
       final response = await http.post(
         uri,
         headers: {'Content-Type': 'application/json'},
@@ -275,8 +257,7 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
         }),
       );
 
-      if (response.statusCode == 201 || response.statusCode == 200) {
-        // Zwracamy nową transakcję do poprzedniego ekranu
+      if (response.statusCode == 200 || response.statusCode == 201) {
         Navigator.of(context).pop({
           'name': _name,
           'amount': _amount,
@@ -311,8 +292,9 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
               DropdownButtonFormField<String>(
                 value: _type,
                 decoration: const InputDecoration(labelText: 'Typ transakcji'),
-                items: ['Wydatek', 'Dochód'].map((e) =>
-                    DropdownMenuItem(value: e, child: Text(e))).toList(),
+                items: ['Wydatek', 'Dochód']
+                    .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                    .toList(),
                 onChanged: (v) => setState(() => _type = v ?? 'Wydatek'),
               ),
               TextFormField(
