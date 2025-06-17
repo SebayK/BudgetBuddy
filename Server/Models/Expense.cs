@@ -17,4 +17,5 @@ public class Expense
     public Category Category { get; set; } = null!;
     public User User { get; set; } = null!;
     public Invoice Invoice { get; set; } = null!;
+    public int BudgetId { get; set; }
 }
