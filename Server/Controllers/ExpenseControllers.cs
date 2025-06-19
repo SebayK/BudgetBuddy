@@ -1,5 +1,5 @@
 using BudgetBuddy.Models;
-using BudgetBuddy.Models.DTO; // DTO znajduje się w folderze Models/DTO
+using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
