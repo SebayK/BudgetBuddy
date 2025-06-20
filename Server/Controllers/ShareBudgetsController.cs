@@ -1,4 +1,6 @@
+using BudgetBuddy.DTO;
 using BudgetBuddy.Models;
+using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,66 +9,147 @@ namespace BudgetBuddy.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ShareBudgetsController : ControllerBase {
-  private readonly IHttpContextAccessor _httpContextAccessor;
-  private readonly ShareBudgetsService _shareBudgetsService;
+public class ShareBudgetsController : ControllerBase
+{
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly ShareBudgetsService _shareBudgetsService;
 
-  public ShareBudgetsController(ShareBudgetsService shareBudgetsService, IHttpContextAccessor httpContextAccessor) {
-    _shareBudgetsService = shareBudgetsService;
-    _httpContextAccessor = httpContextAccessor;
-  }
+    public ShareBudgetsController(ShareBudgetsService shareBudgetsService, IHttpContextAccessor httpContextAccessor)
+    {
+        _shareBudgetsService = shareBudgetsService;
+        _httpContextAccessor = httpContextAccessor;
+    }
 
-  private string? UserId => _httpContextAccessor.HttpContext?.Items["UserId"] as string;
+    private string? UserId => _httpContextAccessor.HttpContext?.Items["UserId"] as string;
 
-  // GET: api/ShareBudget
-  [HttpGet]
-  [Authorize]
-  public async Task<ActionResult<IEnumerable<ShareBudgets>>> GetAllShareBudgetsAsync() {
-    var shareBudgets = await _shareBudgetsService.GetAllShareBudgetsAsync(UserId);
-    return Ok(shareBudgets);
-  }
+    // GET: api/ShareBudgets
+    [HttpGet]
+    [Authorize]
+    public async Task<ActionResult<IEnumerable<ShareBudgetDto>>> GetAllShareBudgetsAsync()
+    {
+        var shareBudgets = await _shareBudgetsService.GetAllShareBudgetsAsync(UserId);
 
-  // GET: api/ShareBudget/5
-  [HttpGet("{id}")]
-  [Authorize]
-  public async Task<ActionResult<ShareBudgets>> GetShareBudget(int id) {
-    var shareBudget = await _shareBudgetsService.GetShareBudgetByIdAsync(id, UserId);
+        var result = shareBudgets.Select(sb => new ShareBudgetDto
+        {
+            Id = sb.Id,
+            Name = sb.Name,
+            OwnerUserId = sb.OwnerUserId,
+            CreatedAt = sb.CreatedAt,
+            Users = sb.UserShareBudgets.Select(usb => new UserWithRoleDto
+            {
+                Role = usb.Role,
+                User = new UserDto
+                {
+                    Id = usb.User.Id,
+                    Email = usb.User.Email ?? "",
+                    FirstName = usb.User.FirstName,
+                    LastName = usb.User.LastName,
+                    AccountId = usb.User.AccountId,
+                    Role = usb.User.Role.ToString()
+                }
+            }).ToList()
+        });
 
-    if (shareBudget == null)
-      return NotFound();
+        return Ok(result);
+    }
 
-    return Ok(shareBudget);
-  }
+    // GET: api/ShareBudgets/5
+    [HttpGet("{id}")]
+    [Authorize]
+    public async Task<ActionResult<ShareBudgetDto>> GetShareBudget(int id)
+    {
+        var sb = await _shareBudgetsService.GetShareBudgetByIdAsync(id, UserId);
+        if (sb == null)
+            return NotFound();
 
-  // PUT: api/ShareBudget/5
-  [HttpPut("{id}")]
-  [Authorize]
-  public async Task<IActionResult> PutShareBudget(int id, ShareBudgets shareBudgets) {
-    var success = await _shareBudgetsService.UpdateShareBudgetAsync(id, shareBudgets, UserId);
+        var dto = new ShareBudgetDto
+        {
+            Id = sb.Id,
+            Name = sb.Name,
+            OwnerUserId = sb.OwnerUserId,
+            CreatedAt = sb.CreatedAt,
+            Users = sb.UserShareBudgets.Select(usb => new UserWithRoleDto
+            {
+                Role = usb.Role,
+                User = new UserDto
+                {
+                    Id = usb.User.Id,
+                    Email = usb.User.Email ?? "",
+                    FirstName = usb.User.FirstName,
+                    LastName = usb.User.LastName,
+                    AccountId = usb.User.AccountId,
+                    Role = usb.User.Role.ToString()
+                }
+            }).ToList()
+        };
 
-    if (!success)
-      return NotFound();
+        return Ok(dto);
+    }
 
-    return NoContent();
-  }
+    // PUT: api/ShareBudgets/5
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<IActionResult> PutShareBudget(int id, ShareBudgetCreateDto dto)
+    {
+        var shareBudget = new ShareBudgets
+        {
+            Id = id,
+            Name = dto.Name
+            // użytkowników i właściciela nie edytujemy tutaj – tylko nazwę
+        };
 
-  // POST: api/ShareBudget
-  [HttpPost]
-  [Authorize]
-  public async Task<ActionResult<ShareBudgets>> PostShareBudget(ShareBudgets shareBudgets) {
-    var createdShareBudget = await _shareBudgetsService.CreateShareBudgetAsync(shareBudgets, UserId);
-    return CreatedAtAction(nameof(GetShareBudget), new { id = createdShareBudget.Id }, createdShareBudget);
-  }
+        var success = await _shareBudgetsService.UpdateShareBudgetAsync(id, shareBudget, UserId);
+        if (!success)
+            return NotFound();
 
-  // DELETE: api/ShareBudget/5
-  [HttpDelete("{id}")]
-  [Authorize]
-  public async Task<IActionResult> DeleteShareBudget(int id) {
-    var success = await _shareBudgetsService.DeleteShareBudgetAsync(id, UserId);
+        return NoContent();
+    }
 
-    if (!success)
-      return NotFound();
+    // POST: api/ShareBudgets
+    [HttpPost]
+    [Authorize]
+    public async Task<ActionResult<ShareBudgetDto>> PostShareBudget(ShareBudgetCreateDto dto)
+    {
+        var shareBudget = new ShareBudgets
+        {
+            Name = dto.Name
+        };
 
-    return NoContent();
-  }
+        var created = await _shareBudgetsService.CreateShareBudgetAsync(shareBudget, UserId, dto.Users);
+
+        var result = new ShareBudgetDto
+        {
+            Id = created.Id,
+            Name = created.Name,
+            OwnerUserId = created.OwnerUserId,
+            CreatedAt = created.CreatedAt,
+            Users = created.UserShareBudgets.Select(usb => new UserWithRoleDto
+            {
+                Role = usb.Role,
+                User = new UserDto
+                {
+                    Id = usb.User.Id,
+                    Email = usb.User.Email ?? "",
+                    FirstName = usb.User.FirstName,
+                    LastName = usb.User.LastName,
+                    AccountId = usb.User.AccountId,
+                    Role = usb.User.Role.ToString()
+                }
+            }).ToList()
+        };
+
+        return CreatedAtAction(nameof(GetShareBudget), new { id = result.Id }, result);
+    }
+
+    // DELETE: api/ShareBudgets/5
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<IActionResult> DeleteShareBudget(int id)
+    {
+        var success = await _shareBudgetsService.DeleteShareBudgetAsync(id, UserId);
+        if (!success)
+            return NotFound();
+
+        return NoContent();
+    }
 }
