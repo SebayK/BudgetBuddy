@@ -4,6 +4,7 @@ public class CreateBudgetDto
 {
     public decimal TotalAmount { get; set; }
 
-    // Lista użytkowników wraz z rolami
+    public string Name { get; set; } = string.Empty;
+
     public List<UserBudgetAssignmentDto> Users { get; set; } = new();
 }

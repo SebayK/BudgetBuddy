@@ -4,6 +4,7 @@ using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetBuddy.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    partial class BudgetContextModelSnapshot : ModelSnapshot
+    [Migration("20250620165400_AddNameToBudget")]
+    partial class AddNameToBudget
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,7 +91,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Budgets");
+                    b.ToTable("Budget");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Category", b =>
@@ -493,7 +496,7 @@ namespace BudgetBuddy.Migrations
 
                     b.HasIndex("BudgetId");
 
-                    b.ToTable("UserBudgets");
+                    b.ToTable("UserBudget");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.UserShareBudget", b =>

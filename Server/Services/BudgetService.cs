@@ -14,7 +14,7 @@ public class BudgetService {
   }
 
   public async Task<IEnumerable<BudgetDto>> GetAllBudgetsAsync(string userId) {
-    var budgets = await _context.Budget
+    var budgets = await _context.Budgets
       .AsNoTracking()
       .Where(b => b.UserBudgets.Any(ub => ub.UserId == userId))
       .ToListAsync();
@@ -23,7 +23,7 @@ public class BudgetService {
   }
 
   public async Task<BudgetDto?> GetBudgetByIdAsync(int id, string userId) {
-    var budget = await _context.Budget
+    var budget = await _context.Budgets
       .AsNoTracking()
       .Where(b => b.UserBudgets.Any(ub => ub.UserId == userId))
       .FirstOrDefaultAsync(b => b.Id == id);
@@ -34,7 +34,7 @@ public class BudgetService {
   public async Task<bool> UpdateBudgetAsync(int id, Budget budget, string userId) {
     if (budget == null)
       throw new ArgumentNullException(nameof(budget));
-    var existingBudget = await _context.Budget
+    var existingBudget = await _context.Budgets
       .Where(b => b.Id == id && b.UserBudgets.Any(ub => ub.UserId == userId))
       .FirstOrDefaultAsync();
     if (existingBudget == null)
@@ -69,25 +69,25 @@ public class BudgetService {
       throw new InvalidOperationException("Budżet może mieć tylko jednego ownera. Dodaj użytkownika z inną rolą.");
 
 
-    _context.Budget.Add(budget);
+    _context.Budgets.Add(budget);
     await _context.SaveChangesAsync();
     return budget;
   }
 
   public async Task<bool> DeleteBudgetAsync(int id, string userId) {
-    var budget = await _context.Budget
+    var budget = await _context.Budgets
       .Where(b => b.Id == id && b.UserBudgets.Any(ub => ub.UserId == userId))
       .FirstOrDefaultAsync();
     if (budget == null)
       return false;
 
-    _context.Budget.Remove(budget);
+    _context.Budgets.Remove(budget);
     await _context.SaveChangesAsync();
     return true;
   }
 
   private async Task<bool> BudgetExistsAsync(int id) {
-    return await _context.Budget.AnyAsync(b => b.Id == id);
+    return await _context.Budgets.AnyAsync(b => b.Id == id);
   }
 
   private static BudgetDto MapToBudgetDto(Budget b) {

@@ -93,9 +93,21 @@ public class ShareBudgetsService(BudgetContext context)
         }
 
         context.ShareBudgets.Add(shareBudgets);
-        await context.SaveChangesAsync();
+
+        try
+        {
+            await context.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("❌ Błąd przy SaveChangesAsync w CreateShareBudgetAsync:");
+            Console.WriteLine("Message: " + ex.Message);
+            Console.WriteLine("Inner: " + ex.InnerException?.Message);
+            throw;
+        }
 
         return shareBudgets;
+
     }
 
     public async Task<bool> DeleteShareBudgetAsync(int id, string userId)

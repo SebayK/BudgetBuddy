@@ -8,7 +8,8 @@ public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDb
 {
   public DbSet<Expense> Expenses { get; set; }
   public DbSet<Income> Incomes { get; set; }
-  public DbSet<Budget> Budget { get; set; }
+  public DbSet<Budget> Budgets { get; set; }
+  public DbSet<UserBudget> UserBudgets { get; set; }
   public DbSet<Category> Category { get; set; }
   public DbSet<Goal> Goal { get; set; }
   public DbSet<Invoice> Invoice { get; set; }
@@ -18,6 +19,7 @@ public class BudgetContext(DbContextOptions<BudgetContext> options) : IdentityDb
   public DbSet<Account> Accounts { get; set; }
   public DbSet<AccountType> AccountTypes { get; set; }
   public DbSet<Notifications> Notifications { get; set; }
+  
   public DbSet<ShareBudgets> ShareBudgets { get; set; }
   public DbSet<UserShareBudget> UserShareBudgets { get; set; }
 

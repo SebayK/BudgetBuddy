@@ -22,19 +22,23 @@ public class BudgetsController : ControllerBase
         _httpContextAccessor = httpContextAccessor;
     }
 
-    // GET: api/Budget
+    // ✅ GET: api/Budgets (zwraca uproszczoną listę)
     [HttpGet]
     [Authorize]
-    public async Task<ActionResult<IEnumerable<Budget>>> GetAllBudgetsAsync()
+    public async Task<ActionResult<IEnumerable<object>>> GetAllBudgetsAsync()
     {
         var budgets = await _budgetService.GetAllBudgetsAsync(UserId);
-        return Ok(budgets);
 
-        // Alternatywa bez UserId:
-        // var budgets = await _budgetService.GetAllBudgetsAsync();
+        var simplified = budgets.Select(b => new
+        {
+            id = b.Id,
+            name = b.Name ?? $"Konto {b.Id}"
+        });
+
+        return Ok(simplified);
     }
 
-    // GET: api/Budget/5
+    // GET: api/Budgets/5
     [HttpGet("{id}")]
     [Authorize]
     public async Task<ActionResult<Budget>> GetBudget(int id)
@@ -47,7 +51,7 @@ public class BudgetsController : ControllerBase
         return Ok(budget);
     }
 
-    // PUT: api/Budget/5
+    // PUT: api/Budgets/5
     [HttpPut("{id}")]
     [Authorize]
     public async Task<IActionResult> PutBudget(int id, Budget budget)
@@ -60,7 +64,7 @@ public class BudgetsController : ControllerBase
         return NoContent();
     }
 
-    // POST: api/Budget
+    // POST: api/Budgets
     [HttpPost]
     [Authorize]
     public async Task<ActionResult<Budget>> PostBudget([FromBody] CreateBudgetDto dto)
@@ -71,6 +75,7 @@ public class BudgetsController : ControllerBase
         var newBudget = new Budget
         {
             TotalAmount = dto.TotalAmount,
+            Name = dto.Name,
             UserBudgets = dto.Users.Select(u => new UserBudget
             {
                 UserId = u.UserId,
@@ -83,12 +88,9 @@ public class BudgetsController : ControllerBase
         var createdBudget = await _budgetService.CreateBudgetAsync(newBudget, UserId);
 
         return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
-
-        // Alternatywa bez DTO:
-        // var createdBudget = await _budgetService.CreateBudgetAsync(budget, UserId);
     }
 
-    // DELETE: api/Budget/5
+    // DELETE: api/Budgets/5
     [HttpDelete("{id}")]
     [Authorize]
     public async Task<IActionResult> DeleteBudget(int id)
