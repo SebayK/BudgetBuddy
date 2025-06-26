@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:provider/provider.dart';
+import '../providers/auth_provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   final VoidCallback onRegisterSuccess;
@@ -31,32 +33,83 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _error = null;
     });
 
-    // Jeśli jesteś na emulatorze Android - ZAMIEN localhost na 10.0.2.2!
-    final url = Uri.parse('http://localhost:5000/api/authentication/registration');
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final registerUrl = Uri.parse('http://localhost:5000/api/authentication/registration');
+    final loginUrl = Uri.parse('http://localhost:5000/api/authentication/login');
+    final budgetUrl = Uri.parse('http://localhost:5000/api/Budgets');
+
     try {
-      final response = await http.post(
-        url,
+      // 1. Rejestracja
+      final registerResponse = await http.post(
+        registerUrl,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'username': _usernameController.text,
           'firstName': _firstNameController.text,
           'lastName': _lastNameController.text,
-          'role': 0, // lub inna wartość zależnie od wymagań backendu
+          'role': 0,
           'email': _emailController.text,
           'password': _passwordController.text,
         }),
       );
 
-      if (response.statusCode == 200 || response.statusCode == 201) {
-        widget.onRegisterSuccess();
+      if (registerResponse.statusCode == 200 || registerResponse.statusCode == 201) {
+        // 2. Automatyczne logowanie po rejestracji
+        final loginResponse = await http.post(
+          loginUrl,
+          headers: {'Content-Type': 'application/json'},
+          body: jsonEncode({
+            'username': _usernameController.text,
+            'password': _passwordController.text,
+          }),
+        );
+
+        if (loginResponse.statusCode == 200) {
+          final token = loginResponse.body;
+          if (token.isNotEmpty) {
+            authProvider.setToken(token);
+
+            // 3. Pobranie budżetów
+            final budgetResponse = await http.get(
+              budgetUrl,
+              headers: {'Authorization': 'Bearer $token'},
+            );
+
+            if (budgetResponse.statusCode == 200) {
+              final List<dynamic> budgets = jsonDecode(budgetResponse.body);
+              if (budgets.isNotEmpty) {
+                final int budgetId = budgets[0]['id'];
+                authProvider.setBudgetId(budgetId);
+              }
+              // Powiadamiamy, że rejestracja i pobranie danych zakończyło się sukcesem
+              widget.onRegisterSuccess();
+            } else {
+              setState(() => _error = 'Nie udało się pobrać budżetów: ${budgetResponse.statusCode}');
+            }
+          } else {
+            setState(() => _error = 'Brak tokena po rejestracji');
+          }
+        } else {
+          setState(() => _error = 'Błąd logowania po rejestracji');
+        }
       } else {
-        setState(() => _error = 'Błąd rejestracji: ${response.body}');
+        setState(() => _error = 'Błąd rejestracji: ${registerResponse.body}');
       }
     } catch (e) {
       setState(() => _error = 'Błąd połączenia: $e');
     } finally {
       setState(() => _isLoading = false);
     }
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    super.dispose();
   }
 
   @override
