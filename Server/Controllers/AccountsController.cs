@@ -1,4 +1,5 @@
 using BudgetBuddy.Models;
+using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +19,8 @@ public class AccountController : ControllerBase {
   [HttpGet]
   [Authorize]
   public async Task<ActionResult<IEnumerable<Account>>> GetAllAccountsAsync() {
-    var account = await _accountService.GetAllAccountsAsync();
-    return Ok(account);
+    var accounts = await _accountService.GetAllAccountsAsync();
+    return Ok(accounts);
   }
 
   // GET: api/Account/5
@@ -37,8 +38,25 @@ public class AccountController : ControllerBase {
   // PUT: api/Account/5
   [HttpPut("{id}")]
   [Authorize]
-  public async Task<IActionResult> PutAccount(int id, Account account) {
-    var success = await _accountService.UpdateAccountAsync(id, account);
+  public async Task<IActionResult> PutAccount(int id, AccountDto dto) {
+    // Pobieramy zależne obiekty z bazy danych
+    var user = await _accountService.GetUserByIdAsync(dto.UserId);
+    var accountType = await _accountService.GetAccountTypeByIdAsync(dto.AccountTypesId);
+
+    if (user == null || accountType == null)
+      return BadRequest("Nieprawidłowe dane: brak użytkownika lub typu konta.");
+
+    var updatedAccount = new Account {
+      Id = id,
+      UserId = dto.UserId,
+      AccountNumber = dto.AccountNumber,
+      AccountTypesId = dto.AccountTypesId,
+      CurrencyId = dto.CurrencyId,
+      User = user,
+      AccountType = accountType
+    };
+
+    var success = await _accountService.UpdateAccountAsync(id, updatedAccount);
 
     if (!success)
       return NotFound();
@@ -49,8 +67,25 @@ public class AccountController : ControllerBase {
   // POST: api/Account
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Account>> PostAccount(Account account) {
-    var createdAccount = await _accountService.CreateAccountAsync(account);
+  public async Task<ActionResult<Account>> PostAccount(AccountDto dto) {
+    // Pobieramy zależne obiekty z bazy danych
+    var user = await _accountService.GetUserByIdAsync(dto.UserId);
+    var accountType = await _accountService.GetAccountTypeByIdAsync(dto.AccountTypesId);
+
+    if (user == null || accountType == null)
+      return BadRequest("Nieprawidłowe dane: brak użytkownika lub typu konta.");
+
+    var newAccount = new Account {
+      UserId = dto.UserId,
+      AccountNumber = dto.AccountNumber,
+      AccountTypesId = dto.AccountTypesId,
+      CurrencyId = dto.CurrencyId,
+      User = user,
+      AccountType = accountType
+    };
+
+    var createdAccount = await _accountService.CreateAccountAsync(newAccount);
+
     return CreatedAtAction(nameof(GetAccount), new { id = createdAccount.Id }, createdAccount);
   }
 
