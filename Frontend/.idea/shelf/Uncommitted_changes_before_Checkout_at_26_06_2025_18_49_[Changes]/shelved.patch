@@ -1,0 +1,1881 @@
+Index: macos/Runner.xcodeproj/project.pbxproj
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// !$*UTF8*$!\r\n{\r\n\tarchiveVersion = 1;\r\n\tclasses = {\r\n\t};\r\n\tobjectVersion = 54;\r\n\tobjects = {\r\n\r\n/* Begin PBXAggregateTarget section */\r\n\t\t33CC111A2044C6BA0003C045 /* Flutter Assemble */ = {\r\n\t\t\tisa = PBXAggregateTarget;\r\n\t\t\tbuildConfigurationList = 33CC111B2044C6BA0003C045 /* Build configuration list for PBXAggregateTarget \"Flutter Assemble\" */;\r\n\t\t\tbuildPhases = (\r\n\t\t\t\t33CC111E2044C6BF0003C045 /* ShellScript */,\r\n\t\t\t);\r\n\t\t\tdependencies = (\r\n\t\t\t);\r\n\t\t\tname = \"Flutter Assemble\";\r\n\t\t\tproductName = FLX;\r\n\t\t};\r\n/* End PBXAggregateTarget section */\r\n\r\n/* Begin PBXBuildFile section */\r\n\t\t331C80D8294CF71000263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C80D7294CF71000263BE5 /* RunnerTests.swift */; };\r\n\t\t335BBD1B22A9A15E00E9071D /* GeneratedPluginRegistrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */; };\r\n\t\t33CC10F12044A3C60003C045 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC10F02044A3C60003C045 /* AppDelegate.swift */; };\r\n\t\t33CC10F32044A3C60003C045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F22044A3C60003C045 /* Assets.xcassets */; };\r\n\t\t33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F42044A3C60003C045 /* MainMenu.xib */; };\r\n\t\t33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC11122044BFA00003C045 /* MainFlutterWindow.swift */; };\r\n/* End PBXBuildFile section */\r\n\r\n/* Begin PBXContainerItemProxy section */\r\n\t\t331C80D9294CF71000263BE5 /* PBXContainerItemProxy */ = {\r\n\t\t\tisa = PBXContainerItemProxy;\r\n\t\t\tcontainerPortal = 33CC10E52044A3C60003C045 /* Project object */;\r\n\t\t\tproxyType = 1;\r\n\t\t\tremoteGlobalIDString = 33CC10EC2044A3C60003C045;\r\n\t\t\tremoteInfo = Runner;\r\n\t\t};\r\n\t\t33CC111F2044C79F0003C045 /* PBXContainerItemProxy */ = {\r\n\t\t\tisa = PBXContainerItemProxy;\r\n\t\t\tcontainerPortal = 33CC10E52044A3C60003C045 /* Project object */;\r\n\t\t\tproxyType = 1;\r\n\t\t\tremoteGlobalIDString = 33CC111A2044C6BA0003C045;\r\n\t\t\tremoteInfo = FLX;\r\n\t\t};\r\n/* End PBXContainerItemProxy section */\r\n\r\n/* Begin PBXCopyFilesBuildPhase section */\r\n\t\t33CC110E2044A8840003C045 /* Bundle Framework */ = {\r\n\t\t\tisa = PBXCopyFilesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tdstPath = \"\";\r\n\t\t\tdstSubfolderSpec = 10;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\tname = \"Bundle Framework\";\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXCopyFilesBuildPhase section */\r\n\r\n/* Begin PBXFileReference section */\r\n\t\t331C80D5294CF71000263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };\r\n\t\t331C80D7294CF71000263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = \"<group>\"; };\r\n\t\t333000ED22D3DE5D00554162 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = \"<group>\"; };\r\n\t\t335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedPluginRegistrant.swift; sourceTree = \"<group>\"; };\r\n\t\t33CC10ED2044A3C60003C045 /* budget_buddy_frontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = \"budget_buddy_frontend.app\"; sourceTree = BUILT_PRODUCTS_DIR; };\r\n\t\t33CC10F02044A3C60003C045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = \"<group>\"; };\r\n\t\t33CC10F22044A3C60003C045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Runner/Assets.xcassets; sourceTree = \"<group>\"; };\r\n\t\t33CC10F52044A3C60003C045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = \"<group>\"; };\r\n\t\t33CC10F72044A3C60003C045 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Runner/Info.plist; sourceTree = \"<group>\"; };\r\n\t\t33CC11122044BFA00003C045 /* MainFlutterWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlutterWindow.swift; sourceTree = \"<group>\"; };\r\n\t\t33CEB47222A05771004F2AC0 /* Flutter-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = \"Flutter-Debug.xcconfig\"; sourceTree = \"<group>\"; };\r\n\t\t33CEB47422A05771004F2AC0 /* Flutter-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = \"Flutter-Release.xcconfig\"; sourceTree = \"<group>\"; };\r\n\t\t33CEB47722A0578A004F2AC0 /* Flutter-Generated.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = \"Flutter-Generated.xcconfig\"; path = \"ephemeral/Flutter-Generated.xcconfig\"; sourceTree = \"<group>\"; };\r\n\t\t33E51913231747F40026EE4D /* DebugProfile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DebugProfile.entitlements; sourceTree = \"<group>\"; };\r\n\t\t33E51914231749380026EE4D /* Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Release.entitlements; sourceTree = \"<group>\"; };\r\n\t\t33E5194F232828860026EE4D /* AppInfo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppInfo.xcconfig; sourceTree = \"<group>\"; };\r\n\t\t7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = \"<group>\"; };\r\n\t\t9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = \"<group>\"; };\r\n/* End PBXFileReference section */\r\n\r\n/* Begin PBXFrameworksBuildPhase section */\r\n\t\t331C80D2294CF70F00263BE5 /* Frameworks */ = {\r\n\t\t\tisa = PBXFrameworksBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n\t\t33CC10EA2044A3C60003C045 /* Frameworks */ = {\r\n\t\t\tisa = PBXFrameworksBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXFrameworksBuildPhase section */\r\n\r\n/* Begin PBXGroup section */\r\n\t\t331C80D6294CF71000263BE5 /* RunnerTests */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t331C80D7294CF71000263BE5 /* RunnerTests.swift */,\r\n\t\t\t);\r\n\t\t\tpath = RunnerTests;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t33BA886A226E78AF003329D5 /* Configs */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t33E5194F232828860026EE4D /* AppInfo.xcconfig */,\r\n\t\t\t\t9740EEB21CF90195004384FC /* Debug.xcconfig */,\r\n\t\t\t\t7AFA3C8E1D35360C0083082E /* Release.xcconfig */,\r\n\t\t\t\t333000ED22D3DE5D00554162 /* Warnings.xcconfig */,\r\n\t\t\t);\r\n\t\t\tpath = Configs;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t33CC10E42044A3C60003C045 = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t33FAB671232836740065AC1E /* Runner */,\r\n\t\t\t\t33CEB47122A05771004F2AC0 /* Flutter */,\r\n\t\t\t\t331C80D6294CF71000263BE5 /* RunnerTests */,\r\n\t\t\t\t33CC10EE2044A3C60003C045 /* Products */,\r\n\t\t\t\tD73912EC22F37F3D000D13A0 /* Frameworks */,\r\n\t\t\t);\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t33CC10EE2044A3C60003C045 /* Products */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t33CC10ED2044A3C60003C045 /* budget_buddy_frontend.app */,\r\n\t\t\t\t331C80D5294CF71000263BE5 /* RunnerTests.xctest */,\r\n\t\t\t);\r\n\t\t\tname = Products;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t33CC11242044D66E0003C045 /* Resources */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t33CC10F22044A3C60003C045 /* Assets.xcassets */,\r\n\t\t\t\t33CC10F42044A3C60003C045 /* MainMenu.xib */,\r\n\t\t\t\t33CC10F72044A3C60003C045 /* Info.plist */,\r\n\t\t\t);\r\n\t\t\tname = Resources;\r\n\t\t\tpath = ..;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t33CEB47122A05771004F2AC0 /* Flutter */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */,\r\n\t\t\t\t33CEB47222A05771004F2AC0 /* Flutter-Debug.xcconfig */,\r\n\t\t\t\t33CEB47422A05771004F2AC0 /* Flutter-Release.xcconfig */,\r\n\t\t\t\t33CEB47722A0578A004F2AC0 /* Flutter-Generated.xcconfig */,\r\n\t\t\t);\r\n\t\t\tpath = Flutter;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t33FAB671232836740065AC1E /* Runner */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t33CC10F02044A3C60003C045 /* AppDelegate.swift */,\r\n\t\t\t\t33CC11122044BFA00003C045 /* MainFlutterWindow.swift */,\r\n\t\t\t\t33E51913231747F40026EE4D /* DebugProfile.entitlements */,\r\n\t\t\t\t33E51914231749380026EE4D /* Release.entitlements */,\r\n\t\t\t\t33CC11242044D66E0003C045 /* Resources */,\r\n\t\t\t\t33BA886A226E78AF003329D5 /* Configs */,\r\n\t\t\t);\r\n\t\t\tpath = Runner;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\tD73912EC22F37F3D000D13A0 /* Frameworks */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t);\r\n\t\t\tname = Frameworks;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n/* End PBXGroup section */\r\n\r\n/* Begin PBXNativeTarget section */\r\n\t\t331C80D4294CF70F00263BE5 /* RunnerTests */ = {\r\n\t\t\tisa = PBXNativeTarget;\r\n\t\t\tbuildConfigurationList = 331C80DE294CF71000263BE5 /* Build configuration list for PBXNativeTarget \"RunnerTests\" */;\r\n\t\t\tbuildPhases = (\r\n\t\t\t\t331C80D1294CF70F00263BE5 /* Sources */,\r\n\t\t\t\t331C80D2294CF70F00263BE5 /* Frameworks */,\r\n\t\t\t\t331C80D3294CF70F00263BE5 /* Resources */,\r\n\t\t\t);\r\n\t\t\tbuildRules = (\r\n\t\t\t);\r\n\t\t\tdependencies = (\r\n\t\t\t\t331C80DA294CF71000263BE5 /* PBXTargetDependency */,\r\n\t\t\t);\r\n\t\t\tname = RunnerTests;\r\n\t\t\tproductName = RunnerTests;\r\n\t\t\tproductReference = 331C80D5294CF71000263BE5 /* RunnerTests.xctest */;\r\n\t\t\tproductType = \"com.apple.product-type.bundle.unit-test\";\r\n\t\t};\r\n\t\t33CC10EC2044A3C60003C045 /* Runner */ = {\r\n\t\t\tisa = PBXNativeTarget;\r\n\t\t\tbuildConfigurationList = 33CC10FB2044A3C60003C045 /* Build configuration list for PBXNativeTarget \"Runner\" */;\r\n\t\t\tbuildPhases = (\r\n\t\t\t\t33CC10E92044A3C60003C045 /* Sources */,\r\n\t\t\t\t33CC10EA2044A3C60003C045 /* Frameworks */,\r\n\t\t\t\t33CC10EB2044A3C60003C045 /* Resources */,\r\n\t\t\t\t33CC110E2044A8840003C045 /* Bundle Framework */,\r\n\t\t\t\t3399D490228B24CF009A79C7 /* ShellScript */,\r\n\t\t\t);\r\n\t\t\tbuildRules = (\r\n\t\t\t);\r\n\t\t\tdependencies = (\r\n\t\t\t\t33CC11202044C79F0003C045 /* PBXTargetDependency */,\r\n\t\t\t);\r\n\t\t\tname = Runner;\r\n\t\t\tproductName = Runner;\r\n\t\t\tproductReference = 33CC10ED2044A3C60003C045 /* budget_buddy_frontend.app */;\r\n\t\t\tproductType = \"com.apple.product-type.application\";\r\n\t\t};\r\n/* End PBXNativeTarget section */\r\n\r\n/* Begin PBXProject section */\r\n\t\t33CC10E52044A3C60003C045 /* Project object */ = {\r\n\t\t\tisa = PBXProject;\r\n\t\t\tattributes = {\r\n\t\t\t\tBuildIndependentTargetsInParallel = YES;\r\n\t\t\t\tLastSwiftUpdateCheck = 0920;\r\n\t\t\t\tLastUpgradeCheck = 1510;\r\n\t\t\t\tORGANIZATIONNAME = \"\";\r\n\t\t\t\tTargetAttributes = {\r\n\t\t\t\t\t331C80D4294CF70F00263BE5 = {\r\n\t\t\t\t\t\tCreatedOnToolsVersion = 14.0;\r\n\t\t\t\t\t\tTestTargetID = 33CC10EC2044A3C60003C045;\r\n\t\t\t\t\t};\r\n\t\t\t\t\t33CC10EC2044A3C60003C045 = {\r\n\t\t\t\t\t\tCreatedOnToolsVersion = 9.2;\r\n\t\t\t\t\t\tLastSwiftMigration = 1100;\r\n\t\t\t\t\t\tProvisioningStyle = Automatic;\r\n\t\t\t\t\t\tSystemCapabilities = {\r\n\t\t\t\t\t\t\tcom.apple.Sandbox = {\r\n\t\t\t\t\t\t\t\tenabled = 1;\r\n\t\t\t\t\t\t\t};\r\n\t\t\t\t\t\t};\r\n\t\t\t\t\t};\r\n\t\t\t\t\t33CC111A2044C6BA0003C045 = {\r\n\t\t\t\t\t\tCreatedOnToolsVersion = 9.2;\r\n\t\t\t\t\t\tProvisioningStyle = Manual;\r\n\t\t\t\t\t};\r\n\t\t\t\t};\r\n\t\t\t};\r\n\t\t\tbuildConfigurationList = 33CC10E82044A3C60003C045 /* Build configuration list for PBXProject \"Runner\" */;\r\n\t\t\tcompatibilityVersion = \"Xcode 9.3\";\r\n\t\t\tdevelopmentRegion = en;\r\n\t\t\thasScannedForEncodings = 0;\r\n\t\t\tknownRegions = (\r\n\t\t\t\ten,\r\n\t\t\t\tBase,\r\n\t\t\t);\r\n\t\t\tmainGroup = 33CC10E42044A3C60003C045;\r\n\t\t\tproductRefGroup = 33CC10EE2044A3C60003C045 /* Products */;\r\n\t\t\tprojectDirPath = \"\";\r\n\t\t\tprojectRoot = \"\";\r\n\t\t\ttargets = (\r\n\t\t\t\t33CC10EC2044A3C60003C045 /* Runner */,\r\n\t\t\t\t331C80D4294CF70F00263BE5 /* RunnerTests */,\r\n\t\t\t\t33CC111A2044C6BA0003C045 /* Flutter Assemble */,\r\n\t\t\t);\r\n\t\t};\r\n/* End PBXProject section */\r\n\r\n/* Begin PBXResourcesBuildPhase section */\r\n\t\t331C80D3294CF70F00263BE5 /* Resources */ = {\r\n\t\t\tisa = PBXResourcesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n\t\t33CC10EB2044A3C60003C045 /* Resources */ = {\r\n\t\t\tisa = PBXResourcesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t\t33CC10F32044A3C60003C045 /* Assets.xcassets in Resources */,\r\n\t\t\t\t33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */,\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXResourcesBuildPhase section */\r\n\r\n/* Begin PBXShellScriptBuildPhase section */\r\n\t\t3399D490228B24CF009A79C7 /* ShellScript */ = {\r\n\t\t\tisa = PBXShellScriptBuildPhase;\r\n\t\t\talwaysOutOfDate = 1;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\tinputFileListPaths = (\r\n\t\t\t);\r\n\t\t\tinputPaths = (\r\n\t\t\t);\r\n\t\t\toutputFileListPaths = (\r\n\t\t\t);\r\n\t\t\toutputPaths = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t\tshellPath = /bin/sh;\r\n\t\t\tshellScript = \"echo \\\"$PRODUCT_NAME.app\\\" > \\\"$PROJECT_DIR\\\"/Flutter/ephemeral/.app_filename && \\\"$FLUTTER_ROOT\\\"/packages/flutter_tools/bin/macos_assemble.sh embed\\n\";\r\n\t\t};\r\n\t\t33CC111E2044C6BF0003C045 /* ShellScript */ = {\r\n\t\t\tisa = PBXShellScriptBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\tinputFileListPaths = (\r\n\t\t\t\tFlutter/ephemeral/FlutterInputs.xcfilelist,\r\n\t\t\t);\r\n\t\t\tinputPaths = (\r\n\t\t\t\tFlutter/ephemeral/tripwire,\r\n\t\t\t);\r\n\t\t\toutputFileListPaths = (\r\n\t\t\t\tFlutter/ephemeral/FlutterOutputs.xcfilelist,\r\n\t\t\t);\r\n\t\t\toutputPaths = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t\tshellPath = /bin/sh;\r\n\t\t\tshellScript = \"\\\"$FLUTTER_ROOT\\\"/packages/flutter_tools/bin/macos_assemble.sh && touch Flutter/ephemeral/tripwire\";\r\n\t\t};\r\n/* End PBXShellScriptBuildPhase section */\r\n\r\n/* Begin PBXSourcesBuildPhase section */\r\n\t\t331C80D1294CF70F00263BE5 /* Sources */ = {\r\n\t\t\tisa = PBXSourcesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t\t331C80D8294CF71000263BE5 /* RunnerTests.swift in Sources */,\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n\t\t33CC10E92044A3C60003C045 /* Sources */ = {\r\n\t\t\tisa = PBXSourcesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t\t33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */,\r\n\t\t\t\t33CC10F12044A3C60003C045 /* AppDelegate.swift in Sources */,\r\n\t\t\t\t335BBD1B22A9A15E00E9071D /* GeneratedPluginRegistrant.swift in Sources */,\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXSourcesBuildPhase section */\r\n\r\n/* Begin PBXTargetDependency section */\r\n\t\t331C80DA294CF71000263BE5 /* PBXTargetDependency */ = {\r\n\t\t\tisa = PBXTargetDependency;\r\n\t\t\ttarget = 33CC10EC2044A3C60003C045 /* Runner */;\r\n\t\t\ttargetProxy = 331C80D9294CF71000263BE5 /* PBXContainerItemProxy */;\r\n\t\t};\r\n\t\t33CC11202044C79F0003C045 /* PBXTargetDependency */ = {\r\n\t\t\tisa = PBXTargetDependency;\r\n\t\t\ttarget = 33CC111A2044C6BA0003C045 /* Flutter Assemble */;\r\n\t\t\ttargetProxy = 33CC111F2044C79F0003C045 /* PBXContainerItemProxy */;\r\n\t\t};\r\n/* End PBXTargetDependency section */\r\n\r\n/* Begin PBXVariantGroup section */\r\n\t\t33CC10F42044A3C60003C045 /* MainMenu.xib */ = {\r\n\t\t\tisa = PBXVariantGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t33CC10F52044A3C60003C045 /* Base */,\r\n\t\t\t);\r\n\t\t\tname = MainMenu.xib;\r\n\t\t\tpath = Runner;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n/* End PBXVariantGroup section */\r\n\r\n/* Begin XCBuildConfiguration section */\r\n\t\t331C80DB294CF71000263BE5 /* Debug */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tBUNDLE_LOADER = \"$(TEST_HOST)\";\r\n\t\t\t\tCURRENT_PROJECT_VERSION = 1;\r\n\t\t\t\tGENERATE_INFOPLIST_FILE = YES;\r\n\t\t\t\tMARKETING_VERSION = 1.0;\r\n\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend.RunnerTests;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t\tTEST_HOST = \"$(BUILT_PRODUCTS_DIR)/budget_buddy_frontend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_frontend\";\r\n\t\t\t};\r\n\t\t\tname = Debug;\r\n\t\t};\r\n\t\t331C80DC294CF71000263BE5 /* Release */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tBUNDLE_LOADER = \"$(TEST_HOST)\";\r\n\t\t\t\tCURRENT_PROJECT_VERSION = 1;\r\n\t\t\t\tGENERATE_INFOPLIST_FILE = YES;\r\n\t\t\t\tMARKETING_VERSION = 1.0;\r\n\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend.RunnerTests;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t\tTEST_HOST = \"$(BUILT_PRODUCTS_DIR)/budget_buddy_frontend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_frontend\";\r\n\t\t\t};\r\n\t\t\tname = Release;\r\n\t\t};\r\n\t\t331C80DD294CF71000263BE5 /* Profile */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tBUNDLE_LOADER = \"$(TEST_HOST)\";\r\n\t\t\t\tCURRENT_PROJECT_VERSION = 1;\r\n\t\t\t\tGENERATE_INFOPLIST_FILE = YES;\r\n\t\t\t\tMARKETING_VERSION = 1.0;\r\n\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend.RunnerTests;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t\tTEST_HOST = \"$(BUILT_PRODUCTS_DIR)/budget_buddy_frontend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_frontend\";\r\n\t\t\t};\r\n\t\t\tname = Profile;\r\n\t\t};\r\n\t\t338D0CE9231458BD00FA5F75 /* Profile */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;\r\n\t\t\t\tASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;\r\n\t\t\t\tCLANG_ANALYZER_NONNULL = YES;\r\n\t\t\t\tCLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;\r\n\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++14\";\r\n\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;\r\n\t\t\t\tCLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;\r\n\t\t\t\tCLANG_WARN_BOOL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_CONSTANT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;\r\n\t\t\t\tCLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_DOCUMENTATION_COMMENTS = YES;\r\n\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;\r\n\t\t\t\tCLANG_WARN_ENUM_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_INFINITE_RECURSION = YES;\r\n\t\t\t\tCLANG_WARN_INT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_LITERAL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_RANGE_LOOP_ANALYSIS = YES;\r\n\t\t\t\tCLANG_WARN_SUSPICIOUS_MOVE = YES;\r\n\t\t\t\tCODE_SIGN_IDENTITY = \"-\";\r\n\t\t\t\tCOPY_PHASE_STRIP = NO;\r\n\t\t\t\tDEAD_CODE_STRIPPING = YES;\r\n\t\t\t\tDEBUG_INFORMATION_FORMAT = \"dwarf-with-dsym\";\r\n\t\t\t\tENABLE_NS_ASSERTIONS = NO;\r\n\t\t\t\tENABLE_STRICT_OBJC_MSGSEND = YES;\r\n\t\t\t\tENABLE_USER_SCRIPT_SANDBOXING = NO;\r\n\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu11;\r\n\t\t\t\tGCC_NO_COMMON_BLOCKS = YES;\r\n\t\t\t\tGCC_WARN_64_TO_32_BIT_CONVERSION = YES;\r\n\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;\r\n\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;\r\n\t\t\t\tGCC_WARN_UNUSED_FUNCTION = YES;\r\n\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;\r\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET = 10.14;\r\n\t\t\t\tMTL_ENABLE_DEBUG_INFO = NO;\r\n\t\t\t\tSDKROOT = macosx;\r\n\t\t\t\tSWIFT_COMPILATION_MODE = wholemodule;\r\n\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-O\";\r\n\t\t\t};\r\n\t\t\tname = Profile;\r\n\t\t};\r\n\t\t338D0CEA231458BD00FA5F75 /* Profile */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCODE_SIGN_ENTITLEMENTS = Runner/DebugProfile.entitlements;\r\n\t\t\t\tCODE_SIGN_STYLE = Automatic;\r\n\t\t\t\tCOMBINE_HIDPI_IMAGES = YES;\r\n\t\t\t\tINFOPLIST_FILE = Runner/Info.plist;\r\n\t\t\t\tLD_RUNPATH_SEARCH_PATHS = (\r\n\t\t\t\t\t\"$(inherited)\",\r\n\t\t\t\t\t\"@executable_path/../Frameworks\",\r\n\t\t\t\t);\r\n\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = \"\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t};\r\n\t\t\tname = Profile;\r\n\t\t};\r\n\t\t338D0CEB231458BD00FA5F75 /* Profile */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tCODE_SIGN_STYLE = Manual;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t};\r\n\t\t\tname = Profile;\r\n\t\t};\r\n\t\t33CC10F92044A3C60003C045 /* Debug */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;\r\n\t\t\t\tASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;\r\n\t\t\t\tCLANG_ANALYZER_NONNULL = YES;\r\n\t\t\t\tCLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;\r\n\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++14\";\r\n\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;\r\n\t\t\t\tCLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;\r\n\t\t\t\tCLANG_WARN_BOOL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_CONSTANT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;\r\n\t\t\t\tCLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_DOCUMENTATION_COMMENTS = YES;\r\n\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;\r\n\t\t\t\tCLANG_WARN_ENUM_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_INFINITE_RECURSION = YES;\r\n\t\t\t\tCLANG_WARN_INT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_LITERAL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_RANGE_LOOP_ANALYSIS = YES;\r\n\t\t\t\tCLANG_WARN_SUSPICIOUS_MOVE = YES;\r\n\t\t\t\tCODE_SIGN_IDENTITY = \"-\";\r\n\t\t\t\tCOPY_PHASE_STRIP = NO;\r\n\t\t\t\tDEAD_CODE_STRIPPING = YES;\r\n\t\t\t\tDEBUG_INFORMATION_FORMAT = dwarf;\r\n\t\t\t\tENABLE_STRICT_OBJC_MSGSEND = YES;\r\n\t\t\t\tENABLE_TESTABILITY = YES;\r\n\t\t\t\tENABLE_USER_SCRIPT_SANDBOXING = NO;\r\n\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu11;\r\n\t\t\t\tGCC_DYNAMIC_NO_PIC = NO;\r\n\t\t\t\tGCC_NO_COMMON_BLOCKS = YES;\r\n\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;\r\n\t\t\t\tGCC_PREPROCESSOR_DEFINITIONS = (\r\n\t\t\t\t\t\"DEBUG=1\",\r\n\t\t\t\t\t\"$(inherited)\",\r\n\t\t\t\t);\r\n\t\t\t\tGCC_WARN_64_TO_32_BIT_CONVERSION = YES;\r\n\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;\r\n\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;\r\n\t\t\t\tGCC_WARN_UNUSED_FUNCTION = YES;\r\n\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;\r\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET = 10.14;\r\n\t\t\t\tMTL_ENABLE_DEBUG_INFO = YES;\r\n\t\t\t\tONLY_ACTIVE_ARCH = YES;\r\n\t\t\t\tSDKROOT = macosx;\r\n\t\t\t\tSWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;\r\n\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-Onone\";\r\n\t\t\t};\r\n\t\t\tname = Debug;\r\n\t\t};\r\n\t\t33CC10FA2044A3C60003C045 /* Release */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;\r\n\t\t\t\tASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;\r\n\t\t\t\tCLANG_ANALYZER_NONNULL = YES;\r\n\t\t\t\tCLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;\r\n\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++14\";\r\n\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;\r\n\t\t\t\tCLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;\r\n\t\t\t\tCLANG_WARN_BOOL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_CONSTANT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;\r\n\t\t\t\tCLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_DOCUMENTATION_COMMENTS = YES;\r\n\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;\r\n\t\t\t\tCLANG_WARN_ENUM_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_INFINITE_RECURSION = YES;\r\n\t\t\t\tCLANG_WARN_INT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_LITERAL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_RANGE_LOOP_ANALYSIS = YES;\r\n\t\t\t\tCLANG_WARN_SUSPICIOUS_MOVE = YES;\r\n\t\t\t\tCODE_SIGN_IDENTITY = \"-\";\r\n\t\t\t\tCOPY_PHASE_STRIP = NO;\r\n\t\t\t\tDEAD_CODE_STRIPPING = YES;\r\n\t\t\t\tDEBUG_INFORMATION_FORMAT = \"dwarf-with-dsym\";\r\n\t\t\t\tENABLE_NS_ASSERTIONS = NO;\r\n\t\t\t\tENABLE_STRICT_OBJC_MSGSEND = YES;\r\n\t\t\t\tENABLE_USER_SCRIPT_SANDBOXING = NO;\r\n\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu11;\r\n\t\t\t\tGCC_NO_COMMON_BLOCKS = YES;\r\n\t\t\t\tGCC_WARN_64_TO_32_BIT_CONVERSION = YES;\r\n\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;\r\n\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;\r\n\t\t\t\tGCC_WARN_UNUSED_FUNCTION = YES;\r\n\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;\r\n\t\t\t\tMACOSX_DEPLOYMENT_TARGET = 10.14;\r\n\t\t\t\tMTL_ENABLE_DEBUG_INFO = NO;\r\n\t\t\t\tSDKROOT = macosx;\r\n\t\t\t\tSWIFT_COMPILATION_MODE = wholemodule;\r\n\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-O\";\r\n\t\t\t};\r\n\t\t\tname = Release;\r\n\t\t};\r\n\t\t33CC10FC2044A3C60003C045 /* Debug */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCODE_SIGN_ENTITLEMENTS = Runner/DebugProfile.entitlements;\r\n\t\t\t\tCODE_SIGN_STYLE = Automatic;\r\n\t\t\t\tCOMBINE_HIDPI_IMAGES = YES;\r\n\t\t\t\tINFOPLIST_FILE = Runner/Info.plist;\r\n\t\t\t\tLD_RUNPATH_SEARCH_PATHS = (\r\n\t\t\t\t\t\"$(inherited)\",\r\n\t\t\t\t\t\"@executable_path/../Frameworks\",\r\n\t\t\t\t);\r\n\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = \"\";\r\n\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-Onone\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t};\r\n\t\t\tname = Debug;\r\n\t\t};\r\n\t\t33CC10FD2044A3C60003C045 /* Release */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 33E5194F232828860026EE4D /* AppInfo.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCODE_SIGN_ENTITLEMENTS = Runner/Release.entitlements;\r\n\t\t\t\tCODE_SIGN_STYLE = Automatic;\r\n\t\t\t\tCOMBINE_HIDPI_IMAGES = YES;\r\n\t\t\t\tINFOPLIST_FILE = Runner/Info.plist;\r\n\t\t\t\tLD_RUNPATH_SEARCH_PATHS = (\r\n\t\t\t\t\t\"$(inherited)\",\r\n\t\t\t\t\t\"@executable_path/../Frameworks\",\r\n\t\t\t\t);\r\n\t\t\t\tPROVISIONING_PROFILE_SPECIFIER = \"\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t};\r\n\t\t\tname = Release;\r\n\t\t};\r\n\t\t33CC111C2044C6BA0003C045 /* Debug */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tCODE_SIGN_STYLE = Manual;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t};\r\n\t\t\tname = Debug;\r\n\t\t};\r\n\t\t33CC111D2044C6BA0003C045 /* Release */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tCODE_SIGN_STYLE = Automatic;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t};\r\n\t\t\tname = Release;\r\n\t\t};\r\n/* End XCBuildConfiguration section */\r\n\r\n/* Begin XCConfigurationList section */\r\n\t\t331C80DE294CF71000263BE5 /* Build configuration list for PBXNativeTarget \"RunnerTests\" */ = {\r\n\t\t\tisa = XCConfigurationList;\r\n\t\t\tbuildConfigurations = (\r\n\t\t\t\t331C80DB294CF71000263BE5 /* Debug */,\r\n\t\t\t\t331C80DC294CF71000263BE5 /* Release */,\r\n\t\t\t\t331C80DD294CF71000263BE5 /* Profile */,\r\n\t\t\t);\r\n\t\t\tdefaultConfigurationIsVisible = 0;\r\n\t\t\tdefaultConfigurationName = Release;\r\n\t\t};\r\n\t\t33CC10E82044A3C60003C045 /* Build configuration list for PBXProject \"Runner\" */ = {\r\n\t\t\tisa = XCConfigurationList;\r\n\t\t\tbuildConfigurations = (\r\n\t\t\t\t33CC10F92044A3C60003C045 /* Debug */,\r\n\t\t\t\t33CC10FA2044A3C60003C045 /* Release */,\r\n\t\t\t\t338D0CE9231458BD00FA5F75 /* Profile */,\r\n\t\t\t);\r\n\t\t\tdefaultConfigurationIsVisible = 0;\r\n\t\t\tdefaultConfigurationName = Release;\r\n\t\t};\r\n\t\t33CC10FB2044A3C60003C045 /* Build configuration list for PBXNativeTarget \"Runner\" */ = {\r\n\t\t\tisa = XCConfigurationList;\r\n\t\t\tbuildConfigurations = (\r\n\t\t\t\t33CC10FC2044A3C60003C045 /* Debug */,\r\n\t\t\t\t33CC10FD2044A3C60003C045 /* Release */,\r\n\t\t\t\t338D0CEA231458BD00FA5F75 /* Profile */,\r\n\t\t\t);\r\n\t\t\tdefaultConfigurationIsVisible = 0;\r\n\t\t\tdefaultConfigurationName = Release;\r\n\t\t};\r\n\t\t33CC111B2044C6BA0003C045 /* Build configuration list for PBXAggregateTarget \"Flutter Assemble\" */ = {\r\n\t\t\tisa = XCConfigurationList;\r\n\t\t\tbuildConfigurations = (\r\n\t\t\t\t33CC111C2044C6BA0003C045 /* Debug */,\r\n\t\t\t\t33CC111D2044C6BA0003C045 /* Release */,\r\n\t\t\t\t338D0CEB231458BD00FA5F75 /* Profile */,\r\n\t\t\t);\r\n\t\t\tdefaultConfigurationIsVisible = 0;\r\n\t\t\tdefaultConfigurationName = Release;\r\n\t\t};\r\n/* End XCConfigurationList section */\r\n\t};\r\n\trootObject = 33CC10E52044A3C60003C045 /* Project object */;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner.xcodeproj/project.pbxproj b/macos/Runner.xcodeproj/project.pbxproj
+--- a/macos/Runner.xcodeproj/project.pbxproj	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner.xcodeproj/project.pbxproj	(date 1750956281278)
+@@ -27,6 +27,8 @@
+ 		33CC10F32044A3C60003C045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F22044A3C60003C045 /* Assets.xcassets */; };
+ 		33CC10F62044A3C60003C045 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33CC10F42044A3C60003C045 /* MainMenu.xib */; };
+ 		33CC11132044BFA00003C045 /* MainFlutterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CC11122044BFA00003C045 /* MainFlutterWindow.swift */; };
++		9A49F5B86F27874621C77310 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801B2DB4A663DD49EC4CBE03 /* Pods_Runner.framework */; };
++		9EDF27C668B09D7E84AF7F0A /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55432EE59D66E3459411F989 /* Pods_RunnerTests.framework */; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXContainerItemProxy section */
+@@ -60,11 +62,12 @@
+ /* End PBXCopyFilesBuildPhase section */
+ 
+ /* Begin PBXFileReference section */
++		325431F70850B8257D5D4DDB /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
+ 		331C80D5294CF71000263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		331C80D7294CF71000263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
+ 		333000ED22D3DE5D00554162 /* Warnings.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Warnings.xcconfig; sourceTree = "<group>"; };
+ 		335BBD1A22A9A15E00E9071D /* GeneratedPluginRegistrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedPluginRegistrant.swift; sourceTree = "<group>"; };
+-		33CC10ED2044A3C60003C045 /* budget_buddy_frontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget_buddy_frontend.app"; sourceTree = BUILT_PRODUCTS_DIR; };
++		33CC10ED2044A3C60003C045 /* budget_buddy_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = budget_buddy_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		33CC10F02044A3C60003C045 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+ 		33CC10F22044A3C60003C045 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Runner/Assets.xcassets; sourceTree = "<group>"; };
+ 		33CC10F52044A3C60003C045 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+@@ -76,8 +79,15 @@
+ 		33E51913231747F40026EE4D /* DebugProfile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DebugProfile.entitlements; sourceTree = "<group>"; };
+ 		33E51914231749380026EE4D /* Release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Release.entitlements; sourceTree = "<group>"; };
+ 		33E5194F232828860026EE4D /* AppInfo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppInfo.xcconfig; sourceTree = "<group>"; };
++		55432EE59D66E3459411F989 /* Pods_RunnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
++		621346DA0E4BE5B0300485DF /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+ 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
++		7DEE6599FC70BF94602D0C70 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
++		801B2DB4A663DD49EC4CBE03 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
++		BE3AF992A2C8F9DE33DCF622 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
++		C5A50573A50C3665B8FFCCC0 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
++		F8D444D34DC2C0D550A28DD3 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFrameworksBuildPhase section */
+@@ -85,6 +95,7 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				9EDF27C668B09D7E84AF7F0A /* Pods_RunnerTests.framework in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -92,6 +103,7 @@
+ 			isa = PBXFrameworksBuildPhase;
+ 			buildActionMask = 2147483647;
+ 			files = (
++				9A49F5B86F27874621C77310 /* Pods_Runner.framework in Frameworks */,
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
+@@ -125,13 +137,14 @@
+ 				331C80D6294CF71000263BE5 /* RunnerTests */,
+ 				33CC10EE2044A3C60003C045 /* Products */,
+ 				D73912EC22F37F3D000D13A0 /* Frameworks */,
++				4F194FCE5D4EE95181D6D5EF /* Pods */,
+ 			);
+ 			sourceTree = "<group>";
+ 		};
+ 		33CC10EE2044A3C60003C045 /* Products */ = {
+ 			isa = PBXGroup;
+ 			children = (
+-				33CC10ED2044A3C60003C045 /* budget_buddy_frontend.app */,
++				33CC10ED2044A3C60003C045 /* budget_buddy_app.app */,
+ 				331C80D5294CF71000263BE5 /* RunnerTests.xctest */,
+ 			);
+ 			name = Products;
+@@ -171,10 +184,26 @@
+ 			);
+ 			path = Runner;
+ 			sourceTree = "<group>";
++		};
++		4F194FCE5D4EE95181D6D5EF /* Pods */ = {
++			isa = PBXGroup;
++			children = (
++				7DEE6599FC70BF94602D0C70 /* Pods-Runner.debug.xcconfig */,
++				621346DA0E4BE5B0300485DF /* Pods-Runner.release.xcconfig */,
++				F8D444D34DC2C0D550A28DD3 /* Pods-Runner.profile.xcconfig */,
++				C5A50573A50C3665B8FFCCC0 /* Pods-RunnerTests.debug.xcconfig */,
++				325431F70850B8257D5D4DDB /* Pods-RunnerTests.release.xcconfig */,
++				BE3AF992A2C8F9DE33DCF622 /* Pods-RunnerTests.profile.xcconfig */,
++			);
++			name = Pods;
++			path = Pods;
++			sourceTree = "<group>";
+ 		};
+ 		D73912EC22F37F3D000D13A0 /* Frameworks */ = {
+ 			isa = PBXGroup;
+ 			children = (
++				801B2DB4A663DD49EC4CBE03 /* Pods_Runner.framework */,
++				55432EE59D66E3459411F989 /* Pods_RunnerTests.framework */,
+ 			);
+ 			name = Frameworks;
+ 			sourceTree = "<group>";
+@@ -186,6 +215,7 @@
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = 331C80DE294CF71000263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */;
+ 			buildPhases = (
++				481EEC7DF07A993A23325B5F /* [CP] Check Pods Manifest.lock */,
+ 				331C80D1294CF70F00263BE5 /* Sources */,
+ 				331C80D2294CF70F00263BE5 /* Frameworks */,
+ 				331C80D3294CF70F00263BE5 /* Resources */,
+@@ -204,11 +234,13 @@
+ 			isa = PBXNativeTarget;
+ 			buildConfigurationList = 33CC10FB2044A3C60003C045 /* Build configuration list for PBXNativeTarget "Runner" */;
+ 			buildPhases = (
++				283572C434916452CC5727C6 /* [CP] Check Pods Manifest.lock */,
+ 				33CC10E92044A3C60003C045 /* Sources */,
+ 				33CC10EA2044A3C60003C045 /* Frameworks */,
+ 				33CC10EB2044A3C60003C045 /* Resources */,
+ 				33CC110E2044A8840003C045 /* Bundle Framework */,
+ 				3399D490228B24CF009A79C7 /* ShellScript */,
++				64897693A7C72B7F28704F81 /* [CP] Embed Pods Frameworks */,
+ 			);
+ 			buildRules = (
+ 			);
+@@ -217,7 +249,7 @@
+ 			);
+ 			name = Runner;
+ 			productName = Runner;
+-			productReference = 33CC10ED2044A3C60003C045 /* budget_buddy_frontend.app */;
++			productReference = 33CC10ED2044A3C60003C045 /* budget_buddy_app.app */;
+ 			productType = "com.apple.product-type.application";
+ 		};
+ /* End PBXNativeTarget section */
+@@ -291,6 +323,28 @@
+ /* End PBXResourcesBuildPhase section */
+ 
+ /* Begin PBXShellScriptBuildPhase section */
++		283572C434916452CC5727C6 /* [CP] Check Pods Manifest.lock */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputFileListPaths = (
++			);
++			inputPaths = (
++				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
++				"${PODS_ROOT}/Manifest.lock",
++			);
++			name = "[CP] Check Pods Manifest.lock";
++			outputFileListPaths = (
++			);
++			outputPaths = (
++				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
++			showEnvVarsInLog = 0;
++		};
+ 		3399D490228B24CF009A79C7 /* ShellScript */ = {
+ 			isa = PBXShellScriptBuildPhase;
+ 			alwaysOutOfDate = 1;
+@@ -329,6 +383,45 @@
+ 			shellPath = /bin/sh;
+ 			shellScript = "\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/macos_assemble.sh && touch Flutter/ephemeral/tripwire";
+ 		};
++		481EEC7DF07A993A23325B5F /* [CP] Check Pods Manifest.lock */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputFileListPaths = (
++			);
++			inputPaths = (
++				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
++				"${PODS_ROOT}/Manifest.lock",
++			);
++			name = "[CP] Check Pods Manifest.lock";
++			outputFileListPaths = (
++			);
++			outputPaths = (
++				"$(DERIVED_FILE_DIR)/Pods-RunnerTests-checkManifestLockResult.txt",
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
++			showEnvVarsInLog = 0;
++		};
++		64897693A7C72B7F28704F81 /* [CP] Embed Pods Frameworks */ = {
++			isa = PBXShellScriptBuildPhase;
++			buildActionMask = 2147483647;
++			files = (
++			);
++			inputFileListPaths = (
++				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
++			);
++			name = "[CP] Embed Pods Frameworks";
++			outputFileListPaths = (
++				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
++			);
++			runOnlyForDeploymentPostprocessing = 0;
++			shellPath = /bin/sh;
++			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
++			showEnvVarsInLog = 0;
++		};
+ /* End PBXShellScriptBuildPhase section */
+ 
+ /* Begin PBXSourcesBuildPhase section */
+@@ -380,43 +473,46 @@
+ /* Begin XCBuildConfiguration section */
+ 		331C80DB294CF71000263BE5 /* Debug */ = {
+ 			isa = XCBuildConfiguration;
++			baseConfigurationReference = C5A50573A50C3665B8FFCCC0 /* Pods-RunnerTests.debug.xcconfig */;
+ 			buildSettings = {
+ 				BUNDLE_LOADER = "$(TEST_HOST)";
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				GENERATE_INFOPLIST_FILE = YES;
+ 				MARKETING_VERSION = 1.0;
+-				PRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend.RunnerTests;
++				PRODUCT_BUNDLE_IDENTIFIER = com.example.budgetBuddyApp.RunnerTests;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_VERSION = 5.0;
+-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget_buddy_frontend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_frontend";
++				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget_buddy_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_app";
+ 			};
+ 			name = Debug;
+ 		};
+ 		331C80DC294CF71000263BE5 /* Release */ = {
+ 			isa = XCBuildConfiguration;
++			baseConfigurationReference = 325431F70850B8257D5D4DDB /* Pods-RunnerTests.release.xcconfig */;
+ 			buildSettings = {
+ 				BUNDLE_LOADER = "$(TEST_HOST)";
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				GENERATE_INFOPLIST_FILE = YES;
+ 				MARKETING_VERSION = 1.0;
+-				PRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend.RunnerTests;
++				PRODUCT_BUNDLE_IDENTIFIER = com.example.budgetBuddyApp.RunnerTests;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_VERSION = 5.0;
+-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget_buddy_frontend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_frontend";
++				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget_buddy_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_app";
+ 			};
+ 			name = Release;
+ 		};
+ 		331C80DD294CF71000263BE5 /* Profile */ = {
+ 			isa = XCBuildConfiguration;
++			baseConfigurationReference = BE3AF992A2C8F9DE33DCF622 /* Pods-RunnerTests.profile.xcconfig */;
+ 			buildSettings = {
+ 				BUNDLE_LOADER = "$(TEST_HOST)";
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				GENERATE_INFOPLIST_FILE = YES;
+ 				MARKETING_VERSION = 1.0;
+-				PRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend.RunnerTests;
++				PRODUCT_BUNDLE_IDENTIFIER = com.example.budgetBuddyApp.RunnerTests;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_VERSION = 5.0;
+-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget_buddy_frontend.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_frontend";
++				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget_buddy_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/budget_buddy_app";
+ 			};
+ 			name = Profile;
+ 		};
+Index: android/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><manifest xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <application\r\n        android:label=\"budget_buddy_frontend\"\r\n        android:name=\"${applicationName}\"\r\n        android:icon=\"@mipmap/ic_launcher\">\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\"\r\n            android:launchMode=\"singleTop\"\r\n            android:taskAffinity=\"\"\r\n            android:theme=\"@style/LaunchTheme\"\r\n            android:configChanges=\"orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode\"\r\n            android:hardwareAccelerated=\"true\"\r\n            android:windowSoftInputMode=\"adjustResize\">\r\n            <!-- Specifies an Android theme to apply to this Activity as soon as\r\n                 the Android process has started. This theme is visible to the user\r\n                 while the Flutter UI initializes. After that, this theme continues\r\n                 to determine the Window background behind the Flutter UI. -->\r\n            <meta-data\r\n              android:name=\"io.flutter.embedding.android.NormalTheme\"\r\n              android:resource=\"@style/NormalTheme\"\r\n              />\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\"/>\r\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\r\n            </intent-filter>\r\n        </activity>\r\n        <!-- Don't delete the meta-data below.\r\n             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->\r\n        <meta-data\r\n            android:name=\"flutterEmbedding\"\r\n            android:value=\"2\" />\r\n    </application>\r\n    <!-- Required to query activities that can process text, see:\r\n         https://developer.android.com/training/package-visibility and\r\n         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.\r\n\r\n         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->\r\n    <queries>\r\n        <intent>\r\n            <action android:name=\"android.intent.action.PROCESS_TEXT\"/>\r\n            <data android:mimeType=\"text/plain\"/>\r\n        </intent>\r\n    </queries>\r\n</manifest>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/android/app/src/main/AndroidManifest.xml b/android/app/src/main/AndroidManifest.xml
+--- a/android/app/src/main/AndroidManifest.xml	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/android/app/src/main/AndroidManifest.xml	(date 1750956281240)
+@@ -1,6 +1,6 @@
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+     <application
+-        android:label="budget_buddy_frontend"
++        android:label="budget_buddy_app"
+         android:name="${applicationName}"
+         android:icon="@mipmap/ic_launcher">
+         <activity
+Index: lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\r\n\r\nvoid main() {\r\n  runApp(const MyApp());\r\n}\r\n\r\nclass MyApp extends StatelessWidget {\r\n  const MyApp({super.key});\r\n\r\n  // This widget is the root of your application.\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return MaterialApp(\r\n      title: 'Flutter Demo',\r\n      theme: ThemeData(\r\n        // This is the theme of your application.\r\n        //\r\n        // TRY THIS: Try running your application with \"flutter run\". You'll see\r\n        // the application has a purple toolbar. Then, without quitting the app,\r\n        // try changing the seedColor in the colorScheme below to Colors.green\r\n        // and then invoke \"hot reload\" (save your changes or press the \"hot\r\n        // reload\" button in a Flutter-supported IDE, or press \"r\" if you used\r\n        // the command line to start the app).\r\n        //\r\n        // Notice that the counter didn't reset back to zero; the application\r\n        // state is not lost during the reload. To reset the state, use hot\r\n        // restart instead.\r\n        //\r\n        // This works for code too, not just values: Most code changes can be\r\n        // tested with just a hot reload.\r\n        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),\r\n      ),\r\n      home: const MyHomePage(title: 'Flutter Demo Home Page'),\r\n    );\r\n  }\r\n}\r\n\r\nclass MyHomePage extends StatefulWidget {\r\n  const MyHomePage({super.key, required this.title});\r\n\r\n  // This widget is the home page of your application. It is stateful, meaning\r\n  // that it has a State object (defined below) that contains fields that affect\r\n  // how it looks.\r\n\r\n  // This class is the configuration for the state. It holds the values (in this\r\n  // case the title) provided by the parent (in this case the App widget) and\r\n  // used by the build method of the State. Fields in a Widget subclass are\r\n  // always marked \"final\".\r\n\r\n  final String title;\r\n\r\n  @override\r\n  State<MyHomePage> createState() => _MyHomePageState();\r\n}\r\n\r\nclass _MyHomePageState extends State<MyHomePage> {\r\n  int _counter = 0;\r\n\r\n  void _incrementCounter() {\r\n    setState(() {\r\n      // This call to setState tells the Flutter framework that something has\r\n      // changed in this State, which causes it to rerun the build method below\r\n      // so that the display can reflect the updated values. If we changed\r\n      // _counter without calling setState(), then the build method would not be\r\n      // called again, and so nothing would appear to happen.\r\n      _counter++;\r\n    });\r\n  }\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    // This method is rerun every time setState is called, for instance as done\r\n    // by the _incrementCounter method above.\r\n    //\r\n    // The Flutter framework has been optimized to make rerunning build methods\r\n    // fast, so that you can just rebuild anything that needs updating rather\r\n    // than having to individually change instances of widgets.\r\n    return Scaffold(\r\n      appBar: AppBar(\r\n        // TRY THIS: Try changing the color here to a specific color (to\r\n        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar\r\n        // change color while the other colors stay the same.\r\n        backgroundColor: Theme.of(context).colorScheme.inversePrimary,\r\n        // Here we take the value from the MyHomePage object that was created by\r\n        // the App.build method, and use it to set our appbar title.\r\n        title: Text(widget.title),\r\n      ),\r\n      body: Center(\r\n        // Center is a layout widget. It takes a single child and positions it\r\n        // in the middle of the parent.\r\n        child: Column(\r\n          // Column is also a layout widget. It takes a list of children and\r\n          // arranges them vertically. By default, it sizes itself to fit its\r\n          // children horizontally, and tries to be as tall as its parent.\r\n          //\r\n          // Column has various properties to control how it sizes itself and\r\n          // how it positions its children. Here we use mainAxisAlignment to\r\n          // center the children vertically; the main axis here is the vertical\r\n          // axis because Columns are vertical (the cross axis would be\r\n          // horizontal).\r\n          //\r\n          // TRY THIS: Invoke \"debug painting\" (choose the \"Toggle Debug Paint\"\r\n          // action in the IDE, or press \"p\" in the console), to see the\r\n          // wireframe for each widget.\r\n          mainAxisAlignment: MainAxisAlignment.center,\r\n          children: <Widget>[\r\n            const Text('You have pushed the button this many times:'),\r\n            Text(\r\n              '$_counter',\r\n              style: Theme.of(context).textTheme.headlineMedium,\r\n            ),\r\n          ],\r\n        ),\r\n      ),\r\n      floatingActionButton: FloatingActionButton(\r\n        onPressed: _incrementCounter,\r\n        tooltip: 'Increment',\r\n        child: const Icon(Icons.add),\r\n      ), // This trailing comma makes auto-formatting nicer for build methods.\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/main.dart b/lib/main.dart
+--- a/lib/main.dart	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/lib/main.dart	(date 1750956281262)
+@@ -1,122 +1,237 @@
+ import 'package:flutter/material.dart';
++import 'package:provider/provider.dart';
++import 'package:shared_preferences/shared_preferences.dart';
++
++import 'providers/auth_provider.dart';
++import 'services/api_service.dart';
++import 'screens/splash_screen.dart';
++import 'screens/login_screen.dart';
++import 'screens/register_screen.dart';
++import 'screens/welcome_screen.dart';
++import 'screens/onboarding_wizard_screen.dart';
++import 'screens/home_screen.dart';
++import 'screens/add_category_screen.dart';
+ 
+ void main() {
+-  runApp(const MyApp());
++  runApp(
++    ChangeNotifierProvider(
++      create: (_) => AuthProvider(),
++      child: const BudgetBuddyApp(),
++    ),
++  );
+ }
+ 
+-class MyApp extends StatelessWidget {
+-  const MyApp({super.key});
++class BudgetBuddyApp extends StatefulWidget {
++  const BudgetBuddyApp({Key? key}) : super(key: key);
+ 
+-  // This widget is the root of your application.
+   @override
+-  Widget build(BuildContext context) {
+-    return MaterialApp(
+-      title: 'Flutter Demo',
+-      theme: ThemeData(
+-        // This is the theme of your application.
+-        //
+-        // TRY THIS: Try running your application with "flutter run". You'll see
+-        // the application has a purple toolbar. Then, without quitting the app,
+-        // try changing the seedColor in the colorScheme below to Colors.green
+-        // and then invoke "hot reload" (save your changes or press the "hot
+-        // reload" button in a Flutter-supported IDE, or press "r" if you used
+-        // the command line to start the app).
+-        //
+-        // Notice that the counter didn't reset back to zero; the application
+-        // state is not lost during the reload. To reset the state, use hot
+-        // restart instead.
+-        //
+-        // This works for code too, not just values: Most code changes can be
+-        // tested with just a hot reload.
+-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+-      ),
+-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+-    );
+-  }
++  State<BudgetBuddyApp> createState() => BudgetBuddyAppState();
+ }
+ 
+-class MyHomePage extends StatefulWidget {
+-  const MyHomePage({super.key, required this.title});
++class BudgetBuddyAppState extends State<BudgetBuddyApp> {
++  bool isDarkMode = false;
++  bool _showSplash = true;
++  bool _isCheckingData = false;
++  bool _hasUserData = false;
++  bool _showRegister = false;
++  bool _showWizard = false;
+ 
+-  // This widget is the home page of your application. It is stateful, meaning
+-  // that it has a State object (defined below) that contains fields that affect
+-  // how it looks.
++  final ApiService _apiService = ApiService();
++  late AuthProvider _authProvider;
++  String? _prevToken;
+ 
+-  // This class is the configuration for the state. It holds the values (in this
+-  // case the title) provided by the parent (in this case the App widget) and
+-  // used by the build method of the State. Fields in a Widget subclass are
+-  // always marked "final".
+-
+-  final String title;
++  String _userDataKey(String? userId) => 'hasUserData_${userId ?? ''}';
+ 
+   @override
+-  State<MyHomePage> createState() => _MyHomePageState();
+-}
++  void initState() {
++    super.initState();
++    _authProvider = Provider.of<AuthProvider>(context, listen: false);
++    _authProvider.addListener(_onAuthStateChanged);
++    _initializeApp();
++  }
++
++  void _onAuthStateChanged() {
++    final newToken = _authProvider.token;
++    if (newToken != null && newToken.isNotEmpty && newToken != _prevToken) {
++      _prevToken = newToken;
++      _initializeApp();
++    } else if (newToken == null || newToken.isEmpty) {
++      setState(() {
++        _hasUserData = false;
++        _showWizard = false;
++      });
++    }
++  }
++
++  Future<void> _initializeApp() async {
++    await _authProvider.loadFromPrefs();
++
++    final token = _authProvider.token;
++    final userId = _authProvider.userId;
++    final prefs = await SharedPreferences.getInstance();
++    final key = _userDataKey(userId);
++    final savedFlag = prefs.getBool(key) ?? false;
++
++    setState(() {
++      _showSplash = true;
++      _isCheckingData = token != null && token.isNotEmpty;
++    });
++
++    if (token != null && token.isNotEmpty) {
++      try {
++        final hasData = await _apiService.checkUserHasData(token);
++        await prefs.setBool(key, hasData);
++        setState(() => _hasUserData = hasData);
++
++        if (hasData && _authProvider.budgetId == null) {
++          final budgets = await _apiService.getUserBudgets(token);
++          if (budgets.isNotEmpty) {
++            final firstId = budgets.first['id'] as int;
++            await _authProvider.setBudgetId(firstId);
++          }
++        }
++      } catch (_) {
++        setState(() => _hasUserData = savedFlag);
++      }
++    } else {
++      setState(() => _hasUserData = savedFlag);
++    }
+ 
+-class _MyHomePageState extends State<MyHomePage> {
+-  int _counter = 0;
++    await Future.delayed(const Duration(milliseconds: 800));
++    setState(() {
++      _showSplash = false;
++      _isCheckingData = false;
++    });
++  }
+ 
+-  void _incrementCounter() {
++  void _startWizard() => setState(() => _showWizard = true);
++
++  Future<void> _finishWizard() async {
++    final prefs = await SharedPreferences.getInstance();
++    final key = _userDataKey(_authProvider.userId);
++    await prefs.setBool(key, true);
+     setState(() {
+-      // This call to setState tells the Flutter framework that something has
+-      // changed in this State, which causes it to rerun the build method below
+-      // so that the display can reflect the updated values. If we changed
+-      // _counter without calling setState(), then the build method would not be
+-      // called again, and so nothing would appear to happen.
+-      _counter++;
++      _hasUserData = true;
++      _showWizard = false;
++      _isCheckingData = false;
+     });
+   }
+ 
++  @override
++  void dispose() {
++    _authProvider.removeListener(_onAuthStateChanged);
++    super.dispose();
++  }
++
++  void toggleTheme() => setState(() => isDarkMode = !isDarkMode);
++
+   @override
+   Widget build(BuildContext context) {
+-    // This method is rerun every time setState is called, for instance as done
+-    // by the _incrementCounter method above.
+-    //
+-    // The Flutter framework has been optimized to make rerunning build methods
+-    // fast, so that you can just rebuild anything that needs updating rather
+-    // than having to individually change instances of widgets.
+-    return Scaffold(
+-      appBar: AppBar(
+-        // TRY THIS: Try changing the color here to a specific color (to
+-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+-        // change color while the other colors stay the same.
+-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+-        // Here we take the value from the MyHomePage object that was created by
+-        // the App.build method, and use it to set our appbar title.
+-        title: Text(widget.title),
++    final auth = Provider.of<AuthProvider>(context);
++    final token = auth.token;
++
++    Widget currentScreen;
++    if (_showSplash) {
++      currentScreen = SplashScreen(onAnimationComplete: () {});
++    } else if (_isCheckingData) {
++      currentScreen = const Scaffold(
++        body: Center(child: CircularProgressIndicator()),
++      );
++    } else if (token == null || token.isEmpty) {
++      currentScreen = _showRegister
++          ? RegisterScreen(
++        onRegisterSuccess: () =>
++            setState(() => _showRegister = false),
++        onShowLogin: () =>
++            setState(() => _showRegister = false),
++      )
++          : LoginScreen(
++        onShowRegister: () =>
++            setState(() => _showRegister = true),
++        onLoginSuccess: _initializeApp,
++      );
++    } else if (!_hasUserData) {
++      currentScreen = !_showWizard
++          ? WelcomeScreen(onStartWizard: _startWizard)
++          : OnboardingWizardScreen(onFinish: _finishWizard);
++    } else {
++      currentScreen = HomeScreen(
++        onLogout: () async {
++          await auth.clearToken();
++          setState(() {
++            _hasUserData = false;
++            _showWizard = false;
++            _showRegister = false;
++          });
++        },
++        isDarkMode: isDarkMode,
++        onToggleTheme: toggleTheme,
++      );
++    }
++
++    const primaryColor = Color(0xFFF7B733);
++    const secondaryColor = Color(0xFFFC4A1A);
++    const backgroundColor = Color(0xFFF9F0D6);
++    const textColor = Color(0xFF081C2C);
++
++    return MaterialApp(
++      title: 'BudgetBuddy',
++      theme: ThemeData(
++        brightness: Brightness.light,
++        primaryColor: primaryColor,
++        colorScheme: const ColorScheme.light(
++          primary: primaryColor,
++          onPrimary: Colors.white,
++          secondary: secondaryColor,
++          onSecondary: Colors.white,
++          background: backgroundColor,
++          onBackground: textColor,
++          surface: Colors.white,
++          onSurface: textColor,
++          error: Colors.red,
++          onError: Colors.white,
++        ),
++        scaffoldBackgroundColor: backgroundColor,
++        appBarTheme:
++        const AppBarTheme(backgroundColor: primaryColor, foregroundColor: Colors.white),
++        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
++          backgroundColor: primaryColor,
++          selectedItemColor: Colors.white,
++          unselectedItemColor: Colors.white70,
++        ),
+       ),
+-      body: Center(
+-        // Center is a layout widget. It takes a single child and positions it
+-        // in the middle of the parent.
+-        child: Column(
+-          // Column is also a layout widget. It takes a list of children and
+-          // arranges them vertically. By default, it sizes itself to fit its
+-          // children horizontally, and tries to be as tall as its parent.
+-          //
+-          // Column has various properties to control how it sizes itself and
+-          // how it positions its children. Here we use mainAxisAlignment to
+-          // center the children vertically; the main axis here is the vertical
+-          // axis because Columns are vertical (the cross axis would be
+-          // horizontal).
+-          //
+-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
+-          // action in the IDE, or press "p" in the console), to see the
+-          // wireframe for each widget.
+-          mainAxisAlignment: MainAxisAlignment.center,
+-          children: <Widget>[
+-            const Text('You have pushed the button this many times:'),
+-            Text(
+-              '$_counter',
+-              style: Theme.of(context).textTheme.headlineMedium,
+-            ),
+-          ],
++      darkTheme: ThemeData(
++        brightness: Brightness.dark,
++        primaryColor: primaryColor,
++        colorScheme: const ColorScheme.dark(
++          primary: primaryColor,
++          onPrimary: Colors.white,
++          secondary: secondaryColor,
++          onSecondary: Colors.white,
++          background: Colors.black,
++          onBackground: Colors.white,
++          surface: Colors.grey,
++          onSurface: Colors.white,
++          error: Colors.red,
++          onError: Colors.white,
++        ),
++        scaffoldBackgroundColor: Colors.black,
++        appBarTheme:
++        const AppBarTheme(backgroundColor: primaryColor, foregroundColor: Colors.white),
++        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
++          backgroundColor: primaryColor,
++          selectedItemColor: Colors.white,
++          unselectedItemColor: Colors.white70,
+         ),
+       ),
+-      floatingActionButton: FloatingActionButton(
+-        onPressed: _incrementCounter,
+-        tooltip: 'Increment',
+-        child: const Icon(Icons.add),
+-      ), // This trailing comma makes auto-formatting nicer for build methods.
++      themeMode: isDarkMode ? ThemeMode.dark : ThemeMode.light,
++      routes: {
++        '/add-category': (context) {
++          final type = ModalRoute.of(context)!.settings.arguments as String? ?? 'income';
++          return AddCategoryScreen(initialType: type);
++        },
++      },
++      home: currentScreen,
+     );
+   }
+-}
++}
+\ No newline at end of file
+Index: macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"images\" : [\r\n    {\r\n      \"size\" : \"16x16\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_16.png\",\r\n      \"scale\" : \"1x\"\r\n    },\r\n    {\r\n      \"size\" : \"16x16\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_32.png\",\r\n      \"scale\" : \"2x\"\r\n    },\r\n    {\r\n      \"size\" : \"32x32\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_32.png\",\r\n      \"scale\" : \"1x\"\r\n    },\r\n    {\r\n      \"size\" : \"32x32\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_64.png\",\r\n      \"scale\" : \"2x\"\r\n    },\r\n    {\r\n      \"size\" : \"128x128\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_128.png\",\r\n      \"scale\" : \"1x\"\r\n    },\r\n    {\r\n      \"size\" : \"128x128\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_256.png\",\r\n      \"scale\" : \"2x\"\r\n    },\r\n    {\r\n      \"size\" : \"256x256\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_256.png\",\r\n      \"scale\" : \"1x\"\r\n    },\r\n    {\r\n      \"size\" : \"256x256\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_512.png\",\r\n      \"scale\" : \"2x\"\r\n    },\r\n    {\r\n      \"size\" : \"512x512\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_512.png\",\r\n      \"scale\" : \"1x\"\r\n    },\r\n    {\r\n      \"size\" : \"512x512\",\r\n      \"idiom\" : \"mac\",\r\n      \"filename\" : \"app_icon_1024.png\",\r\n      \"scale\" : \"2x\"\r\n    }\r\n  ],\r\n  \"info\" : {\r\n    \"version\" : 1,\r\n    \"author\" : \"xcode\"\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json b/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+--- a/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json	(date 1750956281278)
+@@ -1,68 +1,68 @@
+ {
+   "images" : [
+     {
+-      "size" : "16x16",
++      "filename" : "icon_16x16 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_16.png",
+-      "scale" : "1x"
++      "scale" : "1x",
++      "size" : "16x16"
+     },
+     {
+-      "size" : "16x16",
++      "filename" : "icon_16x16@2x 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_32.png",
+-      "scale" : "2x"
++      "scale" : "2x",
++      "size" : "16x16"
+     },
+     {
+-      "size" : "32x32",
++      "filename" : "icon_32x32 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_32.png",
+-      "scale" : "1x"
++      "scale" : "1x",
++      "size" : "32x32"
+     },
+     {
+-      "size" : "32x32",
++      "filename" : "icon_32x32@2x 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_64.png",
+-      "scale" : "2x"
++      "scale" : "2x",
++      "size" : "32x32"
+     },
+     {
+-      "size" : "128x128",
++      "filename" : "icon_128x128 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_128.png",
+-      "scale" : "1x"
++      "scale" : "1x",
++      "size" : "128x128"
+     },
+     {
+-      "size" : "128x128",
++      "filename" : "icon_128x128@2x 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_256.png",
+-      "scale" : "2x"
++      "scale" : "2x",
++      "size" : "128x128"
+     },
+     {
+-      "size" : "256x256",
++      "filename" : "icon_256x256 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_256.png",
+-      "scale" : "1x"
++      "scale" : "1x",
++      "size" : "256x256"
+     },
+     {
+-      "size" : "256x256",
++      "filename" : "icon_256x256@2x 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_512.png",
+-      "scale" : "2x"
++      "scale" : "2x",
++      "size" : "256x256"
+     },
+     {
+-      "size" : "512x512",
++      "filename" : "icon_512x512 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_512.png",
+-      "scale" : "1x"
++      "scale" : "1x",
++      "size" : "512x512"
+     },
+     {
+-      "size" : "512x512",
++      "filename" : "icon_512x512@2x 1.png",
+       "idiom" : "mac",
+-      "filename" : "app_icon_1024.png",
+-      "scale" : "2x"
++      "scale" : "2x",
++      "size" : "512x512"
+     }
+   ],
+   "info" : {
+-    "version" : 1,
+-    "author" : "xcode"
++    "author" : "xcode",
++    "version" : 1
+   }
+ }
+Index: pubspec.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: budget_buddy_frontend\r\ndescription: \"A new Flutter project.\"\r\n# The following line prevents the package from being accidentally published to\r\n# pub.dev using `flutter pub publish`. This is preferred for private packages.\r\npublish_to: 'none' # Remove this line if you wish to publish to pub.dev\r\n\r\n# The following defines the version and build number for your application.\r\n# A version number is three numbers separated by dots, like 1.2.43\r\n# followed by an optional build number separated by a +.\r\n# Both the version and the builder number may be overridden in flutter\r\n# build by specifying --build-name and --build-number, respectively.\r\n# In Android, build-name is used as versionName while build-number used as versionCode.\r\n# Read more about Android versioning at https://developer.android.com/studio/publish/versioning\r\n# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.\r\n# Read more about iOS versioning at\r\n# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html\r\n# In Windows, build-name is used as the major, minor, and patch parts\r\n# of the product and file versions while build-number is used as the build suffix.\r\nversion: 1.0.0+1\r\n\r\nenvironment:\r\n  sdk: ^3.8.0\r\n\r\n# Dependencies specify other packages that your package needs in order to work.\r\n# To automatically upgrade your package dependencies to the latest versions\r\n# consider running `flutter pub upgrade --major-versions`. Alternatively,\r\n# dependencies can be manually updated by changing the version numbers below to\r\n# the latest version available on pub.dev. To see which dependencies have newer\r\n# versions available, run `flutter pub outdated`.\r\ndependencies:\r\n  flutter:\r\n    sdk: flutter\r\n\r\n  # The following adds the Cupertino Icons font to your application.\r\n  # Use with the CupertinoIcons class for iOS style icons.\r\n  cupertino_icons: ^1.0.8\r\n\r\ndev_dependencies:\r\n  flutter_test:\r\n    sdk: flutter\r\n\r\n  # The \"flutter_lints\" package below contains a set of recommended lints to\r\n  # encourage good coding practices. The lint set provided by the package is\r\n  # activated in the `analysis_options.yaml` file located at the root of your\r\n  # package. See that file for information about deactivating specific lint\r\n  # rules and activating additional ones.\r\n  flutter_lints: ^5.0.0\r\n\r\n# For information on the generic Dart part of this file, see the\r\n# following page: https://dart.dev/tools/pub/pubspec\r\n\r\n# The following section is specific to Flutter packages.\r\nflutter:\r\n\r\n  # The following line ensures that the Material Icons font is\r\n  # included with your application, so that you can use the icons in\r\n  # the material Icons class.\r\n  uses-material-design: true\r\n\r\n  # To add assets to your application, add an assets section, like this:\r\n  # assets:\r\n  #   - images/a_dot_burr.jpeg\r\n  #   - images/a_dot_ham.jpeg\r\n\r\n  # An image asset can refer to one or more resolution-specific \"variants\", see\r\n  # https://flutter.dev/to/resolution-aware-images\r\n\r\n  # For details regarding adding assets from package dependencies, see\r\n  # https://flutter.dev/to/asset-from-package\r\n\r\n  # To add custom fonts to your application, add a fonts section here,\r\n  # in this \"flutter\" section. Each entry in this list should have a\r\n  # \"family\" key with the font family name, and a \"fonts\" key with a\r\n  # list giving the asset and other descriptors for the font. For\r\n  # example:\r\n  # fonts:\r\n  #   - family: Schyler\r\n  #     fonts:\r\n  #       - asset: fonts/Schyler-Regular.ttf\r\n  #       - asset: fonts/Schyler-Italic.ttf\r\n  #         style: italic\r\n  #   - family: Trajan Pro\r\n  #     fonts:\r\n  #       - asset: fonts/TrajanPro.ttf\r\n  #       - asset: fonts/TrajanPro_Bold.ttf\r\n  #         weight: 700\r\n  #\r\n  # For details regarding fonts from package dependencies,\r\n  # see https://flutter.dev/to/font-from-package\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pubspec.yaml b/pubspec.yaml
+--- a/pubspec.yaml	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/pubspec.yaml	(date 1750956281293)
+@@ -1,89 +1,36 @@
+-name: budget_buddy_frontend
++name: budget_buddy_app
+ description: "A new Flutter project."
+-# The following line prevents the package from being accidentally published to
+-# pub.dev using `flutter pub publish`. This is preferred for private packages.
+-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+-
+-# The following defines the version and build number for your application.
+-# A version number is three numbers separated by dots, like 1.2.43
+-# followed by an optional build number separated by a +.
+-# Both the version and the builder number may be overridden in flutter
+-# build by specifying --build-name and --build-number, respectively.
+-# In Android, build-name is used as versionName while build-number used as versionCode.
+-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+-# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+-# Read more about iOS versioning at
+-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+-# In Windows, build-name is used as the major, minor, and patch parts
+-# of the product and file versions while build-number is used as the build suffix.
++publish_to: 'none'
+ version: 1.0.0+1
+ 
+ environment:
+-  sdk: ^3.8.0
++  sdk: ^3.7.2
+ 
+-# Dependencies specify other packages that your package needs in order to work.
+-# To automatically upgrade your package dependencies to the latest versions
+-# consider running `flutter pub upgrade --major-versions`. Alternatively,
+-# dependencies can be manually updated by changing the version numbers below to
+-# the latest version available on pub.dev. To see which dependencies have newer
+-# versions available, run `flutter pub outdated`.
+ dependencies:
+   flutter:
+     sdk: flutter
+-
+-  # The following adds the Cupertino Icons font to your application.
+-  # Use with the CupertinoIcons class for iOS style icons.
++  http: ^1.3.0
++  provider: ^6.1.1
+   cupertino_icons: ^1.0.8
++  shared_preferences: ^2.1.1
+ 
+ dev_dependencies:
+   flutter_test:
+     sdk: flutter
+-
+-  # The "flutter_lints" package below contains a set of recommended lints to
+-  # encourage good coding practices. The lint set provided by the package is
+-  # activated in the `analysis_options.yaml` file located at the root of your
+-  # package. See that file for information about deactivating specific lint
+-  # rules and activating additional ones.
+-  flutter_lints: ^5.0.0
++  flutter_lints: ^6.0.0
++  flutter_launcher_icons: ^0.14.3
++  flutter_colorpicker: ^1.0.3
++  emoji_picker_flutter: ^1.1.1
++  shared_preferences: ^2.0.0
+ 
+-# For information on the generic Dart part of this file, see the
+-# following page: https://dart.dev/tools/pub/pubspec
+-
+-# The following section is specific to Flutter packages.
+ flutter:
+ 
+-  # The following line ensures that the Material Icons font is
+-  # included with your application, so that you can use the icons in
+-  # the material Icons class.
+   uses-material-design: true
+ 
+-  # To add assets to your application, add an assets section, like this:
+-  # assets:
+-  #   - images/a_dot_burr.jpeg
+-  #   - images/a_dot_ham.jpeg
+-
+-  # An image asset can refer to one or more resolution-specific "variants", see
+-  # https://flutter.dev/to/resolution-aware-images
++  assets:
++    - assets/images/BudgetBuddyLogo.png
+ 
+-  # For details regarding adding assets from package dependencies, see
+-  # https://flutter.dev/to/asset-from-package
+-
+-  # To add custom fonts to your application, add a fonts section here,
+-  # in this "flutter" section. Each entry in this list should have a
+-  # "family" key with the font family name, and a "fonts" key with a
+-  # list giving the asset and other descriptors for the font. For
+-  # example:
+-  # fonts:
+-  #   - family: Schyler
+-  #     fonts:
+-  #       - asset: fonts/Schyler-Regular.ttf
+-  #       - asset: fonts/Schyler-Italic.ttf
+-  #         style: italic
+-  #   - family: Trajan Pro
+-  #     fonts:
+-  #       - asset: fonts/TrajanPro.ttf
+-  #       - asset: fonts/TrajanPro_Bold.ttf
+-  #         weight: 700
+-  #
+-  # For details regarding fonts from package dependencies,
+-  # see https://flutter.dev/to/font-from-package
++flutter_icons:
++  android: true
++  ios: true
++  image_path: "assets/images/BudgetBuddyLogo.png"
+Index: linux/runner/my_application.cc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"my_application.h\"\r\n\r\n#include <flutter_linux/flutter_linux.h>\r\n#ifdef GDK_WINDOWING_X11\r\n#include <gdk/gdkx.h>\r\n#endif\r\n\r\n#include \"flutter/generated_plugin_registrant.h\"\r\n\r\nstruct _MyApplication {\r\n  GtkApplication parent_instance;\r\n  char** dart_entrypoint_arguments;\r\n};\r\n\r\nG_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)\r\n\r\n// Implements GApplication::activate.\r\nstatic void my_application_activate(GApplication* application) {\r\n  MyApplication* self = MY_APPLICATION(application);\r\n  GtkWindow* window =\r\n      GTK_WINDOW(gtk_application_window_new(GTK_APPLICATION(application)));\r\n\r\n  // Use a header bar when running in GNOME as this is the common style used\r\n  // by applications and is the setup most users will be using (e.g. Ubuntu\r\n  // desktop).\r\n  // If running on X and not using GNOME then just use a traditional title bar\r\n  // in case the window manager does more exotic layout, e.g. tiling.\r\n  // If running on Wayland assume the header bar will work (may need changing\r\n  // if future cases occur).\r\n  gboolean use_header_bar = TRUE;\r\n#ifdef GDK_WINDOWING_X11\r\n  GdkScreen* screen = gtk_window_get_screen(window);\r\n  if (GDK_IS_X11_SCREEN(screen)) {\r\n    const gchar* wm_name = gdk_x11_screen_get_window_manager_name(screen);\r\n    if (g_strcmp0(wm_name, \"GNOME Shell\") != 0) {\r\n      use_header_bar = FALSE;\r\n    }\r\n  }\r\n#endif\r\n  if (use_header_bar) {\r\n    GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());\r\n    gtk_widget_show(GTK_WIDGET(header_bar));\r\n    gtk_header_bar_set_title(header_bar, \"budget_buddy_frontend\");\r\n    gtk_header_bar_set_show_close_button(header_bar, TRUE);\r\n    gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));\r\n  } else {\r\n    gtk_window_set_title(window, \"budget_buddy_frontend\");\r\n  }\r\n\r\n  gtk_window_set_default_size(window, 1280, 720);\r\n  gtk_widget_show(GTK_WIDGET(window));\r\n\r\n  g_autoptr(FlDartProject) project = fl_dart_project_new();\r\n  fl_dart_project_set_dart_entrypoint_arguments(project, self->dart_entrypoint_arguments);\r\n\r\n  FlView* view = fl_view_new(project);\r\n  gtk_widget_show(GTK_WIDGET(view));\r\n  gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(view));\r\n\r\n  fl_register_plugins(FL_PLUGIN_REGISTRY(view));\r\n\r\n  gtk_widget_grab_focus(GTK_WIDGET(view));\r\n}\r\n\r\n// Implements GApplication::local_command_line.\r\nstatic gboolean my_application_local_command_line(GApplication* application, gchar*** arguments, int* exit_status) {\r\n  MyApplication* self = MY_APPLICATION(application);\r\n  // Strip out the first argument as it is the binary name.\r\n  self->dart_entrypoint_arguments = g_strdupv(*arguments + 1);\r\n\r\n  g_autoptr(GError) error = nullptr;\r\n  if (!g_application_register(application, nullptr, &error)) {\r\n     g_warning(\"Failed to register: %s\", error->message);\r\n     *exit_status = 1;\r\n     return TRUE;\r\n  }\r\n\r\n  g_application_activate(application);\r\n  *exit_status = 0;\r\n\r\n  return TRUE;\r\n}\r\n\r\n// Implements GApplication::startup.\r\nstatic void my_application_startup(GApplication* application) {\r\n  //MyApplication* self = MY_APPLICATION(object);\r\n\r\n  // Perform any actions required at application startup.\r\n\r\n  G_APPLICATION_CLASS(my_application_parent_class)->startup(application);\r\n}\r\n\r\n// Implements GApplication::shutdown.\r\nstatic void my_application_shutdown(GApplication* application) {\r\n  //MyApplication* self = MY_APPLICATION(object);\r\n\r\n  // Perform any actions required at application shutdown.\r\n\r\n  G_APPLICATION_CLASS(my_application_parent_class)->shutdown(application);\r\n}\r\n\r\n// Implements GObject::dispose.\r\nstatic void my_application_dispose(GObject* object) {\r\n  MyApplication* self = MY_APPLICATION(object);\r\n  g_clear_pointer(&self->dart_entrypoint_arguments, g_strfreev);\r\n  G_OBJECT_CLASS(my_application_parent_class)->dispose(object);\r\n}\r\n\r\nstatic void my_application_class_init(MyApplicationClass* klass) {\r\n  G_APPLICATION_CLASS(klass)->activate = my_application_activate;\r\n  G_APPLICATION_CLASS(klass)->local_command_line = my_application_local_command_line;\r\n  G_APPLICATION_CLASS(klass)->startup = my_application_startup;\r\n  G_APPLICATION_CLASS(klass)->shutdown = my_application_shutdown;\r\n  G_OBJECT_CLASS(klass)->dispose = my_application_dispose;\r\n}\r\n\r\nstatic void my_application_init(MyApplication* self) {}\r\n\r\nMyApplication* my_application_new() {\r\n  // Set the program name to the application ID, which helps various systems\r\n  // like GTK and desktop environments map this running application to its\r\n  // corresponding .desktop file. This ensures better integration by allowing\r\n  // the application to be recognized beyond its binary name.\r\n  g_set_prgname(APPLICATION_ID);\r\n\r\n  return MY_APPLICATION(g_object_new(my_application_get_type(),\r\n                                     \"application-id\", APPLICATION_ID,\r\n                                     \"flags\", G_APPLICATION_NON_UNIQUE,\r\n                                     nullptr));\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/linux/runner/my_application.cc b/linux/runner/my_application.cc
+--- a/linux/runner/my_application.cc	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/linux/runner/my_application.cc	(date 1750956281269)
+@@ -40,11 +40,11 @@
+   if (use_header_bar) {
+     GtkHeaderBar* header_bar = GTK_HEADER_BAR(gtk_header_bar_new());
+     gtk_widget_show(GTK_WIDGET(header_bar));
+-    gtk_header_bar_set_title(header_bar, "budget_buddy_frontend");
++    gtk_header_bar_set_title(header_bar, "budget_buddy_app");
+     gtk_header_bar_set_show_close_button(header_bar, TRUE);
+     gtk_window_set_titlebar(window, GTK_WIDGET(header_bar));
+   } else {
+-    gtk_window_set_title(window, "budget_buddy_frontend");
++    gtk_window_set_title(window, "budget_buddy_app");
+   }
+ 
+   gtk_window_set_default_size(window, 1280, 720);
+Index: pubspec.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Generated by pub\r\n# See https://dart.dev/tools/pub/glossary#lockfile\r\npackages:\r\n  async:\r\n    dependency: transitive\r\n    description:\r\n      name: async\r\n      sha256: \"758e6d74e971c3e5aceb4110bfd6698efc7f501675bcfe0c775459a8140750eb\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"2.13.0\"\r\n  boolean_selector:\r\n    dependency: transitive\r\n    description:\r\n      name: boolean_selector\r\n      sha256: \"8aab1771e1243a5063b8b0ff68042d67334e3feab9e95b9490f9a6ebf73b42ea\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"2.1.2\"\r\n  characters:\r\n    dependency: transitive\r\n    description:\r\n      name: characters\r\n      sha256: f71061c654a3380576a52b451dd5532377954cf9dbd272a78fc8479606670803\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.4.0\"\r\n  clock:\r\n    dependency: transitive\r\n    description:\r\n      name: clock\r\n      sha256: fddb70d9b5277016c77a80201021d40a2247104d9f4aa7bab7157b7e3f05b84b\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.1.2\"\r\n  collection:\r\n    dependency: transitive\r\n    description:\r\n      name: collection\r\n      sha256: \"2f5709ae4d3d59dd8f7cd309b4e023046b57d8a6c82130785d2b0e5868084e76\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.19.1\"\r\n  cupertino_icons:\r\n    dependency: \"direct main\"\r\n    description:\r\n      name: cupertino_icons\r\n      sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.0.8\"\r\n  fake_async:\r\n    dependency: transitive\r\n    description:\r\n      name: fake_async\r\n      sha256: \"5368f224a74523e8d2e7399ea1638b37aecfca824a3cc4dfdf77bf1fa905ac44\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.3.3\"\r\n  flutter:\r\n    dependency: \"direct main\"\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  flutter_lints:\r\n    dependency: \"direct dev\"\r\n    description:\r\n      name: flutter_lints\r\n      sha256: \"5398f14efa795ffb7a33e9b6a08798b26a180edac4ad7db3f231e40f82ce11e1\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"5.0.0\"\r\n  flutter_test:\r\n    dependency: \"direct dev\"\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  leak_tracker:\r\n    dependency: transitive\r\n    description:\r\n      name: leak_tracker\r\n      sha256: \"6bb818ecbdffe216e81182c2f0714a2e62b593f4a4f13098713ff1685dfb6ab0\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"10.0.9\"\r\n  leak_tracker_flutter_testing:\r\n    dependency: transitive\r\n    description:\r\n      name: leak_tracker_flutter_testing\r\n      sha256: f8b613e7e6a13ec79cfdc0e97638fddb3ab848452eff057653abd3edba760573\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"3.0.9\"\r\n  leak_tracker_testing:\r\n    dependency: transitive\r\n    description:\r\n      name: leak_tracker_testing\r\n      sha256: \"6ba465d5d76e67ddf503e1161d1f4a6bc42306f9d66ca1e8f079a47290fb06d3\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"3.0.1\"\r\n  lints:\r\n    dependency: transitive\r\n    description:\r\n      name: lints\r\n      sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"5.1.1\"\r\n  matcher:\r\n    dependency: transitive\r\n    description:\r\n      name: matcher\r\n      sha256: dc58c723c3c24bf8d3e2d3ad3f2f9d7bd9cf43ec6feaa64181775e60190153f2\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"0.12.17\"\r\n  material_color_utilities:\r\n    dependency: transitive\r\n    description:\r\n      name: material_color_utilities\r\n      sha256: f7142bb1154231d7ea5f96bc7bde4bda2a0945d2806bb11670e30b850d56bdec\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"0.11.1\"\r\n  meta:\r\n    dependency: transitive\r\n    description:\r\n      name: meta\r\n      sha256: e3641ec5d63ebf0d9b41bd43201a66e3fc79a65db5f61fc181f04cd27aab950c\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.16.0\"\r\n  path:\r\n    dependency: transitive\r\n    description:\r\n      name: path\r\n      sha256: \"75cca69d1490965be98c73ceaea117e8a04dd21217b37b292c9ddbec0d955bc5\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.9.1\"\r\n  sky_engine:\r\n    dependency: transitive\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  source_span:\r\n    dependency: transitive\r\n    description:\r\n      name: source_span\r\n      sha256: \"254ee5351d6cb365c859e20ee823c3bb479bf4a293c22d17a9f1bf144ce86f7c\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.10.1\"\r\n  stack_trace:\r\n    dependency: transitive\r\n    description:\r\n      name: stack_trace\r\n      sha256: \"8b27215b45d22309b5cddda1aa2b19bdfec9df0e765f2de506401c071d38d1b1\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.12.1\"\r\n  stream_channel:\r\n    dependency: transitive\r\n    description:\r\n      name: stream_channel\r\n      sha256: \"969e04c80b8bcdf826f8f16579c7b14d780458bd97f56d107d3950fdbeef059d\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"2.1.4\"\r\n  string_scanner:\r\n    dependency: transitive\r\n    description:\r\n      name: string_scanner\r\n      sha256: \"921cd31725b72fe181906c6a94d987c78e3b98c2e205b397ea399d4054872b43\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.4.1\"\r\n  term_glyph:\r\n    dependency: transitive\r\n    description:\r\n      name: term_glyph\r\n      sha256: \"7f554798625ea768a7518313e58f83891c7f5024f88e46e7182a4558850a4b8e\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"1.2.2\"\r\n  test_api:\r\n    dependency: transitive\r\n    description:\r\n      name: test_api\r\n      sha256: fb31f383e2ee25fbbfe06b40fe21e1e458d14080e3c67e7ba0acfde4df4e0bbd\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"0.7.4\"\r\n  vector_math:\r\n    dependency: transitive\r\n    description:\r\n      name: vector_math\r\n      sha256: \"80b3257d1492ce4d091729e3a67a60407d227c27241d6927be0130c98e741803\"\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"2.1.4\"\r\n  vm_service:\r\n    dependency: transitive\r\n    description:\r\n      name: vm_service\r\n      sha256: ddfa8d30d89985b96407efce8acbdd124701f96741f2d981ca860662f1c0dc02\r\n      url: \"https://pub.dev\"\r\n    source: hosted\r\n    version: \"15.0.0\"\r\nsdks:\r\n  dart: \">=3.8.0 <4.0.0\"\r\n  flutter: \">=3.18.0-18.0.pre.54\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pubspec.lock b/pubspec.lock
+--- a/pubspec.lock	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/pubspec.lock	(date 1750956281293)
+@@ -1,6 +1,22 @@
+ # Generated by pub
+ # See https://dart.dev/tools/pub/glossary#lockfile
+ packages:
++  archive:
++    dependency: transitive
++    description:
++      name: archive
++      sha256: "2fde1607386ab523f7a36bb3e7edb43bd58e6edaf2ffb29d8a6d578b297fdbbd"
++      url: "https://pub.dev"
++    source: hosted
++    version: "4.0.7"
++  args:
++    dependency: transitive
++    description:
++      name: args
++      sha256: d0481093c50b1da8910eb0bb301626d4d8eb7284aa739614d2b394ee09e3ea04
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.7.0"
+   async:
+     dependency: transitive
+     description:
+@@ -25,6 +41,22 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "1.4.0"
++  checked_yaml:
++    dependency: transitive
++    description:
++      name: checked_yaml
++      sha256: "959525d3162f249993882720d52b7e0c833978df229be20702b33d48d91de70f"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.0.4"
++  cli_util:
++    dependency: transitive
++    description:
++      name: cli_util
++      sha256: ff6785f7e9e3c38ac98b2fb035701789de90154024a75b6cb926445e83197d1c
++      url: "https://pub.dev"
++    source: hosted
++    version: "0.4.2"
+   clock:
+     dependency: transitive
+     description:
+@@ -41,6 +73,14 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "1.19.1"
++  crypto:
++    dependency: transitive
++    description:
++      name: crypto
++      sha256: "1e445881f28f22d6140f181e07737b22f1e099a5e1ff94b0af2f9e4a463f4855"
++      url: "https://pub.dev"
++    source: hosted
++    version: "3.0.6"
+   cupertino_icons:
+     dependency: "direct main"
+     description:
+@@ -49,6 +89,14 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "1.0.8"
++  emoji_picker_flutter:
++    dependency: "direct dev"
++    description:
++      name: emoji_picker_flutter
++      sha256: "8506341d62efd116d6fb1481450bffdbac659d3d90d46d9cc610bfae5f33cc54"
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.6.4"
+   fake_async:
+     dependency: transitive
+     description:
+@@ -57,24 +105,93 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "1.3.3"
++  ffi:
++    dependency: transitive
++    description:
++      name: ffi
++      sha256: "289279317b4b16eb2bb7e271abccd4bf84ec9bdcbe999e278a94b804f5630418"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.1.4"
++  file:
++    dependency: transitive
++    description:
++      name: file
++      sha256: a3b4f84adafef897088c160faf7dfffb7696046cb13ae90b508c2cbc95d3b8d4
++      url: "https://pub.dev"
++    source: hosted
++    version: "7.0.1"
+   flutter:
+     dependency: "direct main"
+     description: flutter
+     source: sdk
+     version: "0.0.0"
++  flutter_colorpicker:
++    dependency: "direct dev"
++    description:
++      name: flutter_colorpicker
++      sha256: "969de5f6f9e2a570ac660fb7b501551451ea2a1ab9e2097e89475f60e07816ea"
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.1.0"
++  flutter_launcher_icons:
++    dependency: "direct dev"
++    description:
++      name: flutter_launcher_icons
++      sha256: bfa04787c85d80ecb3f8777bde5fc10c3de809240c48fa061a2c2bf15ea5211c
++      url: "https://pub.dev"
++    source: hosted
++    version: "0.14.3"
+   flutter_lints:
+     dependency: "direct dev"
+     description:
+       name: flutter_lints
+-      sha256: "5398f14efa795ffb7a33e9b6a08798b26a180edac4ad7db3f231e40f82ce11e1"
++      sha256: "3105dc8492f6183fb076ccf1f351ac3d60564bff92e20bfc4af9cc1651f4e7e1"
+       url: "https://pub.dev"
+     source: hosted
+-    version: "5.0.0"
++    version: "6.0.0"
+   flutter_test:
+     dependency: "direct dev"
+     description: flutter
+     source: sdk
+     version: "0.0.0"
++  flutter_web_plugins:
++    dependency: transitive
++    description: flutter
++    source: sdk
++    version: "0.0.0"
++  http:
++    dependency: "direct main"
++    description:
++      name: http
++      sha256: "2c11f3f94c687ee9bad77c171151672986360b2b001d109814ee7140b2cf261b"
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.4.0"
++  http_parser:
++    dependency: transitive
++    description:
++      name: http_parser
++      sha256: "178d74305e7866013777bab2c3d8726205dc5a4dd935297175b19a23a2e66571"
++      url: "https://pub.dev"
++    source: hosted
++    version: "4.1.2"
++  image:
++    dependency: transitive
++    description:
++      name: image
++      sha256: "4e973fcf4caae1a4be2fa0a13157aa38a8f9cb049db6529aa00b4d71abc4d928"
++      url: "https://pub.dev"
++    source: hosted
++    version: "4.5.4"
++  json_annotation:
++    dependency: transitive
++    description:
++      name: json_annotation
++      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
++      url: "https://pub.dev"
++    source: hosted
++    version: "4.9.0"
+   leak_tracker:
+     dependency: transitive
+     description:
+@@ -103,10 +220,10 @@
+     dependency: transitive
+     description:
+       name: lints
+-      sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7
++      sha256: a5e2b223cb7c9c8efdc663ef484fdd95bb243bff242ef5b13e26883547fce9a0
+       url: "https://pub.dev"
+     source: hosted
+-    version: "5.1.1"
++    version: "6.0.0"
+   matcher:
+     dependency: transitive
+     description:
+@@ -131,6 +248,14 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "1.16.0"
++  nested:
++    dependency: transitive
++    description:
++      name: nested
++      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.0.0"
+   path:
+     dependency: transitive
+     description:
+@@ -139,6 +264,126 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "1.9.1"
++  path_provider_linux:
++    dependency: transitive
++    description:
++      name: path_provider_linux
++      sha256: f7a1fe3a634fe7734c8d3f2766ad746ae2a2884abe22e241a8b301bf5cac3279
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.2.1"
++  path_provider_platform_interface:
++    dependency: transitive
++    description:
++      name: path_provider_platform_interface
++      sha256: "88f5779f72ba699763fa3a3b06aa4bf6de76c8e5de842cf6f29e2e06476c2334"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.1.2"
++  path_provider_windows:
++    dependency: transitive
++    description:
++      name: path_provider_windows
++      sha256: bd6f00dbd873bfb70d0761682da2b3a2c2fccc2b9e84c495821639601d81afe7
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.3.0"
++  petitparser:
++    dependency: transitive
++    description:
++      name: petitparser
++      sha256: "07c8f0b1913bcde1ff0d26e57ace2f3012ccbf2b204e070290dad3bb22797646"
++      url: "https://pub.dev"
++    source: hosted
++    version: "6.1.0"
++  platform:
++    dependency: transitive
++    description:
++      name: platform
++      sha256: "5d6b1b0036a5f331ebc77c850ebc8506cbc1e9416c27e59b439f917a902a4984"
++      url: "https://pub.dev"
++    source: hosted
++    version: "3.1.6"
++  plugin_platform_interface:
++    dependency: transitive
++    description:
++      name: plugin_platform_interface
++      sha256: "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.1.8"
++  posix:
++    dependency: transitive
++    description:
++      name: posix
++      sha256: f0d7856b6ca1887cfa6d1d394056a296ae33489db914e365e2044fdada449e62
++      url: "https://pub.dev"
++    source: hosted
++    version: "6.0.2"
++  provider:
++    dependency: "direct main"
++    description:
++      name: provider
++      sha256: "4abbd070a04e9ddc287673bf5a030c7ca8b685ff70218720abab8b092f53dd84"
++      url: "https://pub.dev"
++    source: hosted
++    version: "6.1.5"
++  shared_preferences:
++    dependency: "direct main"
++    description:
++      name: shared_preferences
++      sha256: "6e8bf70b7fef813df4e9a36f658ac46d107db4b4cfe1048b477d4e453a8159f5"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.5.3"
++  shared_preferences_android:
++    dependency: transitive
++    description:
++      name: shared_preferences_android
++      sha256: "20cbd561f743a342c76c151d6ddb93a9ce6005751e7aa458baad3858bfbfb6ac"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.4.10"
++  shared_preferences_foundation:
++    dependency: transitive
++    description:
++      name: shared_preferences_foundation
++      sha256: "6a52cfcdaeac77cad8c97b539ff688ccfc458c007b4db12be584fbe5c0e49e03"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.5.4"
++  shared_preferences_linux:
++    dependency: transitive
++    description:
++      name: shared_preferences_linux
++      sha256: "580abfd40f415611503cae30adf626e6656dfb2f0cee8f465ece7b6defb40f2f"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.4.1"
++  shared_preferences_platform_interface:
++    dependency: transitive
++    description:
++      name: shared_preferences_platform_interface
++      sha256: "57cbf196c486bc2cf1f02b85784932c6094376284b3ad5779d1b1c6c6a816b80"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.4.1"
++  shared_preferences_web:
++    dependency: transitive
++    description:
++      name: shared_preferences_web
++      sha256: c49bd060261c9a3f0ff445892695d6212ff603ef3115edbb448509d407600019
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.4.3"
++  shared_preferences_windows:
++    dependency: transitive
++    description:
++      name: shared_preferences_windows
++      sha256: "94ef0f72b2d71bc3e700e025db3710911bd51a71cefb65cc609dd0d9a982e3c1"
++      url: "https://pub.dev"
++    source: hosted
++    version: "2.4.1"
+   sky_engine:
+     dependency: transitive
+     description: flutter
+@@ -192,6 +437,14 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "0.7.4"
++  typed_data:
++    dependency: transitive
++    description:
++      name: typed_data
++      sha256: f9049c039ebfeb4cf7a7104a675823cd72dba8297f264b6637062516699fa006
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.4.0"
+   vector_math:
+     dependency: transitive
+     description:
+@@ -208,6 +461,38 @@
+       url: "https://pub.dev"
+     source: hosted
+     version: "15.0.0"
++  web:
++    dependency: transitive
++    description:
++      name: web
++      sha256: "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a"
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.1.1"
++  xdg_directories:
++    dependency: transitive
++    description:
++      name: xdg_directories
++      sha256: "7a3f37b05d989967cdddcbb571f1ea834867ae2faa29725fd085180e0883aa15"
++      url: "https://pub.dev"
++    source: hosted
++    version: "1.1.0"
++  xml:
++    dependency: transitive
++    description:
++      name: xml
++      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
++      url: "https://pub.dev"
++    source: hosted
++    version: "6.5.0"
++  yaml:
++    dependency: transitive
++    description:
++      name: yaml
++      sha256: b9da305ac7c39faa3f030eccd175340f968459dae4af175130b3fc47e40d76ce
++      url: "https://pub.dev"
++    source: hosted
++    version: "3.1.3"
+ sdks:
+   dart: ">=3.8.0 <4.0.0"
+-  flutter: ">=3.18.0-18.0.pre.54"
++  flutter: ">=3.27.0"
+Index: windows/flutter/generated_plugin_registrant.cc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//\r\n//  Generated file. Do not edit.\r\n//\r\n\r\n// clang-format off\r\n\r\n#include \"generated_plugin_registrant.h\"\r\n\r\n\r\nvoid RegisterPlugins(flutter::PluginRegistry* registry) {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/windows/flutter/generated_plugin_registrant.cc b/windows/flutter/generated_plugin_registrant.cc
+--- a/windows/flutter/generated_plugin_registrant.cc	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/windows/flutter/generated_plugin_registrant.cc	(date 1750956281293)
+@@ -6,6 +6,9 @@
+ 
+ #include "generated_plugin_registrant.h"
+ 
++#include <emoji_picker_flutter/emoji_picker_flutter_plugin_c_api.h>
+ 
+ void RegisterPlugins(flutter::PluginRegistry* registry) {
++  EmojiPickerFlutterPluginCApiRegisterWithRegistrar(
++      registry->GetRegistrarForPlugin("EmojiPickerFlutterPluginCApi"));
+ }
+Index: windows/flutter/generated_plugins.cmake
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#\r\n# Generated file, do not edit.\r\n#\r\n\r\nlist(APPEND FLUTTER_PLUGIN_LIST\r\n)\r\n\r\nlist(APPEND FLUTTER_FFI_PLUGIN_LIST\r\n)\r\n\r\nset(PLUGIN_BUNDLED_LIBRARIES)\r\n\r\nforeach(plugin ${FLUTTER_PLUGIN_LIST})\r\n  add_subdirectory(flutter/ephemeral/.plugin_symlinks/${plugin}/windows plugins/${plugin})\r\n  target_link_libraries(${BINARY_NAME} PRIVATE ${plugin}_plugin)\r\n  list(APPEND PLUGIN_BUNDLED_LIBRARIES $<TARGET_FILE:${plugin}_plugin>)\r\n  list(APPEND PLUGIN_BUNDLED_LIBRARIES ${${plugin}_bundled_libraries})\r\nendforeach(plugin)\r\n\r\nforeach(ffi_plugin ${FLUTTER_FFI_PLUGIN_LIST})\r\n  add_subdirectory(flutter/ephemeral/.plugin_symlinks/${ffi_plugin}/windows plugins/${ffi_plugin})\r\n  list(APPEND PLUGIN_BUNDLED_LIBRARIES ${${ffi_plugin}_bundled_libraries})\r\nendforeach(ffi_plugin)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/windows/flutter/generated_plugins.cmake b/windows/flutter/generated_plugins.cmake
+--- a/windows/flutter/generated_plugins.cmake	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/windows/flutter/generated_plugins.cmake	(date 1750956281293)
+@@ -3,6 +3,7 @@
+ #
+ 
+ list(APPEND FLUTTER_PLUGIN_LIST
++  emoji_picker_flutter
+ )
+ 
+ list(APPEND FLUTTER_FFI_PLUGIN_LIST
+Index: ios/Flutter/Release.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"Generated.xcconfig\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ios/Flutter/Release.xcconfig b/ios/Flutter/Release.xcconfig
+--- a/ios/Flutter/Release.xcconfig	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/ios/Flutter/Release.xcconfig	(date 1750956281254)
+@@ -1,1 +1,2 @@
++#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+ #include "Generated.xcconfig"
+Index: web/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n  <!--\r\n    If you are serving your web app in a path other than the root, change the\r\n    href value below to reflect the base path you are serving from.\r\n\r\n    The path provided below has to start and end with a slash \"/\" in order for\r\n    it to work correctly.\r\n\r\n    For more details:\r\n    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base\r\n\r\n    This is a placeholder for base href that will be replaced by the value of\r\n    the `--base-href` argument provided to `flutter build`.\r\n  -->\r\n  <base href=\"$FLUTTER_BASE_HREF\">\r\n\r\n  <meta charset=\"UTF-8\">\r\n  <meta content=\"IE=Edge\" http-equiv=\"X-UA-Compatible\">\r\n  <meta name=\"description\" content=\"A new Flutter project.\">\r\n\r\n  <!-- iOS meta tags & icons -->\r\n  <meta name=\"mobile-web-app-capable\" content=\"yes\">\r\n  <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\">\r\n  <meta name=\"apple-mobile-web-app-title\" content=\"budget_buddy_frontend\">\r\n  <link rel=\"apple-touch-icon\" href=\"icons/Icon-192.png\">\r\n\r\n  <!-- Favicon -->\r\n  <link rel=\"icon\" type=\"image/png\" href=\"favicon.png\"/>\r\n\r\n  <title>budget_buddy_frontend</title>\r\n  <link rel=\"manifest\" href=\"manifest.json\">\r\n</head>\r\n<body>\r\n  <script src=\"flutter_bootstrap.js\" async></script>\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/web/index.html b/web/index.html
+--- a/web/index.html	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/web/index.html	(date 1750956281293)
+@@ -23,13 +23,13 @@
+   <!-- iOS meta tags & icons -->
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+-  <meta name="apple-mobile-web-app-title" content="budget_buddy_frontend">
++  <meta name="apple-mobile-web-app-title" content="budget_buddy_app">
+   <link rel="apple-touch-icon" href="icons/Icon-192.png">
+ 
+   <!-- Favicon -->
+   <link rel="icon" type="image/png" href="favicon.png"/>
+ 
+-  <title>budget_buddy_frontend</title>
++  <title>budget_buddy_app</title>
+   <link rel="manifest" href="manifest.json">
+ </head>
+ <body>
+Index: web/manifest.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n    \"name\": \"budget_buddy_frontend\",\r\n    \"short_name\": \"budget_buddy_frontend\",\r\n    \"start_url\": \".\",\r\n    \"display\": \"standalone\",\r\n    \"background_color\": \"#0175C2\",\r\n    \"theme_color\": \"#0175C2\",\r\n    \"description\": \"A new Flutter project.\",\r\n    \"orientation\": \"portrait-primary\",\r\n    \"prefer_related_applications\": false,\r\n    \"icons\": [\r\n        {\r\n            \"src\": \"icons/Icon-192.png\",\r\n            \"sizes\": \"192x192\",\r\n            \"type\": \"image/png\"\r\n        },\r\n        {\r\n            \"src\": \"icons/Icon-512.png\",\r\n            \"sizes\": \"512x512\",\r\n            \"type\": \"image/png\"\r\n        },\r\n        {\r\n            \"src\": \"icons/Icon-maskable-192.png\",\r\n            \"sizes\": \"192x192\",\r\n            \"type\": \"image/png\",\r\n            \"purpose\": \"maskable\"\r\n        },\r\n        {\r\n            \"src\": \"icons/Icon-maskable-512.png\",\r\n            \"sizes\": \"512x512\",\r\n            \"type\": \"image/png\",\r\n            \"purpose\": \"maskable\"\r\n        }\r\n    ]\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/web/manifest.json b/web/manifest.json
+--- a/web/manifest.json	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/web/manifest.json	(date 1750956281293)
+@@ -1,6 +1,6 @@
+ {
+-    "name": "budget_buddy_frontend",
+-    "short_name": "budget_buddy_frontend",
++    "name": "budget_buddy_app",
++    "short_name": "budget_buddy_app",
+     "start_url": ".",
+     "display": "standalone",
+     "background_color": "#0175C2",
+Index: ios/Flutter/Debug.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"Generated.xcconfig\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ios/Flutter/Debug.xcconfig b/ios/Flutter/Debug.xcconfig
+--- a/ios/Flutter/Debug.xcconfig	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/ios/Flutter/Debug.xcconfig	(date 1750956281252)
+@@ -1,1 +1,2 @@
++#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+ #include "Generated.xcconfig"
+Index: linux/flutter/generated_plugin_registrant.cc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//\r\n//  Generated file. Do not edit.\r\n//\r\n\r\n// clang-format off\r\n\r\n#include \"generated_plugin_registrant.h\"\r\n\r\n\r\nvoid fl_register_plugins(FlPluginRegistry* registry) {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/linux/flutter/generated_plugin_registrant.cc b/linux/flutter/generated_plugin_registrant.cc
+--- a/linux/flutter/generated_plugin_registrant.cc	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/linux/flutter/generated_plugin_registrant.cc	(date 1750956281269)
+@@ -6,6 +6,10 @@
+ 
+ #include "generated_plugin_registrant.h"
+ 
++#include <emoji_picker_flutter/emoji_picker_flutter_plugin.h>
+ 
+ void fl_register_plugins(FlPluginRegistry* registry) {
++  g_autoptr(FlPluginRegistrar) emoji_picker_flutter_registrar =
++      fl_plugin_registry_get_registrar_for_plugin(registry, "EmojiPickerFlutterPlugin");
++  emoji_picker_flutter_plugin_register_with_registrar(emoji_picker_flutter_registrar);
+ }
+Index: linux/flutter/generated_plugins.cmake
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#\r\n# Generated file, do not edit.\r\n#\r\n\r\nlist(APPEND FLUTTER_PLUGIN_LIST\r\n)\r\n\r\nlist(APPEND FLUTTER_FFI_PLUGIN_LIST\r\n)\r\n\r\nset(PLUGIN_BUNDLED_LIBRARIES)\r\n\r\nforeach(plugin ${FLUTTER_PLUGIN_LIST})\r\n  add_subdirectory(flutter/ephemeral/.plugin_symlinks/${plugin}/linux plugins/${plugin})\r\n  target_link_libraries(${BINARY_NAME} PRIVATE ${plugin}_plugin)\r\n  list(APPEND PLUGIN_BUNDLED_LIBRARIES $<TARGET_FILE:${plugin}_plugin>)\r\n  list(APPEND PLUGIN_BUNDLED_LIBRARIES ${${plugin}_bundled_libraries})\r\nendforeach(plugin)\r\n\r\nforeach(ffi_plugin ${FLUTTER_FFI_PLUGIN_LIST})\r\n  add_subdirectory(flutter/ephemeral/.plugin_symlinks/${ffi_plugin}/linux plugins/${ffi_plugin})\r\n  list(APPEND PLUGIN_BUNDLED_LIBRARIES ${${ffi_plugin}_bundled_libraries})\r\nendforeach(ffi_plugin)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/linux/flutter/generated_plugins.cmake b/linux/flutter/generated_plugins.cmake
+--- a/linux/flutter/generated_plugins.cmake	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/linux/flutter/generated_plugins.cmake	(date 1750956281269)
+@@ -3,6 +3,7 @@
+ #
+ 
+ list(APPEND FLUTTER_PLUGIN_LIST
++  emoji_picker_flutter
+ )
+ 
+ list(APPEND FLUTTER_FFI_PLUGIN_LIST
+Index: macos/Flutter/Flutter-Debug.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"ephemeral/Flutter-Generated.xcconfig\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Flutter/Flutter-Debug.xcconfig b/macos/Flutter/Flutter-Debug.xcconfig
+--- a/macos/Flutter/Flutter-Debug.xcconfig	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Flutter/Flutter-Debug.xcconfig	(date 1750956281269)
+@@ -1,1 +1,2 @@
++#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+ #include "ephemeral/Flutter-Generated.xcconfig"
+Index: macos/Flutter/GeneratedPluginRegistrant.swift
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>//\r\n//  Generated file. Do not edit.\r\n//\r\n\r\nimport FlutterMacOS\r\nimport Foundation\r\n\r\n\r\nfunc RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Flutter/GeneratedPluginRegistrant.swift b/macos/Flutter/GeneratedPluginRegistrant.swift
+--- a/macos/Flutter/GeneratedPluginRegistrant.swift	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Flutter/GeneratedPluginRegistrant.swift	(date 1750956281269)
+@@ -5,6 +5,10 @@
+ import FlutterMacOS
+ import Foundation
+ 
++import emoji_picker_flutter
++import shared_preferences_foundation
+ 
+ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
++  EmojiPickerFlutterPlugin.register(with: registry.registrar(forPlugin: "EmojiPickerFlutterPlugin"))
++  SharedPreferencesPlugin.register(with: registry.registrar(forPlugin: "SharedPreferencesPlugin"))
+ }
+Index: macos/Runner/Info.plist
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\r\n<plist version=\"1.0\">\r\n<dict>\r\n\t<key>CFBundleDevelopmentRegion</key>\r\n\t<string>$(DEVELOPMENT_LANGUAGE)</string>\r\n\t<key>CFBundleExecutable</key>\r\n\t<string>$(EXECUTABLE_NAME)</string>\r\n\t<key>CFBundleIconFile</key>\r\n\t<string></string>\r\n\t<key>CFBundleIdentifier</key>\r\n\t<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>\r\n\t<key>CFBundleInfoDictionaryVersion</key>\r\n\t<string>6.0</string>\r\n\t<key>CFBundleName</key>\r\n\t<string>$(PRODUCT_NAME)</string>\r\n\t<key>CFBundlePackageType</key>\r\n\t<string>APPL</string>\r\n\t<key>CFBundleShortVersionString</key>\r\n\t<string>$(FLUTTER_BUILD_NAME)</string>\r\n\t<key>CFBundleVersion</key>\r\n\t<string>$(FLUTTER_BUILD_NUMBER)</string>\r\n\t<key>LSMinimumSystemVersion</key>\r\n\t<string>$(MACOSX_DEPLOYMENT_TARGET)</string>\r\n\t<key>NSHumanReadableCopyright</key>\r\n\t<string>$(PRODUCT_COPYRIGHT)</string>\r\n\t<key>NSMainNibFile</key>\r\n\t<string>MainMenu</string>\r\n\t<key>NSPrincipalClass</key>\r\n\t<string>NSApplication</string>\r\n</dict>\r\n</plist>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner/Info.plist b/macos/Runner/Info.plist
+--- a/macos/Runner/Info.plist	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner/Info.plist	(date 1750956281278)
+@@ -1,32 +1,32 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+-<dict>
+-	<key>CFBundleDevelopmentRegion</key>
+-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+-	<key>CFBundleExecutable</key>
+-	<string>$(EXECUTABLE_NAME)</string>
+-	<key>CFBundleIconFile</key>
+-	<string></string>
+-	<key>CFBundleIdentifier</key>
+-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+-	<key>CFBundleInfoDictionaryVersion</key>
+-	<string>6.0</string>
+-	<key>CFBundleName</key>
+-	<string>$(PRODUCT_NAME)</string>
+-	<key>CFBundlePackageType</key>
+-	<string>APPL</string>
+-	<key>CFBundleShortVersionString</key>
+-	<string>$(FLUTTER_BUILD_NAME)</string>
+-	<key>CFBundleVersion</key>
+-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+-	<key>LSMinimumSystemVersion</key>
+-	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+-	<key>NSHumanReadableCopyright</key>
+-	<string>$(PRODUCT_COPYRIGHT)</string>
+-	<key>NSMainNibFile</key>
+-	<string>MainMenu</string>
+-	<key>NSPrincipalClass</key>
+-	<string>NSApplication</string>
+-</dict>
++	<dict>
++		<key>CFBundleDevelopmentRegion</key>
++		<string>$(DEVELOPMENT_LANGUAGE)</string>
++		<key>CFBundleExecutable</key>
++		<string>$(EXECUTABLE_NAME)</string>
++		<key>CFBundleIconFile</key>
++		<string>BudgetBuddy</string>
++		<key>CFBundleIdentifier</key>
++		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
++		<key>CFBundleInfoDictionaryVersion</key>
++		<string>6.0</string>
++		<key>CFBundleName</key>
++		<string>$(PRODUCT_NAME)</string>
++		<key>CFBundlePackageType</key>
++		<string>APPL</string>
++		<key>CFBundleShortVersionString</key>
++		<string>$(FLUTTER_BUILD_NAME)</string>
++		<key>CFBundleVersion</key>
++		<string>$(FLUTTER_BUILD_NUMBER)</string>
++		<key>LSMinimumSystemVersion</key>
++		<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
++		<key>NSHumanReadableCopyright</key>
++		<string>$(PRODUCT_COPYRIGHT)</string>
++		<key>NSMainNibFile</key>
++		<string>MainMenu</string>
++		<key>NSPrincipalClass</key>
++		<string>NSApplication</string>
++	</dict>
+ </plist>
+Index: macos/Flutter/Flutter-Release.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#include \"ephemeral/Flutter-Generated.xcconfig\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Flutter/Flutter-Release.xcconfig b/macos/Flutter/Flutter-Release.xcconfig
+--- a/macos/Flutter/Flutter-Release.xcconfig	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Flutter/Flutter-Release.xcconfig	(date 1750956281269)
+@@ -1,1 +1,2 @@
++#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
+ #include "ephemeral/Flutter-Generated.xcconfig"
+Index: macos/Runner.xcworkspace/contents.xcworkspacedata
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Workspace\r\n   version = \"1.0\">\r\n   <FileRef\r\n      location = \"group:Runner.xcodeproj\">\r\n   </FileRef>\r\n</Workspace>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner.xcworkspace/contents.xcworkspacedata b/macos/Runner.xcworkspace/contents.xcworkspacedata
+--- a/macos/Runner.xcworkspace/contents.xcworkspacedata	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner.xcworkspace/contents.xcworkspacedata	(date 1750956281278)
+@@ -4,4 +4,7 @@
+    <FileRef
+       location = "group:Runner.xcodeproj">
+    </FileRef>
++   <FileRef
++      location = "group:Pods/Pods.xcodeproj">
++   </FileRef>
+ </Workspace>
+Index: macos/Runner/DebugProfile.entitlements
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\r\n<plist version=\"1.0\">\r\n<dict>\r\n\t<key>com.apple.security.app-sandbox</key>\r\n\t<true/>\r\n\t<key>com.apple.security.cs.allow-jit</key>\r\n\t<true/>\r\n\t<key>com.apple.security.network.server</key>\r\n\t<true/>\r\n</dict>\r\n</plist>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner/DebugProfile.entitlements b/macos/Runner/DebugProfile.entitlements
+--- a/macos/Runner/DebugProfile.entitlements	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner/DebugProfile.entitlements	(date 1750956281278)
+@@ -8,5 +8,7 @@
+ 	<true/>
+ 	<key>com.apple.security.network.server</key>
+ 	<true/>
++	<key>com.apple.security.network.client</key>
++	<true/>
+ </dict>
+ </plist>
+Index: android/gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>distributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-8.12-all.zip\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/android/gradle/wrapper/gradle-wrapper.properties b/android/gradle/wrapper/gradle-wrapper.properties
+--- a/android/gradle/wrapper/gradle-wrapper.properties	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/android/gradle/wrapper/gradle-wrapper.properties	(date 1750956281244)
+@@ -2,4 +2,4 @@
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-8.12-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.10.2-all.zip
+Index: android/app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id(\"com.android.application\")\r\n    id(\"kotlin-android\")\r\n    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.\r\n    id(\"dev.flutter.flutter-gradle-plugin\")\r\n}\r\n\r\nandroid {\r\n    namespace = \"com.budgetbuddy.budget_buddy_frontend\"\r\n    compileSdk = flutter.compileSdkVersion\r\n    ndkVersion = flutter.ndkVersion\r\n\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_11\r\n        targetCompatibility = JavaVersion.VERSION_11\r\n    }\r\n\r\n    kotlinOptions {\r\n        jvmTarget = JavaVersion.VERSION_11.toString()\r\n    }\r\n\r\n    defaultConfig {\r\n        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).\r\n        applicationId = \"com.budgetbuddy.budget_buddy_frontend\"\r\n        // You can update the following values to match your application needs.\r\n        // For more information, see: https://flutter.dev/to/review-gradle-config.\r\n        minSdk = flutter.minSdkVersion\r\n        targetSdk = flutter.targetSdkVersion\r\n        versionCode = flutter.versionCode\r\n        versionName = flutter.versionName\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            // TODO: Add your own signing config for the release build.\r\n            // Signing with the debug keys for now, so `flutter run --release` works.\r\n            signingConfig = signingConfigs.getByName(\"debug\")\r\n        }\r\n    }\r\n}\r\n\r\nflutter {\r\n    source = \"../..\"\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/android/app/build.gradle.kts b/android/app/build.gradle.kts
+--- a/android/app/build.gradle.kts	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/android/app/build.gradle.kts	(date 1750956281238)
+@@ -6,7 +6,7 @@
+ }
+ 
+ android {
+-    namespace = "com.budgetbuddy.budget_buddy_frontend"
++    namespace = "com.example.budget_buddy_app"
+     compileSdk = flutter.compileSdkVersion
+     ndkVersion = flutter.ndkVersion
+ 
+@@ -21,7 +21,7 @@
+ 
+     defaultConfig {
+         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+-        applicationId = "com.budgetbuddy.budget_buddy_frontend"
++        applicationId = "com.example.budget_buddy_app"
+         // You can update the following values to match your application needs.
+         // For more information, see: https://flutter.dev/to/review-gradle-config.
+         minSdk = flutter.minSdkVersion
+Index: macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<Scheme\r\n   LastUpgradeVersion = \"1510\"\r\n   version = \"1.3\">\r\n   <BuildAction\r\n      parallelizeBuildables = \"YES\"\r\n      buildImplicitDependencies = \"YES\">\r\n      <BuildActionEntries>\r\n         <BuildActionEntry\r\n            buildForTesting = \"YES\"\r\n            buildForRunning = \"YES\"\r\n            buildForProfiling = \"YES\"\r\n            buildForArchiving = \"YES\"\r\n            buildForAnalyzing = \"YES\">\r\n            <BuildableReference\r\n               BuildableIdentifier = \"primary\"\r\n               BlueprintIdentifier = \"33CC10EC2044A3C60003C045\"\r\n               BuildableName = \"budget_buddy_frontend.app\"\r\n               BlueprintName = \"Runner\"\r\n               ReferencedContainer = \"container:Runner.xcodeproj\">\r\n            </BuildableReference>\r\n         </BuildActionEntry>\r\n      </BuildActionEntries>\r\n   </BuildAction>\r\n   <TestAction\r\n      buildConfiguration = \"Debug\"\r\n      selectedDebuggerIdentifier = \"Xcode.DebuggerFoundation.Debugger.LLDB\"\r\n      selectedLauncherIdentifier = \"Xcode.DebuggerFoundation.Launcher.LLDB\"\r\n      shouldUseLaunchSchemeArgsEnv = \"YES\">\r\n      <MacroExpansion>\r\n         <BuildableReference\r\n            BuildableIdentifier = \"primary\"\r\n            BlueprintIdentifier = \"33CC10EC2044A3C60003C045\"\r\n            BuildableName = \"budget_buddy_frontend.app\"\r\n            BlueprintName = \"Runner\"\r\n            ReferencedContainer = \"container:Runner.xcodeproj\">\r\n         </BuildableReference>\r\n      </MacroExpansion>\r\n      <Testables>\r\n         <TestableReference\r\n            skipped = \"NO\"\r\n            parallelizable = \"YES\">\r\n            <BuildableReference\r\n               BuildableIdentifier = \"primary\"\r\n               BlueprintIdentifier = \"331C80D4294CF70F00263BE5\"\r\n               BuildableName = \"RunnerTests.xctest\"\r\n               BlueprintName = \"RunnerTests\"\r\n               ReferencedContainer = \"container:Runner.xcodeproj\">\r\n            </BuildableReference>\r\n         </TestableReference>\r\n      </Testables>\r\n   </TestAction>\r\n   <LaunchAction\r\n      buildConfiguration = \"Debug\"\r\n      selectedDebuggerIdentifier = \"Xcode.DebuggerFoundation.Debugger.LLDB\"\r\n      selectedLauncherIdentifier = \"Xcode.DebuggerFoundation.Launcher.LLDB\"\r\n      launchStyle = \"0\"\r\n      useCustomWorkingDirectory = \"NO\"\r\n      ignoresPersistentStateOnLaunch = \"NO\"\r\n      debugDocumentVersioning = \"YES\"\r\n      debugServiceExtension = \"internal\"\r\n      enableGPUValidationMode = \"1\"\r\n      allowLocationSimulation = \"YES\">\r\n      <BuildableProductRunnable\r\n         runnableDebuggingMode = \"0\">\r\n         <BuildableReference\r\n            BuildableIdentifier = \"primary\"\r\n            BlueprintIdentifier = \"33CC10EC2044A3C60003C045\"\r\n            BuildableName = \"budget_buddy_frontend.app\"\r\n            BlueprintName = \"Runner\"\r\n            ReferencedContainer = \"container:Runner.xcodeproj\">\r\n         </BuildableReference>\r\n      </BuildableProductRunnable>\r\n   </LaunchAction>\r\n   <ProfileAction\r\n      buildConfiguration = \"Profile\"\r\n      shouldUseLaunchSchemeArgsEnv = \"YES\"\r\n      savedToolIdentifier = \"\"\r\n      useCustomWorkingDirectory = \"NO\"\r\n      debugDocumentVersioning = \"YES\">\r\n      <BuildableProductRunnable\r\n         runnableDebuggingMode = \"0\">\r\n         <BuildableReference\r\n            BuildableIdentifier = \"primary\"\r\n            BlueprintIdentifier = \"33CC10EC2044A3C60003C045\"\r\n            BuildableName = \"budget_buddy_frontend.app\"\r\n            BlueprintName = \"Runner\"\r\n            ReferencedContainer = \"container:Runner.xcodeproj\">\r\n         </BuildableReference>\r\n      </BuildableProductRunnable>\r\n   </ProfileAction>\r\n   <AnalyzeAction\r\n      buildConfiguration = \"Debug\">\r\n   </AnalyzeAction>\r\n   <ArchiveAction\r\n      buildConfiguration = \"Release\"\r\n      revealArchiveInOrganizer = \"YES\">\r\n   </ArchiveAction>\r\n</Scheme>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme b/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+--- a/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme	(date 1750956281278)
+@@ -15,7 +15,7 @@
+             <BuildableReference
+                BuildableIdentifier = "primary"
+                BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+-               BuildableName = "budget_buddy_frontend.app"
++               BuildableName = "budget_buddy_app.app"
+                BlueprintName = "Runner"
+                ReferencedContainer = "container:Runner.xcodeproj">
+             </BuildableReference>
+@@ -31,7 +31,7 @@
+          <BuildableReference
+             BuildableIdentifier = "primary"
+             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+-            BuildableName = "budget_buddy_frontend.app"
++            BuildableName = "budget_buddy_app.app"
+             BlueprintName = "Runner"
+             ReferencedContainer = "container:Runner.xcodeproj">
+          </BuildableReference>
+@@ -66,7 +66,7 @@
+          <BuildableReference
+             BuildableIdentifier = "primary"
+             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+-            BuildableName = "budget_buddy_frontend.app"
++            BuildableName = "budget_buddy_app.app"
+             BlueprintName = "Runner"
+             ReferencedContainer = "container:Runner.xcodeproj">
+          </BuildableReference>
+@@ -83,7 +83,7 @@
+          <BuildableReference
+             BuildableIdentifier = "primary"
+             BlueprintIdentifier = "33CC10EC2044A3C60003C045"
+-            BuildableName = "budget_buddy_frontend.app"
++            BuildableName = "budget_buddy_app.app"
+             BlueprintName = "Runner"
+             ReferencedContainer = "container:Runner.xcodeproj">
+          </BuildableReference>
+Index: windows/CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Project-level configuration.\r\ncmake_minimum_required(VERSION 3.14)\r\nproject(budget_buddy_frontend LANGUAGES CXX)\r\n\r\n# The name of the executable created for the application. Change this to change\r\n# the on-disk name of your application.\r\nset(BINARY_NAME \"budget_buddy_frontend\")\r\n\r\n# Explicitly opt in to modern CMake behaviors to avoid warnings with recent\r\n# versions of CMake.\r\ncmake_policy(VERSION 3.14...3.25)\r\n\r\n# Define build configuration option.\r\nget_property(IS_MULTICONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)\r\nif(IS_MULTICONFIG)\r\n  set(CMAKE_CONFIGURATION_TYPES \"Debug;Profile;Release\"\r\n    CACHE STRING \"\" FORCE)\r\nelse()\r\n  if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)\r\n    set(CMAKE_BUILD_TYPE \"Debug\" CACHE\r\n      STRING \"Flutter build mode\" FORCE)\r\n    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS\r\n      \"Debug\" \"Profile\" \"Release\")\r\n  endif()\r\nendif()\r\n# Define settings for the Profile build mode.\r\nset(CMAKE_EXE_LINKER_FLAGS_PROFILE \"${CMAKE_EXE_LINKER_FLAGS_RELEASE}\")\r\nset(CMAKE_SHARED_LINKER_FLAGS_PROFILE \"${CMAKE_SHARED_LINKER_FLAGS_RELEASE}\")\r\nset(CMAKE_C_FLAGS_PROFILE \"${CMAKE_C_FLAGS_RELEASE}\")\r\nset(CMAKE_CXX_FLAGS_PROFILE \"${CMAKE_CXX_FLAGS_RELEASE}\")\r\n\r\n# Use Unicode for all projects.\r\nadd_definitions(-DUNICODE -D_UNICODE)\r\n\r\n# Compilation settings that should be applied to most targets.\r\n#\r\n# Be cautious about adding new options here, as plugins use this function by\r\n# default. In most cases, you should add new options to specific targets instead\r\n# of modifying this function.\r\nfunction(APPLY_STANDARD_SETTINGS TARGET)\r\n  target_compile_features(${TARGET} PUBLIC cxx_std_17)\r\n  target_compile_options(${TARGET} PRIVATE /W4 /WX /wd\"4100\")\r\n  target_compile_options(${TARGET} PRIVATE /EHsc)\r\n  target_compile_definitions(${TARGET} PRIVATE \"_HAS_EXCEPTIONS=0\")\r\n  target_compile_definitions(${TARGET} PRIVATE \"$<$<CONFIG:Debug>:_DEBUG>\")\r\nendfunction()\r\n\r\n# Flutter library and tool build rules.\r\nset(FLUTTER_MANAGED_DIR \"${CMAKE_CURRENT_SOURCE_DIR}/flutter\")\r\nadd_subdirectory(${FLUTTER_MANAGED_DIR})\r\n\r\n# Application build; see runner/CMakeLists.txt.\r\nadd_subdirectory(\"runner\")\r\n\r\n\r\n# Generated plugin build rules, which manage building the plugins and adding\r\n# them to the application.\r\ninclude(flutter/generated_plugins.cmake)\r\n\r\n\r\n# === Installation ===\r\n# Support files are copied into place next to the executable, so that it can\r\n# run in place. This is done instead of making a separate bundle (as on Linux)\r\n# so that building and running from within Visual Studio will work.\r\nset(BUILD_BUNDLE_DIR \"$<TARGET_FILE_DIR:${BINARY_NAME}>\")\r\n# Make the \"install\" step default, as it's required to run.\r\nset(CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD 1)\r\nif(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)\r\n  set(CMAKE_INSTALL_PREFIX \"${BUILD_BUNDLE_DIR}\" CACHE PATH \"...\" FORCE)\r\nendif()\r\n\r\nset(INSTALL_BUNDLE_DATA_DIR \"${CMAKE_INSTALL_PREFIX}/data\")\r\nset(INSTALL_BUNDLE_LIB_DIR \"${CMAKE_INSTALL_PREFIX}\")\r\n\r\ninstall(TARGETS ${BINARY_NAME} RUNTIME DESTINATION \"${CMAKE_INSTALL_PREFIX}\"\r\n  COMPONENT Runtime)\r\n\r\ninstall(FILES \"${FLUTTER_ICU_DATA_FILE}\" DESTINATION \"${INSTALL_BUNDLE_DATA_DIR}\"\r\n  COMPONENT Runtime)\r\n\r\ninstall(FILES \"${FLUTTER_LIBRARY}\" DESTINATION \"${INSTALL_BUNDLE_LIB_DIR}\"\r\n  COMPONENT Runtime)\r\n\r\nif(PLUGIN_BUNDLED_LIBRARIES)\r\n  install(FILES \"${PLUGIN_BUNDLED_LIBRARIES}\"\r\n    DESTINATION \"${INSTALL_BUNDLE_LIB_DIR}\"\r\n    COMPONENT Runtime)\r\nendif()\r\n\r\n# Copy the native assets provided by the build.dart from all packages.\r\nset(NATIVE_ASSETS_DIR \"${PROJECT_BUILD_DIR}native_assets/windows/\")\r\ninstall(DIRECTORY \"${NATIVE_ASSETS_DIR}\"\r\n   DESTINATION \"${INSTALL_BUNDLE_LIB_DIR}\"\r\n   COMPONENT Runtime)\r\n\r\n# Fully re-copy the assets directory on each build to avoid having stale files\r\n# from a previous install.\r\nset(FLUTTER_ASSET_DIR_NAME \"flutter_assets\")\r\ninstall(CODE \"\r\n  file(REMOVE_RECURSE \\\"${INSTALL_BUNDLE_DATA_DIR}/${FLUTTER_ASSET_DIR_NAME}\\\")\r\n  \" COMPONENT Runtime)\r\ninstall(DIRECTORY \"${PROJECT_BUILD_DIR}/${FLUTTER_ASSET_DIR_NAME}\"\r\n  DESTINATION \"${INSTALL_BUNDLE_DATA_DIR}\" COMPONENT Runtime)\r\n\r\n# Install the AOT library on non-Debug builds only.\r\ninstall(FILES \"${AOT_LIBRARY}\" DESTINATION \"${INSTALL_BUNDLE_DATA_DIR}\"\r\n  CONFIGURATIONS Profile;Release\r\n  COMPONENT Runtime)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/windows/CMakeLists.txt b/windows/CMakeLists.txt
+--- a/windows/CMakeLists.txt	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/windows/CMakeLists.txt	(date 1750956281293)
+@@ -1,10 +1,10 @@
+ # Project-level configuration.
+ cmake_minimum_required(VERSION 3.14)
+-project(budget_buddy_frontend LANGUAGES CXX)
++project(budget_buddy_app LANGUAGES CXX)
+ 
+ # The name of the executable created for the application. Change this to change
+ # the on-disk name of your application.
+-set(BINARY_NAME "budget_buddy_frontend")
++set(BINARY_NAME "budget_buddy_app")
+ 
+ # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
+ # versions of CMake.
+Index: ios/Runner/Info.plist
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\r\n<plist version=\"1.0\">\r\n<dict>\r\n\t<key>CFBundleDevelopmentRegion</key>\r\n\t<string>$(DEVELOPMENT_LANGUAGE)</string>\r\n\t<key>CFBundleDisplayName</key>\r\n\t<string>Budget Buddy Frontend</string>\r\n\t<key>CFBundleExecutable</key>\r\n\t<string>$(EXECUTABLE_NAME)</string>\r\n\t<key>CFBundleIdentifier</key>\r\n\t<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>\r\n\t<key>CFBundleInfoDictionaryVersion</key>\r\n\t<string>6.0</string>\r\n\t<key>CFBundleName</key>\r\n\t<string>budget_buddy_frontend</string>\r\n\t<key>CFBundlePackageType</key>\r\n\t<string>APPL</string>\r\n\t<key>CFBundleShortVersionString</key>\r\n\t<string>$(FLUTTER_BUILD_NAME)</string>\r\n\t<key>CFBundleSignature</key>\r\n\t<string>????</string>\r\n\t<key>CFBundleVersion</key>\r\n\t<string>$(FLUTTER_BUILD_NUMBER)</string>\r\n\t<key>LSRequiresIPhoneOS</key>\r\n\t<true/>\r\n\t<key>UILaunchStoryboardName</key>\r\n\t<string>LaunchScreen</string>\r\n\t<key>UIMainStoryboardFile</key>\r\n\t<string>Main</string>\r\n\t<key>UISupportedInterfaceOrientations</key>\r\n\t<array>\r\n\t\t<string>UIInterfaceOrientationPortrait</string>\r\n\t\t<string>UIInterfaceOrientationLandscapeLeft</string>\r\n\t\t<string>UIInterfaceOrientationLandscapeRight</string>\r\n\t</array>\r\n\t<key>UISupportedInterfaceOrientations~ipad</key>\r\n\t<array>\r\n\t\t<string>UIInterfaceOrientationPortrait</string>\r\n\t\t<string>UIInterfaceOrientationPortraitUpsideDown</string>\r\n\t\t<string>UIInterfaceOrientationLandscapeLeft</string>\r\n\t\t<string>UIInterfaceOrientationLandscapeRight</string>\r\n\t</array>\r\n\t<key>CADisableMinimumFrameDurationOnPhone</key>\r\n\t<true/>\r\n\t<key>UIApplicationSupportsIndirectInputEvents</key>\r\n\t<true/>\r\n</dict>\r\n</plist>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ios/Runner/Info.plist b/ios/Runner/Info.plist
+--- a/ios/Runner/Info.plist	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/ios/Runner/Info.plist	(date 1750956281262)
+@@ -1,49 +1,53 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+-<dict>
+-	<key>CFBundleDevelopmentRegion</key>
+-	<string>$(DEVELOPMENT_LANGUAGE)</string>
+-	<key>CFBundleDisplayName</key>
+-	<string>Budget Buddy Frontend</string>
+-	<key>CFBundleExecutable</key>
+-	<string>$(EXECUTABLE_NAME)</string>
+-	<key>CFBundleIdentifier</key>
+-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+-	<key>CFBundleInfoDictionaryVersion</key>
+-	<string>6.0</string>
+-	<key>CFBundleName</key>
+-	<string>budget_buddy_frontend</string>
+-	<key>CFBundlePackageType</key>
+-	<string>APPL</string>
+-	<key>CFBundleShortVersionString</key>
+-	<string>$(FLUTTER_BUILD_NAME)</string>
+-	<key>CFBundleSignature</key>
+-	<string>????</string>
+-	<key>CFBundleVersion</key>
+-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+-	<key>LSRequiresIPhoneOS</key>
+-	<true/>
+-	<key>UILaunchStoryboardName</key>
+-	<string>LaunchScreen</string>
+-	<key>UIMainStoryboardFile</key>
+-	<string>Main</string>
+-	<key>UISupportedInterfaceOrientations</key>
+-	<array>
+-		<string>UIInterfaceOrientationPortrait</string>
+-		<string>UIInterfaceOrientationLandscapeLeft</string>
+-		<string>UIInterfaceOrientationLandscapeRight</string>
+-	</array>
+-	<key>UISupportedInterfaceOrientations~ipad</key>
+-	<array>
+-		<string>UIInterfaceOrientationPortrait</string>
+-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+-		<string>UIInterfaceOrientationLandscapeLeft</string>
+-		<string>UIInterfaceOrientationLandscapeRight</string>
+-	</array>
+-	<key>CADisableMinimumFrameDurationOnPhone</key>
+-	<true/>
+-	<key>UIApplicationSupportsIndirectInputEvents</key>
+-	<true/>
+-</dict>
++	<dict>
++		<key>CFBundleDevelopmentRegion</key>
++		<string>$(DEVELOPMENT_LANGUAGE)</string>
++		<key>CFBundleDisplayName</key>
++		<string>Budget Buddy App</string>
++		<key>CFBundleExecutable</key>
++		<string>$(EXECUTABLE_NAME)</string>
++		<key>CFBundleIdentifier</key>
++		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
++		<key>CFBundleInfoDictionaryVersion</key>
++		<string>6.0</string>
++		<key>CFBundleName</key>
++		<string>budget_buddy_app</string>
++		<key>CFBundlePackageType</key>
++		<string>APPL</string>
++		<key>CFBundleShortVersionString</key>
++		<string>$(FLUTTER_BUILD_NAME)</string>
++		<key>CFBundleSignature</key>
++		<string>????</string>
++		<key>CFBundleVersion</key>
++		<string>$(FLUTTER_BUILD_NUMBER)</string>
++
++		<key>CFBundleIconName</key>
++		<string>AppIcon</string>
++
++		<key>LSRequiresIPhoneOS</key>
++		<true/>
++		<key>UILaunchStoryboardName</key>
++		<string>LaunchScreen</string>
++		<key>UIMainStoryboardFile</key>
++		<string>Main</string>
++		<key>UISupportedInterfaceOrientations</key>
++		<array>
++			<string>UIInterfaceOrientationPortrait</string>
++			<string>UIInterfaceOrientationLandscapeLeft</string>
++			<string>UIInterfaceOrientationLandscapeRight</string>
++		</array>
++		<key>UISupportedInterfaceOrientations~ipad</key>
++		<array>
++			<string>UIInterfaceOrientationPortrait</string>
++			<string>UIInterfaceOrientationPortraitUpsideDown</string>
++			<string>UIInterfaceOrientationLandscapeLeft</string>
++			<string>UIInterfaceOrientationLandscapeRight</string>
++		</array>
++		<key>CADisableMinimumFrameDurationOnPhone</key>
++		<true/>
++		<key>UIApplicationSupportsIndirectInputEvents</key>
++		<true/>
++	</dict>
+ </plist>
+Index: macos/Runner/Configs/AppInfo.xcconfig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Application-level settings for the Runner target.\r\n//\r\n// This may be replaced with something auto-generated from metadata (e.g., pubspec.yaml) in the\r\n// future. If not, the values below would default to using the project name when this becomes a\r\n// 'flutter create' template.\r\n\r\n// The application's name. By default this is also the title of the Flutter window.\r\nPRODUCT_NAME = budget_buddy_frontend\r\n\r\n// The application's bundle identifier\r\nPRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend\r\n\r\n// The copyright displayed in application information\r\nPRODUCT_COPYRIGHT = Copyright © 2025 com.budgetbuddy. All rights reserved.\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/macos/Runner/Configs/AppInfo.xcconfig b/macos/Runner/Configs/AppInfo.xcconfig
+--- a/macos/Runner/Configs/AppInfo.xcconfig	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/macos/Runner/Configs/AppInfo.xcconfig	(date 1750956281278)
+@@ -5,10 +5,10 @@
+ // 'flutter create' template.
+ 
+ // The application's name. By default this is also the title of the Flutter window.
+-PRODUCT_NAME = budget_buddy_frontend
++PRODUCT_NAME = budget_buddy_app
+ 
+ // The application's bundle identifier
+-PRODUCT_BUNDLE_IDENTIFIER = com.budgetbuddy.budgetBuddyFrontend
++PRODUCT_BUNDLE_IDENTIFIER = com.example.budgetBuddyApp
+ 
+ // The copyright displayed in application information
+-PRODUCT_COPYRIGHT = Copyright © 2025 com.budgetbuddy. All rights reserved.
++PRODUCT_COPYRIGHT = Copyright © 2025 com.example. All rights reserved.
+Index: ios/Runner/Base.lproj/Main.storyboard
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\r\n<document type=\"com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB\" version=\"3.0\" toolsVersion=\"10117\" systemVersion=\"15F34\" targetRuntime=\"iOS.CocoaTouch\" propertyAccessControl=\"none\" useAutolayout=\"YES\" useTraitCollections=\"YES\" initialViewController=\"BYZ-38-t0r\">\r\n    <dependencies>\r\n        <deployment identifier=\"iOS\"/>\r\n        <plugIn identifier=\"com.apple.InterfaceBuilder.IBCocoaTouchPlugin\" version=\"10085\"/>\r\n    </dependencies>\r\n    <scenes>\r\n        <!--Flutter View Controller-->\r\n        <scene sceneID=\"tne-QT-ifu\">\r\n            <objects>\r\n                <viewController id=\"BYZ-38-t0r\" customClass=\"FlutterViewController\" sceneMemberID=\"viewController\">\r\n                    <layoutGuides>\r\n                        <viewControllerLayoutGuide type=\"top\" id=\"y3c-jy-aDJ\"/>\r\n                        <viewControllerLayoutGuide type=\"bottom\" id=\"wfy-db-euE\"/>\r\n                    </layoutGuides>\r\n                    <view key=\"view\" contentMode=\"scaleToFill\" id=\"8bC-Xf-vdC\">\r\n                        <rect key=\"frame\" x=\"0.0\" y=\"0.0\" width=\"600\" height=\"600\"/>\r\n                        <autoresizingMask key=\"autoresizingMask\" widthSizable=\"YES\" heightSizable=\"YES\"/>\r\n                        <color key=\"backgroundColor\" white=\"1\" alpha=\"1\" colorSpace=\"custom\" customColorSpace=\"calibratedWhite\"/>\r\n                    </view>\r\n                </viewController>\r\n                <placeholder placeholderIdentifier=\"IBFirstResponder\" id=\"dkx-z0-nzr\" sceneMemberID=\"firstResponder\"/>\r\n            </objects>\r\n        </scene>\r\n    </scenes>\r\n</document>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ios/Runner/Base.lproj/Main.storyboard b/ios/Runner/Base.lproj/Main.storyboard
+--- a/ios/Runner/Base.lproj/Main.storyboard	(revision 2004da93e8ab1fd9b47b2ecd07e16c408350feac)
++++ b/ios/Runner/Base.lproj/Main.storyboard	(date 1750956281262)
+@@ -1,8 +1,10 @@
+-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
++<?xml version="1.0" encoding="UTF-8"?>
++<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
++    <device id="retina6_12" orientation="portrait" appearance="light"/>
+     <dependencies>
+         <deployment identifier="iOS"/>
+-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
++        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
++        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+     </dependencies>
+     <scenes>
+         <!--Flutter View Controller-->
+@@ -14,13 +16,14 @@
+                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                     </layoutGuides>
+                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
++                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
++                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                     </view>
+                 </viewController>
+                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+             </objects>
++            <point key="canvasLocation" x="121" y="-34"/>
+         </scene>
+     </scenes>
+ </document>
+diff --git a/FrontendCopy/Frontend/android/app/src/main/kotlin/com/example/budget_buddy_app/MainActivity.kt b/android/app/src/main/kotlin/com/example/budget_buddy_app/MainActivity.kt
+rename from FrontendCopy/Frontend/android/app/src/main/kotlin/com/example/budget_buddy_app/MainActivity.kt
+rename to android/app/src/main/kotlin/com/example/budget_buddy_app/MainActivity.kt
+diff --git a/FrontendCopy/Frontend/ios/Assets.xcassets/AppIcon.appiconset/Contents.json b/ios/Assets.xcassets/AppIcon.appiconset/Contents.json
+rename from FrontendCopy/Frontend/ios/Assets.xcassets/AppIcon.appiconset/Contents.json
+rename to ios/Assets.xcassets/AppIcon.appiconset/Contents.json
+diff --git a/FrontendCopy/Frontend/ios/Assets.xcassets/LaunchImage.imageset/Contents.json b/ios/Assets.xcassets/LaunchImage.imageset/Contents.json
+rename from FrontendCopy/Frontend/ios/Assets.xcassets/LaunchImage.imageset/Contents.json
+rename to ios/Assets.xcassets/LaunchImage.imageset/Contents.json
+diff --git a/FrontendCopy/analysis_options.yaml b/analysis_options.yaml
+rename from FrontendCopy/analysis_options.yaml
+rename to analysis_options.yaml
+diff --git a/FrontendCopy/Frontend/ios/Assets.xcassets/LaunchImage.imageset/README.md b/ios/Assets.xcassets/LaunchImage.imageset/README.md
+rename from FrontendCopy/Frontend/ios/Assets.xcassets/LaunchImage.imageset/README.md
+rename to ios/Assets.xcassets/LaunchImage.imageset/README.md
+diff --git a/FrontendCopy/Frontend/ios/Runner/Assets.xcassets/Contents.json b/ios/Runner/Assets.xcassets/Contents.json
+rename from FrontendCopy/Frontend/ios/Runner/Assets.xcassets/Contents.json
+rename to ios/Runner/Assets.xcassets/Contents.json
