@@ -1,4 +1,5 @@
 using BudgetBuddy.Models;
+using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +19,8 @@ public class IncomeController : ControllerBase {
   [HttpGet]
   [Authorize]
   public async Task<ActionResult<IEnumerable<Income>>> GetAllIncomesAsync() {
-    var income = await _incomeService.GetAllIncomesAsync();
-    return Ok(income);
+    var incomes = await _incomeService.GetAllIncomesAsync();
+    return Ok(incomes);
   }
 
   // GET: api/Income/5
@@ -49,9 +50,27 @@ public class IncomeController : ControllerBase {
   // POST: api/Income
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Income>> PostIncome(Income income) {
-    var createdIncome = await _incomeService.CreateIncomeAsync(income);
+  public async Task<ActionResult<Income>> PostIncome([FromBody] CreateIncomeDto dto) {
+    if (!ModelState.IsValid)
+      return BadRequest(ModelState);
+
+    var newIncome = new Income {
+      Name = dto.Name,
+      Source = dto.Source,
+      Amount = dto.Amount,
+      Date = dto.Date,
+      UserId = dto.UserId,
+      CategoryId = dto.CategoryId
+      // NIE przypisujemy obiektu Category!
+    };
+
+    var createdIncome = await _incomeService.CreateIncomeAsync(newIncome);
+
     return CreatedAtAction(nameof(GetIncome), new { id = createdIncome.Id }, createdIncome);
+
+    // Alternatywa z main:
+    // var createdIncome = await _incomeService.CreateIncomeAsync(income);
+    // return CreatedAtAction(nameof(GetIncome), new { id = createdIncome.Id }, createdIncome);
   }
 
   // DELETE: api/Income/5

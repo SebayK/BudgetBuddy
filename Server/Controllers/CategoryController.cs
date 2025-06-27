@@ -1,4 +1,5 @@
 using BudgetBuddy.Models;
+using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,8 +19,8 @@ public class CategoryController : ControllerBase {
   [HttpGet]
   [Authorize]
   public async Task<ActionResult<IEnumerable<Category>>> GetAllCategoriesAsync() {
-    var category = await _categoryService.GetAllCategoriesAsync();
-    return Ok(category);
+    var categories = await _categoryService.GetAllCategoriesAsync();
+    return Ok(categories);
   }
 
   // GET: api/Category/5
@@ -49,8 +50,18 @@ public class CategoryController : ControllerBase {
   // POST: api/Category
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Category>> PostCategory(Category category) {
-    var createdCategory = await _categoryService.CreateCategoryAsync(category);
+  public async Task<ActionResult<Category>> PostCategory([FromBody] CreateCategoryDto dto) {
+    if (!ModelState.IsValid)
+      return BadRequest(ModelState);
+
+    var newCategory = new Category {
+      Name = dto.Name,
+      Type = dto.Type,
+      UserId = dto.UserId
+    };
+
+    var createdCategory = await _categoryService.CreateCategoryAsync(newCategory);
+
     return CreatedAtAction(nameof(GetCategory), new { id = createdCategory.Id }, createdCategory);
   }
 

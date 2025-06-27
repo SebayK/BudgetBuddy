@@ -4,6 +4,7 @@ using BudgetBuddy.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BudgetBuddy.Migrations
 {
     [DbContext(typeof(BudgetContext))]
-    partial class BudgetContextModelSnapshot : ModelSnapshot
+    [Migration("20250608135951_AddTransactionFieldsOrFixes")]
+    partial class AddTransactionFieldsOrFixes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -78,17 +81,13 @@ namespace BudgetBuddy.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("TotalAmount")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Budgets");
+                    b.ToTable("Budget");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Category", b =>
@@ -128,16 +127,13 @@ namespace BudgetBuddy.Migrations
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("BudgetId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("InvoiceId")
+                    b.Property<int>("InvoiceId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -192,7 +188,7 @@ namespace BudgetBuddy.Migrations
                     b.ToTable("Goal");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -203,9 +199,6 @@ namespace BudgetBuddy.Migrations
                     b.Property<decimal>("Amount")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("BudgetId")
-                        .HasColumnType("int");
 
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
@@ -314,36 +307,6 @@ namespace BudgetBuddy.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Report");
-                });
-
-            modelBuilder.Entity("BudgetBuddy.Models.ShareBudgets", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
-
-                    b.Property<string>("OwnerUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ShareBudgets");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Transaction", b =>
@@ -486,33 +449,15 @@ namespace BudgetBuddy.Migrations
                     b.Property<int>("BudgetId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "BudgetId");
 
                     b.HasIndex("BudgetId");
 
-                    b.ToTable("UserBudgets");
-                });
-
-            modelBuilder.Entity("BudgetBuddy.Models.UserShareBudget", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("ShareBudgetId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("UserId", "ShareBudgetId");
-
-                    b.HasIndex("ShareBudgetId");
-
-                    b.ToTable("UserShareBudgets");
+                    b.ToTable("UserBudget");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -705,7 +650,7 @@ namespace BudgetBuddy.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.Income", b =>
+            modelBuilder.Entity("BudgetBuddy.Models.Incomes", b =>
                 {
                     b.HasOne("BudgetBuddy.Models.Category", "Category")
                         .WithMany("Incomes")
@@ -736,13 +681,6 @@ namespace BudgetBuddy.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BudgetBuddy.Models.ShareBudgets", b =>
-                {
-                    b.HasOne("BudgetBuddy.Models.User", null)
-                        .WithMany("ShareBudgets")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("BudgetBuddy.Models.Transaction", b =>
@@ -787,25 +725,6 @@ namespace BudgetBuddy.Migrations
                         .IsRequired();
 
                     b.Navigation("Budget");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BudgetBuddy.Models.UserShareBudget", b =>
-                {
-                    b.HasOne("BudgetBuddy.Models.ShareBudgets", "ShareBudget")
-                        .WithMany("UserShareBudgets")
-                        .HasForeignKey("ShareBudgetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BudgetBuddy.Models.User", "User")
-                        .WithMany("UserShareBudgets")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ShareBudget");
 
                     b.Navigation("User");
                 });
@@ -888,11 +807,6 @@ namespace BudgetBuddy.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BudgetBuddy.Models.ShareBudgets", b =>
-                {
-                    b.Navigation("UserShareBudgets");
-                });
-
             modelBuilder.Entity("BudgetBuddy.Models.User", b =>
                 {
                     b.Navigation("Accounts");
@@ -903,13 +817,9 @@ namespace BudgetBuddy.Migrations
 
                     b.Navigation("Notifications");
 
-                    b.Navigation("ShareBudgets");
-
                     b.Navigation("Transactions");
 
                     b.Navigation("UserBudgets");
-
-                    b.Navigation("UserShareBudgets");
                 });
 #pragma warning restore 612, 618
         }
