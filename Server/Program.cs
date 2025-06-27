@@ -34,6 +34,7 @@ builder.Services.AddScoped<TransactionService>();
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<AccountTypeService>();
 builder.Services.AddScoped<ShareBudgetsService>();
+builder.Services.AddHttpClient<CurrencyConverterService>();
 
 builder.Services.AddIdentity<User, IdentityRole>()
   .AddEntityFrameworkStores<BudgetContext>()

@@ -65,4 +65,11 @@ public class ReportController : ControllerBase {
 
     return NoContent();
   }
+
+  [HttpGet("convert")]
+  public async Task<IActionResult> Convert(decimal amount, string from, string to,
+    [FromServices] CurrencyConverterService converter) {
+    var result = await _reportService.ConvertAsync(amount, from, to, converter);
+    return Ok(result);
+  }
 }
