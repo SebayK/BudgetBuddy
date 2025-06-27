@@ -1,4 +1,4 @@
-# budget_buddy_app
+# budget_buddy_frontend
 
 A new Flutter project.
 
