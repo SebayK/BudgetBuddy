@@ -8,7 +8,7 @@ namespace BudgetBuddy.Models.DTO
         public DateTime Date { get; set; }
         public int CategoryId { get; set; }
         public string UserId { get; set; }
-        public int InvoiceId { get; set; } // Jeśli Invoice ma Id, warto przekazywać tylko referencję
+        public int? InvoiceId { get; set; } // Jeśli Invoice ma Id, warto przekazywać tylko referencję
         // Opcjonalnie: public string CategoryName { get; set; }
     }
 }
