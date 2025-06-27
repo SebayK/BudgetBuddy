@@ -56,8 +56,4 @@ public class ReportService {
   private async Task<bool> ReportExistsAsync(int id) {
     return await _context.Report.AnyAsync(r => r.Id == id);
   }
-
-  public async Task<decimal> ConvertAsync(decimal amount, string from, string to, CurrencyConverterService converter) {
-    return await converter.ConvertAsync(amount, from, to);
-  }
 }
