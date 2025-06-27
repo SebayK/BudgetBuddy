@@ -6,9 +6,11 @@ namespace BudgetBuddy.Services;
 
 public class TransactionService {
   private readonly BudgetContext _context;
+  public readonly CurrencyConverterService _converter;
 
-  public TransactionService(BudgetContext context) {
+  public TransactionService(BudgetContext context, CurrencyConverterService converter) {
     _context = context;
+    _converter = converter;
   }
 
   public async Task<IEnumerable<Transaction>> GetAllTransactionsAsync() {
@@ -51,5 +53,10 @@ public class TransactionService {
 
   private async Task<bool> TransactionExistsAsync(int id) {
     return await _context.Transaction.AnyAsync(t => t.Id == id);
+  }
+
+  // Asynchronicznie przelicza kwotę z jednej waluty na drugą, korzystając z CurrencyConverterService.
+  public async Task<decimal> ConvertAsync(decimal amount, string from, string to) {
+    return await _converter.ConvertAsync(amount, from, to);
   }
 }
