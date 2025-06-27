@@ -6,10 +6,7 @@ public class Category
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = string.Empty;
-    
-    public string Type { get; set; } = "Expense"; // np. "Income" lub "Expense"
-    public string UserId { get; set; } = string.Empty;
+    public required string Name { get; set; }
 
     public List<Expense> Expenses { get; set; } = new();
 

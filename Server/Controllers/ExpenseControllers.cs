@@ -1,5 +1,4 @@
 using BudgetBuddy.Models;
-using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,8 +18,8 @@ public class ExpenseController : ControllerBase {
   [HttpGet]
   [Authorize]
   public async Task<ActionResult<IEnumerable<Expense>>> GetAllExpensesAsync() {
-    var expenses = await _expenseService.GetAllExpensesAsync();
-    return Ok(expenses);
+    var expense = await _expenseService.GetAllExpensesAsync();
+    return Ok(expense);
   }
 
   // GET: api/Expense/5
@@ -50,21 +49,8 @@ public class ExpenseController : ControllerBase {
   // POST: api/Expense
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Expense>> PostExpense([FromBody] CreateExpenseDto expense) {
-    if (!ModelState.IsValid)
-      return BadRequest(ModelState);
-
-    var newExpense = new Expense {
-      Name = expense.Name,
-      Amount = expense.Amount,
-      UserId = expense.UserId,
-      Date = expense.Date,
-      CategoryId = expense.CategoryId,
-      InvoiceId = expense.InvoiceId
-    };
-
-    var createdExpense = await _expenseService.CreateExpenseAsync(newExpense);
-
+  public async Task<ActionResult<Expense>> PostExpense(Expense expense) {
+    var createdExpense = await _expenseService.CreateExpenseAsync(expense);
     return CreatedAtAction(nameof(GetExpense), new { id = createdExpense.Id }, createdExpense);
   }
 

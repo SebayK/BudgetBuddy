@@ -1,5 +1,4 @@
 ﻿using BudgetBuddy.Models;
-using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -55,19 +54,9 @@ namespace BudgetBuddy.Controllers
         // POST: api/Invoices
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult<Invoice>> PostInvoice([FromBody] CreateInvoiceDto dto)
+        public async Task<ActionResult<Invoice>> PostInvoice(Invoice invoice)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var newInvoice = new Invoice
-            {
-                FilePath = dto.FilePath,
-                UploadDate = dto.UploadDate,
-                ExpenseId = dto.ExpenseId
-            };
-
-            var createdInvoice = await _invoiceService.CreateInvoiceAsync(newInvoice);
+            var createdInvoice = await _invoiceService.CreateInvoiceAsync(invoice);
             return CreatedAtAction(nameof(GetInvoice), new { id = createdInvoice.Id }, createdInvoice);
         }
 

@@ -1,7 +1,5 @@
 ﻿using BudgetBuddy.Models;
-using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
-using BudgetBuddy.Enums;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,29 +10,23 @@ namespace BudgetBuddy.Controllers;
 public class BudgetsController : ControllerBase {
   private readonly BudgetService _budgetService;
   private readonly IHttpContextAccessor _httpContextAccessor;
-
+  
   private string? UserId => _httpContextAccessor.HttpContext?.Items["UserId"] as string;
 
-  public BudgetsController(BudgetService budgetService, IHttpContextAccessor httpContextAccessor) {
+  public BudgetsController (BudgetService budgetService, IHttpContextAccessor httpContextAccessor) {
     _budgetService = budgetService;
     _httpContextAccessor = httpContextAccessor;
   }
 
-  // ✅ GET: api/Budgets (zwraca uproszczoną listę)
+  // GET: api/Budget
   [HttpGet]
   [Authorize]
-  public async Task<ActionResult<IEnumerable<object>>> GetAllBudgetsAsync() {
-    var budgets = await _budgetService.GetAllBudgetsAsync(UserId);
-
-    var simplified = budgets.Select(b => new {
-      id = b.Id,
-      name = b.Name ?? $"Konto {b.Id}"
-    });
-
-    return Ok(simplified);
+  public async Task<ActionResult<IEnumerable<Budget>>> GetAllBudgetsAsync() {
+    var budget = await _budgetService.GetAllBudgetsAsync(UserId);
+    return Ok(budget);
   }
 
-  // GET: api/Budgets/5
+  // GET: api/Budget/5
   [HttpGet("{id}")]
   [Authorize]
   public async Task<ActionResult<Budget>> GetBudget(int id) {
@@ -46,7 +38,7 @@ public class BudgetsController : ControllerBase {
     return Ok(budget);
   }
 
-  // PUT: api/Budgets/5
+  // PUT: api/Budget/5
   [HttpPut("{id}")]
   [Authorize]
   public async Task<IActionResult> PutBudget(int id, Budget budget) {
@@ -58,30 +50,15 @@ public class BudgetsController : ControllerBase {
     return NoContent();
   }
 
-  // POST: api/Budgets
+  // POST: api/Budget
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Budget>> PostBudget([FromBody] CreateBudgetDto dto) {
-    if (!ModelState.IsValid)
-      return BadRequest(ModelState);
-
-    var newBudget = new Budget {
-      TotalAmount = dto.TotalAmount,
-      Name = dto.Name,
-      UserBudgets = dto.Users.Select(u => new UserBudget {
-        UserId = u.UserId,
-        Role = Enum.TryParse<UserBudgetRole>(u.Role, true, out var parsedRole)
-          ? parsedRole
-          : UserBudgetRole.Owner
-      }).ToList()
-    };
-
-    var createdBudget = await _budgetService.CreateBudgetAsync(newBudget, UserId);
-
+  public async Task<ActionResult<Budget>> PostBudget(Budget budget) {
+    var createdBudget = await _budgetService.CreateBudgetAsync(budget, UserId);
     return CreatedAtAction(nameof(GetBudget), new { id = createdBudget.Id }, createdBudget);
   }
 
-  // DELETE: api/Budgets/5
+  // DELETE: api/Budget/5
   [HttpDelete("{id}")]
   [Authorize]
   public async Task<IActionResult> DeleteBudget(int id) {
