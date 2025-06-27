@@ -12,19 +12,26 @@ public class IncomeService {
   }
 
   public async Task<IEnumerable<Income>> GetAllIncomesAsync() {
-    return await _context.Incomes
-      .AsNoTracking()
-      .ToListAsync();
+    return await _context.Incomes.AsNoTracking().ToListAsync();
   }
 
   public async Task<Income?> GetIncomeByIdAsync(int id) {
-    // Można łatwo podmienić na wersję z DTO: return _mapper.Map<IncomeDTO>(await ...)
-    return await _context.Incomes
-      .AsNoTracking()
-      .FirstOrDefaultAsync(i => i.Id == id);
+    return await _context.Incomes.FindAsync(id);
+  }
 
-    // Wersja alternatywna z drugiego brancha:
-    // return await _context.Incomes.FindAsync(id);
+  public async Task<bool> UpdateIncomeAsync(int id, Income income) {
+    if (id != income.Id) return false;
+
+    _context.Entry(income).State = EntityState.Modified;
+
+    try {
+      await _context.SaveChangesAsync();
+      return true;
+    }
+    catch (DbUpdateConcurrencyException) {
+      if (!await IncomeExistsAsync(id)) return false;
+      throw;
+    }
   }
 
   public async Task<Income> CreateIncomeAsync(Income income) {
@@ -33,38 +40,9 @@ public class IncomeService {
     return income;
   }
 
-  public async Task<bool> UpdateIncomeAsync(int id, Income updatedIncome) {
-    if (id != updatedIncome.Id)
-      return false;
-
-    var existing = await _context.Incomes.FindAsync(id);
-    if (existing == null)
-      return false;
-
-    existing.Name = updatedIncome.Name;
-    existing.Source = updatedIncome.Source;
-    existing.Amount = updatedIncome.Amount;
-    existing.Date = updatedIncome.Date;
-    existing.UserId = updatedIncome.UserId;
-    existing.CategoryId = updatedIncome.CategoryId;
-
-    try {
-      await _context.SaveChangesAsync();
-    }
-    catch (DbUpdateConcurrencyException) {
-      if (!await IncomeExistsAsync(id))
-        return false;
-
-      throw;
-    }
-
-    return true;
-  }
-
   public async Task<bool> DeleteIncomeAsync(int id) {
     var income = await _context.Incomes.FindAsync(id);
-    if (income == null)
-      return false;
+    if (income == null) return false;
 
     _context.Incomes.Remove(income);
     await _context.SaveChangesAsync();

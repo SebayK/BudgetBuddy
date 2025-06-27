@@ -11,18 +11,18 @@ public static class BudgetEndpoints
         var group = routes.MapGroup("/api/Budget").WithTags(nameof(Budget));
 
         group.MapGet("/", async (BudgetContext db) =>
-            await db.Budgets.Include(b => b.UserBudgets).ToListAsync()
+            await db.Budget.Include(b => b.UserBudgets).ToListAsync()
         ).WithName("GetAllBudgets").WithOpenApi();
 
         group.MapGet("/{id}", async Task<Results<Ok<Budget>, NotFound>> (int id, BudgetContext db) =>
-            await db.Budgets.Include(b => b.UserBudgets).AsNoTracking().FirstOrDefaultAsync(b => b.Id == id) is Budget b
+            await db.Budget.Include(b => b.UserBudgets).AsNoTracking().FirstOrDefaultAsync(b => b.Id == id) is Budget b
                 ? TypedResults.Ok(b)
                 : TypedResults.NotFound()
         ).WithName("GetBudgetById").WithOpenApi();
 
         group.MapPut("/{id}", async Task<Results<Ok, NotFound>> (int id, Budget budget, BudgetContext db) =>
         {
-            var affected = await db.Budgets
+            var affected = await db.Budget
                 .Where(model => model.Id == id)
                 .ExecuteUpdateAsync(setters => setters
                     .SetProperty(m => m.TotalAmount, budget.TotalAmount));
@@ -31,14 +31,14 @@ public static class BudgetEndpoints
 
         group.MapPost("/", async (Budget budget, BudgetContext db) =>
         {
-            db.Budgets.Add(budget);
+            db.Budget.Add(budget);
             await db.SaveChangesAsync();
             return TypedResults.Created($"/api/Budget/{budget.Id}", budget);
         }).WithName("CreateBudget").WithOpenApi();
 
         group.MapDelete("/{id}", async Task<Results<Ok, NotFound>> (int id, BudgetContext db) =>
         {
-            var affected = await db.Budgets
+            var affected = await db.Budget
                 .Where(model => model.Id == id)
                 .ExecuteDeleteAsync();
             return affected == 1 ? TypedResults.Ok() : TypedResults.NotFound();

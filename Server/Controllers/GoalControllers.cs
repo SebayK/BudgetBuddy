@@ -1,5 +1,4 @@
 using BudgetBuddy.Models;
-using BudgetBuddy.Models.DTO;
 using BudgetBuddy.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,13 +14,15 @@ public class GoalController : ControllerBase {
     _goalService = goalService;
   }
 
+  // GET: api/Goal
   [HttpGet]
   [Authorize]
   public async Task<ActionResult<IEnumerable<Goal>>> GetAllGoalsAsync() {
-    var goals = await _goalService.GetAllGoalsAsync();
-    return Ok(goals);
+    var goal = await _goalService.GetAllGoalsAsync();
+    return Ok(goal);
   }
 
+  // GET: api/Goal/5
   [HttpGet("{id}")]
   [Authorize]
   public async Task<ActionResult<Goal>> GetGoal(int id) {
@@ -33,6 +34,7 @@ public class GoalController : ControllerBase {
     return Ok(goal);
   }
 
+  // PUT: api/Goal/5
   [HttpPut("{id}")]
   [Authorize]
   public async Task<IActionResult> PutGoal(int id, Goal goal) {
@@ -44,24 +46,15 @@ public class GoalController : ControllerBase {
     return NoContent();
   }
 
+  // POST: api/Goal
   [HttpPost]
   [Authorize]
-  public async Task<ActionResult<Goal>> PostGoal([FromBody] CreateGoalDto dto) {
-    if (!ModelState.IsValid)
-      return BadRequest(ModelState);
-
-    var newGoal = new Goal {
-      Name = dto.Name,
-      TargetAmount = dto.TargetAmount,
-      TargetDate = dto.TargetDate,
-      BudgetId = dto.BudgetId,
-      UserId = dto.UserId // lub: User.FindFirst(ClaimTypes.NameIdentifier)?.Value
-    };
-
-    var createdGoal = await _goalService.CreateGoalAsync(newGoal);
+  public async Task<ActionResult<Goal>> PostGoal(Goal goal) {
+    var createdGoal = await _goalService.CreateGoalAsync(goal);
     return CreatedAtAction(nameof(GetGoal), new { id = createdGoal.Id }, createdGoal);
   }
 
+  // DELETE: api/Goal/5
   [HttpDelete("{id}")]
   [Authorize]
   public async Task<IActionResult> DeleteGoal(int id) {
