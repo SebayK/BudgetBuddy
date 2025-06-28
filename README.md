@@ -72,14 +72,24 @@ Przykłady
    - 🔹[Invoice.cs](Server/Models/Invoice.cs),
    - 🔹[Report.cs](Server/Models/Report.cs)
 
-   Enkapsulacja danych, Dziedziczenie (User.cs), Asocjacje/agregacje/kompozycje w plikach gdzie mamy relacje między modelami
+   ![UserModel](docs/UserModel.png)
+   ![AccountType](docs/AccountType.png)
+
+   Enkapsulacja (hermetyzacja) danych, Dziedziczenie (User.cs), Asocjacje/agregacje/kompozycje w plikach gdzie mamy
+   relacje między modelami
 
 - 🔶Controllers/ 
    w Plikach np.
    - 🔸[UsersController.cs](Server/Controllers/UsersController.cs),
    - 🔸[BudgetController.cs](Server/Controllers/BudgetsController.cs),
    - 🔸[TransactionController.cs](Server/Controllers/TransactionController.cs),
-    
+
+![UsersController](docs/UserController1.png)
+![UsersController](docs/UserController2.png)
+![BudgetController](docs/BudgetController.png)
+![InterfaceAuthService](docs/InterfaceAuthService.png)
+![AuthorizationService](docs/AuthorizationService.png)
+   
 ---
 
 ## 🏗️ Architektura
@@ -100,6 +110,23 @@ Przykłady
 - `Notification` – powiadomienia użytkowników
 - `Invoice` – faktury i paragony
 - `Report` – raporty finansowe
+
+---
+
+## 🔜 Planowane funkcjonalności
+
+- Zaimplementować obsługę wielu walut na poziomie frontend.
+- Obsługa powiadomień push dla mobilnych aplikacji.
+- Obsługa wielu języków.
+- Poprawa funkcjonowania dark mode.
+- Spreparowanie raportów i statystyk finansowych z możliwością eksportu do PDF/CSV.
+- Dodanie modułu do zarządzania subskrypcjami i cyklicznymi płatnościami.
+
+## 🆘 Napotkane problemy
+
+- Problemy z konfiguracją środowiska .NET 8.0+ i Entity Framework Core (MacOS).
+- Trudności z integracją Fluttera z backendem ASP.NET Core.
+- Problemy z migracjami bazy danych i synchronizacją modeli.
 
 ---
 
