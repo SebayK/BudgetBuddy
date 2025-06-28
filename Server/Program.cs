@@ -64,6 +64,18 @@ builder.Services
       }
     };
   });
+builder.Services.AddCors(options =>
+{
+  options.AddPolicy("LocalhostPolicy", builder =>
+  {
+    builder
+      .WithOrigins("http://localhost:57474") // podaj konkretne adresy
+      .AllowAnyMethod()
+      .AllowAnyHeader()
+      .AllowCredentials();
+  });
+});
+
 
 
 builder.Services.AddEndpointsApiExplorer();
@@ -110,6 +122,7 @@ app.Map("/error", (HttpContext context) => {
   return Results.Problem(exception?.Message);
 });
 
+app.UseCors("LocalhostPolicy");
 app.UseMiddleware<UserMiddleware>();
 app.UseAuthorization();
 app.MapControllers();

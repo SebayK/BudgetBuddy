@@ -1,16 +1,20 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:provider/provider.dart';
+
+import '../providers/auth_provider.dart';
+import '../services/api_service.dart';
 
 class LoginScreen extends StatefulWidget {
-  final void Function(String token) onLoginSuccess;
   final VoidCallback onShowRegister;
+  final VoidCallback onLoginSuccess;
 
   const LoginScreen({
-    super.key,
-    required this.onLoginSuccess,
+    Key? key,
     required this.onShowRegister,
-  });
+    required this.onLoginSuccess,
+  }) : super(key: key);
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -23,40 +27,46 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _isLoading = false;
 
   Future<void> _login() async {
+    if (!mounted) return;
     setState(() {
       _isLoading = true;
       _error = null;
     });
 
-    final url = Uri.parse('http://localhost:5000/api/authentication/login'); // Podmień na IP serwera, jeśli testujesz z telefonu
+    final authProvider = Provider.of<AuthProvider>(context, listen: false);
+    final baseUrl = ApiService().baseUrl;
+    final loginUrl = Uri.parse('$baseUrl/api/authentication/login');
 
     try {
-      final response = await http.post(
-        url,
+      final loginResponse = await http.post(
+        loginUrl,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
-          'username': _usernameController.text,
-          'password': _passwordController.text,
+          'username': _usernameController.text.trim(),
+          'password': _passwordController.text.trim(),
         }),
       );
 
-      if (response.statusCode == 200) {
-        // Zakładam, że backend zwraca czysty token jako plain text
-        final token = response.body;
-        if (token.isNotEmpty) {
-          widget.onLoginSuccess(token);
-        } else {
-          setState(() => _error = 'Brak tokena w odpowiedzi');
-        }
+      if (loginResponse.statusCode == 200) {
+        final token = loginResponse.body;
+        await authProvider.setToken(token);
+        widget.onLoginSuccess();
       } else {
-        // Jeśli odpowiedź to treść błędu (możesz ją też sparsować z response.body, jeśli masz JSON z message)
-        setState(() => _error = response.body.isNotEmpty ? response.body : 'Nieprawidłowy login lub hasło');
+        setState(() => _error = 'Nieprawidłowy login lub hasło');
       }
     } catch (e) {
       setState(() => _error = 'Błąd połączenia: $e');
     } finally {
+      if (!mounted) return;
       setState(() => _isLoading = false);
     }
+  }
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -82,7 +92,11 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
               onPressed: _isLoading ? null : _login,
               child: _isLoading
-                  ? const SizedBox(height: 16, width: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                  ? const SizedBox(
+                height: 16,
+                width: 16,
+                child: CircularProgressIndicator(strokeWidth: 2),
+              )
                   : const Text('Zaloguj się'),
             ),
             TextButton(
