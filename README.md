@@ -28,6 +28,10 @@
 
 ---
 
+## Diagram UML
+
+![UML Diagram](Server/DiagramUML.png)
+
 ## 🚀 Główne funkcje
 
 - 📊 **Śledzenie wydatków** – monitorowanie codziennych transakcji
@@ -49,7 +53,7 @@
 
 ---
 
-🧩 Paradygmaty obiektowe i ich wykorzystanie
+## 🧩 Paradygmaty obiektowe i ich wykorzystanie
  - W projekcie zastosowano:
    - **Enkapsulacja**: Klasy (np. `User`, `Budget`, `UserBudget`) ukrywają szczegóły implementacji. 
    - **Dziedziczenie**: Wspólne cechy mogą być dziedziczone przez klasy bazowe. 
